@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>航链科技 Navlyn — ARC 低空智能产品生态</title>
+  <meta name="description" content="航链科技（Navlyn）— ARC OS 低空 AI 操作系统，赋能工业无人机新未来。">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28' font-family='sans-serif' font-weight='bold' fill='%23dff140'>A</text></svg>">
+</head>
+<body>
+
+  <!-- ======== 1. NAVBAR ======== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="assets/images/logo-white.png" alt="航链科技 Navlyn" class="nav-logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active" data-i18n="nav_home">首页</a></li>
+        <li><a href="#products" class="nav-link" data-i18n="nav_products">产品</a></li>
+        <li><a href="#arc-ai" class="nav-link">ARC AI</a></li>
+        <li><a href="#cases" class="nav-link" data-i18n="nav_cases">案例</a></li>
+        <li><a href="#news" class="nav-link" data-i18n="nav_news">新闻</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav_about">关于</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta" data-i18n="nav_contact">联系我们</a>
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="#hero" data-i18n="nav_home">首页</a></li>
+      <li><a href="#products" data-i18n="nav_products">产品</a></li>
+      <li><a href="#arc-ai">ARC AI</a></li>
+      <li><a href="#cases" data-i18n="nav_cases">案例</a></li>
+      <li><a href="#news" data-i18n="nav_news">新闻</a></li>
+      <li><a href="#about" data-i18n="nav_about">关于</a></li>
+      <li><a href="#contact" class="mobile-cta" data-i18n="nav_contact">联系我们</a></li>
+    </ul>
+    <button class="lang-toggle mobile-lang-toggle" id="mobileLangToggle">EN</button>
+  </div>
+
+  <!-- ======== 2. HERO ======== -->
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ======== 3. PRODUCTS OVERVIEW ======== -->
+  <section class="section products" id="products">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">PRODUCTS</span>
+        <h2 class="section-title" data-i18n="products_title">产品矩阵</h2>
+        <p class="section-desc" data-i18n="products_desc">覆盖空中到水面的低空智能产品生态</p>
+      </div>
+      <div class="product-grid">
+        <!-- Commander X1 -->
+        <a href="#commander" class="product-card reveal-up" style="--delay: 0.1s">
+          <div class="product-card-image">
+            <img src="assets/images/products/skycross/skycross-1.png" alt="指挥官 Commander X1" loading="lazy">
+          </div>
+          <div class="product-card-body">
+            <span class="product-card-tag" data-i18n="card_commander_tag">VTOL 固定翼</span>
+            <h3 class="product-card-title" data-i18n="card_commander_title">指挥官 Commander X1</h3>
+            <p class="product-card-desc" data-i18n="card_commander_desc">边缘算力中枢 · 任务决策中心</p>
+          </div>
+          <div class="product-card-glow"></div>
+        </a>
+        <!-- Scout S1 -->
+        <a href="#scout" class="product-card reveal-up" style="--delay: 0.2s">
+          <div class="product-card-image">
+            <img src="assets/images/products/scout/face.png" alt="尖兵 Scout S1" loading="lazy">
+          </div>
+          <div class="product-card-body">
+            <span class="product-card-tag" data-i18n="card_scout_tag">巡查无人机</span>
+            <h3 class="product-card-title" data-i18n="card_scout_title">尖兵 Scout S1</h3>
+            <p class="product-card-desc" data-i18n="card_scout_desc">任务执行 · 多机协同</p>
+          </div>
+          <div class="product-card-glow"></div>
+        </a>
+        <!-- Seal S1 -->
+        <a href="#seal" class="product-card reveal-up" style="--delay: 0.3s">
+          <div class="product-card-image">
+            <img src="assets/images/products/seal/seal-1.png" alt="海豹 Seal S1" loading="lazy">
+          </div>
+          <div class="product-card-body">
+            <span class="product-card-tag" data-i18n="card_seal_tag">智能救生艇</span>
+            <h3 class="product-card-title" data-i18n="card_seal_title">海豹 Seal S1</h3>
+            <p class="product-card-desc" data-i18n="card_seal_desc">空海联动 · 智能救援</p>
+          </div>
+          <div class="product-card-glow"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 4. COMMANDER X1 DETAIL ======== -->
+  <section class="section product-detail" id="commander">
+    <div class="container">
+      <div class="product-detail-layout">
+        <div class="product-detail-gallery reveal-up">
+          <div class="gallery-main">
+            <img src="assets/images/products/skycross/skycross-1.png" alt="Commander X1" id="commanderMainImg">
+          </div>
+          <div class="gallery-thumbs">
+            <button class="gallery-thumb active" data-src="assets/images/products/skycross/skycross-1.png"><img src="assets/images/products/skycross/skycross-1.png" alt="视角 1"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/skycross/skycross-2.png"><img src="assets/images/products/skycross/skycross-2.png" alt="视角 2"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/skycross/skycross-3.png"><img src="assets/images/products/skycross/skycross-3.png" alt="视角 3"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/skycross/skycross-4.png"><img src="assets/images/products/skycross/skycross-4.png" alt="视角 4"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/skycross/skycross-5.png"><img src="assets/images/products/skycross/skycross-5.png" alt="视角 5"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/skycross/skycross-6.png"><img src="assets/images/products/skycross/skycross-6.png" alt="视角 6"></button>
+          </div>
+        </div>
+        <div class="product-detail-info reveal-up" style="--delay: 0.2s">
+          <span class="product-detail-tag">COMMANDER X1</span>
+          <h2 class="product-detail-title" data-i18n-html="commander_title">指挥官<br>边缘算力中枢</h2>
+          <p class="product-detail-desc" data-i18n="commander_desc">VTOL 固定翼无人机，兼具飞行平台与边缘算力中枢双重身份。搭载 ARC OS，实现任务自主解构、实时态势建图与抗干扰自主飞行。</p>
+          <div class="product-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0-4h18"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="commander_feat1_title">任务解构</h4>
+                <p data-i18n="commander_feat1_desc">理解模糊指令，自动拆解分配子任务</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="commander_feat2_title">实时建图</h4>
+                <p data-i18n="commander_feat2_desc">构建全局态势图，多源数据融合</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="commander_feat3_title">自主安全</h4>
+                <p data-i18n="commander_feat3_desc">抗干扰飞行、无GPS导航、智能避障</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-specs">
+            <div class="spec-item"><span class="spec-value" data-i18n-html="commander_spec1_val">3<small>米</small></span><span class="spec-label" data-i18n="commander_spec1_label">翼展</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="commander_spec2_val">19<small>KG</small></span><span class="spec-label" data-i18n="commander_spec2_label">最大起飞重量</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="commander_spec3_val">3.5<small>KG</small></span><span class="spec-label" data-i18n="commander_spec3_label">载重</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="commander_spec4_val">65-85<small>km/h</small></span><span class="spec-label" data-i18n="commander_spec4_label">航行速度</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="commander_spec5_val">3<small>小时</small></span><span class="spec-label" data-i18n="commander_spec5_label">飞行时间</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="commander_spec6_val">3<small>分钟</small></span><span class="spec-label" data-i18n="commander_spec6_label">快速拆装</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 5. SCOUT S1 DETAIL ======== -->
+  <section class="section product-detail product-detail-alt" id="scout">
+    <div class="container">
+      <div class="product-detail-layout">
+        <div class="product-detail-gallery reveal-up">
+          <div class="gallery-main">
+            <img src="assets/images/products/scout/face.png" alt="Scout S1" id="scoutMainImg">
+          </div>
+          <div class="gallery-thumbs">
+            <button class="gallery-thumb active" data-src="assets/images/products/scout/face.png" data-target="scoutMainImg"><img src="assets/images/products/scout/face.png" alt="正面"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/scout/arriere.png" data-target="scoutMainImg"><img src="assets/images/products/scout/arriere.png" alt="背面"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/scout/cote-droit.png" data-target="scoutMainImg"><img src="assets/images/products/scout/cote-droit.png" alt="右侧"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/scout/cote-gauche.png" data-target="scoutMainImg"><img src="assets/images/products/scout/cote-gauche.png" alt="左侧"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/scout/dessus.png" data-target="scoutMainImg"><img src="assets/images/products/scout/dessus.png" alt="俯视"></button>
+            <button class="gallery-thumb" data-src="assets/images/products/scout/dessous.png" data-target="scoutMainImg"><img src="assets/images/products/scout/dessous.png" alt="底部"></button>
+          </div>
+        </div>
+        <div class="product-detail-info reveal-up" style="--delay: 0.2s">
+          <span class="product-detail-tag">SCOUT S1</span>
+          <h2 class="product-detail-title" data-i18n-html="scout_title">尖兵<br>任务执行与多机协同</h2>
+          <p class="product-detail-desc" data-i18n="scout_desc">轻量化巡查无人机，具备目标智能识别、自动跟随和群体智能协同能力，是低空巡查与精细化检查的最佳执行者。</p>
+          <div class="product-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="scout_feat1_title">目标识别</h4>
+                <p data-i18n="scout_feat1_desc">AI 驱动的实时目标检测与跟踪</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="scout_feat2_title">多机协同</h4>
+                <p data-i18n="scout_feat2_desc">群体智能，协同完成复杂任务</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="scout_feat3_title">智能避障</h4>
+                <p data-i18n="scout_feat3_desc">全向感知，自主规避障碍物</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-specs">
+            <div class="spec-item"><span class="spec-value" data-i18n-html="scout_spec1_val">1.7<small>米</small></span><span class="spec-label" data-i18n="scout_spec1_label">翼展</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="scout_spec2_val">4.5<small>KG</small></span><span class="spec-label" data-i18n="scout_spec2_label">最大起飞重量</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="scout_spec3_val">800<small>g</small></span><span class="spec-label" data-i18n="scout_spec3_label">载重</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="scout_spec4_val">57-80<small>km/h</small></span><span class="spec-label" data-i18n="scout_spec4_label">航行速度</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="scout_spec5_val">2<small>小时</small></span><span class="spec-label" data-i18n="scout_spec5_label">飞行时间</span></div>
+            <div class="spec-item"><span class="spec-value" data-i18n-html="scout_spec6_val">1<small>分钟</small></span><span class="spec-label" data-i18n="scout_spec6_label">快速拆装</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 5b. SEAL S1 DETAIL ======== -->
+  <section class="section product-detail" id="seal">
+    <div class="container">
+      <div class="product-detail-layout">
+        <div class="product-detail-gallery reveal-up">
+          <div class="gallery-main">
+            <img src="assets/images/products/seal/seal-1.png" alt="Seal S1" id="sealMainImg">
+          </div>
+        </div>
+        <div class="product-detail-info reveal-up" style="--delay: 0.2s">
+          <span class="product-detail-tag">SEAL S1</span>
+          <h2 class="product-detail-title" data-i18n-html="seal_title">海豹<br>智能救生艇</h2>
+          <p class="product-detail-desc" data-i18n="seal_desc">水面智能救生艇，搭载 AI 落水人员识别与自动避障系统，支持空海联动与群体协同，是水上救援的可靠伙伴。</p>
+          <div class="product-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="seal_feat1_title">落水识别</h4>
+                <p data-i18n="seal_feat1_desc">AI 自动识别落水人员位置</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="seal_feat2_title">空海联动</h4>
+                <p data-i18n="seal_feat2_desc">与无人机协同，构建立体救援网</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="seal_feat3_title">群体协同</h4>
+                <p data-i18n="seal_feat3_desc">多艇编队，覆盖大面积水域</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-specs">
+            <div class="spec-item"><span class="spec-value">1000×700<small>mm</small></span><span class="spec-label" data-i18n="seal_spec1_label">尺寸</span></div>
+            <div class="spec-item"><span class="spec-value">15.9<small>kg</small></span><span class="spec-label" data-i18n="seal_spec2_label">重量</span></div>
+            <div class="spec-item"><span class="spec-value">7<small>m/s</small></span><span class="spec-label" data-i18n="seal_spec3_label">航速</span></div>
+            <div class="spec-item"><span class="spec-value">1000<small>kg</small></span><span class="spec-label" data-i18n="seal_spec4_label">拖曳能力</span></div>
+            <div class="spec-item"><span class="spec-value">1403<small>m</small></span><span class="spec-label" data-i18n="seal_spec5_label">遥控距离</span></div>
+            <div class="spec-item"><span class="spec-value">IP67</span><span class="spec-label" data-i18n="seal_spec6_label">防水等级</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 6. ARC AI ======== -->
+  <section class="arc-ai-section" id="arc-ai">
+    <div class="section-header reveal-up" style="padding: var(--space-6) var(--space-4);">
+      <span class="section-tag">ARC AI</span>
+      <h2 class="section-title" data-i18n="arcai_title">ARC OS 低空 AI 操作系统</h2>
+      <p class="section-desc" data-i18n="arcai_desc">从单机智能到集群自治，重新定义低空作业方式</p>
+    </div>
+
+    <div class="arc-panel" style="background-image: url('assets/images/arc-ai/04.jpg')"></div>
+    <div class="arc-panel" style="background-image: url('assets/images/arc-ai/05.jpg')"></div>
+    <div class="arc-panel" style="background-image: url('assets/images/arc-ai/06.jpg')"></div>
+    <div class="arc-panel" style="background-image: url('assets/images/arc-ai/07.jpg')"></div>
+    <div class="arc-panel" style="background-image: url('assets/images/arc-ai/08.jpg')"></div>
+    <div class="arc-panel" style="background-image: url('assets/images/arc-ai/09.jpg')"></div>
+    <div class="arc-panel" style="background-image: url('assets/images/arc-ai/10.jpg')"></div>
+    <div class="arc-panel" style="background-image: url('assets/images/arc-ai/11.jpg')"></div>
+  </section>
+
+  <!-- ======== 7. CASES ======== -->
+  <section class="section cases" id="cases">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">CASE STUDIES</span>
+        <h2 class="section-title" data-i18n="cases_title">国际案例</h2>
+        <p class="section-desc" data-i18n="cases_desc">从地下管道到智慧矿区，ARC 技术赋能全球客户</p>
+      </div>
+
+      <!-- Case 1: Pipeline -->
+      <div class="case-item reveal-up">
+        <div class="case-image">
+          <img src="assets/images/cases/case-1.jpg" alt="地下管道探测分析" loading="lazy">
+        </div>
+        <div class="case-content">
+          <span class="case-tag" data-i18n="case1_tag">OGE · 法国</span>
+          <h3 class="case-title" data-i18n="case1_title">地下管道探测分析</h3>
+          <p class="case-desc" data-i18n="case1_desc">为 OGE 提供基于无人机遥感的地下管道检测方案，通过多光谱成像与 AI 分析，实现管道泄漏早期预警和精准定位，大幅降低巡检成本。</p>
+        </div>
+      </div>
+
+      <!-- Case 2: Madagascar -->
+      <div class="case-item case-item-reverse reveal-up">
+        <div class="case-image">
+          <img src="assets/images/cases/case-3.jpg" alt="马达加斯加智慧矿区" loading="lazy">
+        </div>
+        <div class="case-content">
+          <span class="case-tag" data-i18n="case2_tag">智慧矿区 · 马达加斯加</span>
+          <h3 class="case-title" data-i18n="case2_title">马达加斯加智慧矿区</h3>
+          <p class="case-desc" data-i18n="case2_desc">在马达加斯加大型矿区部署无人机巡检与测绘系统，实现矿区三维建模、库存量自动估算和安全隐患识别，助力矿区数字化转型。</p>
+        </div>
+      </div>
+
+      <!-- Case 3: Aegis -->
+      <div class="case-item reveal-up">
+        <div class="case-image">
+          <img src="assets/images/cases/case-5.jpg" alt="法国爱吉斯集团" loading="lazy">
+        </div>
+        <div class="case-content">
+          <span class="case-tag" data-i18n="case3_tag">爱吉斯集团 · 法国</span>
+          <h3 class="case-title" data-i18n="case3_title">法国爱吉斯集团</h3>
+          <p class="case-desc" data-i18n="case3_desc">为法国爱吉斯集团提供工业巡检无人机整体解决方案，涵盖电力线路、风电设施与建筑结构的自动化检测。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 8. NEWS ======== -->
+  <section class="section news" id="news">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">NEWS</span>
+        <h2 class="section-title" data-i18n="news_title">新闻动态</h2>
+      </div>
+
+      <!-- Featured News -->
+      <div class="news-featured reveal-up">
+        <div class="news-featured-image">
+          <img src="assets/images/news/news-1.jpg" alt="航链科技亮相国际展会" loading="lazy">
+        </div>
+        <div class="news-featured-content">
+          <span class="news-date">2026.01</span>
+          <h3 class="news-title" data-i18n="news_feat_title">航链科技亮相国际无人机展，ARC OS 引发行业关注</h3>
+          <p class="news-excerpt" data-i18n="news_feat_excerpt">航链科技携全线产品参展，ARC OS 低空 AI 操作系统首次公开演示，展示了去飞手化操控与多机协同的核心能力，引发众多国际客户洽谈合作意向。</p>
+        </div>
+      </div>
+
+      <!-- News Grid -->
+      <div class="news-grid">
+        <div class="news-card reveal-up" style="--delay: 0.1s">
+          <div class="news-card-image"><img src="assets/images/news/news-2.jpg" alt="新闻" loading="lazy"></div>
+          <div class="news-card-body">
+            <span class="news-date">2025.12</span>
+            <h4 class="news-card-title" data-i18n="news1_title">Commander X1 完成全场景飞行测试</h4>
+            <p class="news-card-excerpt" data-i18n="news1_excerpt">指挥官 X1 在复杂气象条件下完成 100+ 小时飞行测试，验证了抗干扰导航系统的可靠性。</p>
+          </div>
+        </div>
+        <div class="news-card reveal-up" style="--delay: 0.2s">
+          <div class="news-card-image"><img src="assets/images/news/news-3.jpg" alt="新闻" loading="lazy"></div>
+          <div class="news-card-body">
+            <span class="news-date">2025.11</span>
+            <h4 class="news-card-title" data-i18n="news2_title">海豹 Seal S1 智能救生艇发布</h4>
+            <p class="news-card-excerpt" data-i18n="news2_excerpt">全新水面救援产品线正式发布，开启空海联动智能救援新时代。</p>
+          </div>
+        </div>
+        <div class="news-card reveal-up" style="--delay: 0.3s">
+          <div class="news-card-image"><img src="assets/images/news/news-4.jpg" alt="新闻" loading="lazy"></div>
+          <div class="news-card-body">
+            <span class="news-date">2025.10</span>
+            <h4 class="news-card-title" data-i18n="news3_title">ARC 2.0 多机协同系统通过验收</h4>
+            <p class="news-card-excerpt" data-i18n="news3_excerpt">ARC 2.0 集群协同版本正式通过行业验收，支持最多 20 架无人机同时协同作业。</p>
+          </div>
+        </div>
+        <div class="news-card reveal-up" style="--delay: 0.4s">
+          <div class="news-card-image"><img src="assets/images/news/news-5.jpg" alt="新闻" loading="lazy"></div>
+          <div class="news-card-body">
+            <span class="news-date">2025.09</span>
+            <h4 class="news-card-title" data-i18n="news4_title">航链科技与法国 OGE 签署战略合作协议</h4>
+            <p class="news-card-excerpt" data-i18n="news4_excerpt">双方将在管道探测、基础设施巡检等领域展开深度合作。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 9. ABOUT ======== -->
+  <section class="section about" id="about">
+    <!-- Contact & About -->
+    <div class="about-contact">
+      <div class="container">
+        <div class="contact-layout reveal-up">
+          <div class="contact-info">
+            <span class="section-tag">CONTACT US</span>
+            <h2 class="section-title" data-i18n="contact_title">联系我们</h2>
+            <p class="about-intro" data-i18n="contact_intro">航链科技（Navlyn）致力于构建低空智能产品生态，以 ARC OS 低空 AI 操作系统为核心，打造从感知到决策、从单机到集群的全栈智能解决方案。</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <span>190 1288 5610</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-qr">
+            <img src="assets/images/wechat-qr.jpg" alt="微信公众号二维码">
+            <p class="contact-qr-label" data-i18n="contact_qr_label">微信扫码关注公众号</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Team Gallery -->
+    <div class="container">
+      <h3 class="team-title reveal-up" data-i18n="team_title">团队与实验室</h3>
+      <div class="team-gallery reveal-up">
+        <div class="team-photo"><img src="assets/images/team/team-1.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-2.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-3.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-4.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-5.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-6.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-7.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-8.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-9.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-10.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-11.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-12.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-13.jpg" alt="团队" loading="lazy"></div>
+        <div class="team-photo"><img src="assets/images/team/team-14.jpg" alt="团队" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 10. FOOTER ======== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom: 1rem;">
+            <img src="assets/images/logo-white.png" alt="航链科技 Navlyn" class="nav-logo-img">
+          </div>
+          <p class="footer-tagline" data-i18n-html="footer_tagline">低空智能产品生态<br>ARC 赋能工业新未来</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_links_title">快速链接</h4>
+          <ul>
+            <li><a href="#products" data-i18n="footer_link_products">产品矩阵</a></li>
+            <li><a href="#arc-ai">ARC AI</a></li>
+            <li><a href="#cases" data-i18n="footer_link_cases">国际案例</a></li>
+            <li><a href="#news" data-i18n="footer_link_news">新闻动态</a></li>
+            <li><a href="#about" data-i18n="footer_link_about">关于我们</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_products_title">产品</h4>
+          <ul>
+            <li><a href="#commander" data-i18n="footer_product_commander">指挥官 Commander X1</a></li>
+            <li><a href="#scout" data-i18n="footer_product_scout">尖兵 Scout S1</a></li>
+            <li><a href="#seal" data-i18n="footer_product_seal">海豹 Seal S1</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_contact_title">联系方式</h4>
+          <ul>
+            <li data-i18n-html="footer_contact_address">地址：中国 · 深圳</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 航链科技 Navlyn. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======== VIDEO MODAL ======== -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-backdrop"></div>
+    <div class="video-modal-content">
+      <button class="video-modal-close" aria-label="关闭">&times;</button>
+      <video class="video-modal-player" id="videoModalPlayer" controls>
+        <source src="" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

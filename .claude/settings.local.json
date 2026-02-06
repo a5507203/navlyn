@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.anduril.com)",
+      "Bash(dir:*)",
+      "Bash(find:*)",
+      "Bash(du:*)",
+      "Bash(python3:*)",
+      "Bash(start:*)",
+      "Bash(ls:*)"
+    ]
+  }
+}
