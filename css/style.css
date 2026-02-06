@@ -874,6 +874,8 @@ ul { list-style: none; }
   :root { --nav-height: 60px; }
   .nav-links, .nav-cta, .navbar .lang-toggle { display: none; }
   .nav-hamburger { display: flex; }
+  .hero { height: 56.25vw; min-height: 300px; max-height: 100vh; }
+  .hero-video { object-position: center 30%; }
   .hero-title { font-size: 2.5rem; }
   .hero-ctas { flex-direction: column; align-items: center; }
   .product-grid { grid-template-columns: 1fr; }
