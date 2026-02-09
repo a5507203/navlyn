@@ -273,7 +273,7 @@
       footer_product_scout: '尖兵 Scout S1',
       footer_product_seal: '海豹 Seal S1',
       footer_contact_title: '联系方式',
-      footer_contact_address: '地址：中国 · 深圳'
+      footer_contact_address: '地址：中国 · 浙江'
     }
   };
 
