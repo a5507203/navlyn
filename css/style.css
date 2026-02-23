@@ -126,6 +126,9 @@ ul { list-style: none; }
   right: 0;
   z-index: 1000;
   height: var(--nav-height);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: background var(--duration-interact) var(--ease-out),
               box-shadow var(--duration-interact) var(--ease-out);
 }
@@ -152,6 +155,7 @@ ul { list-style: none; }
 .nav-logo-img {
   height: 180px;
   width: auto;
+  max-height: 100%;
 }
 .nav-links {
   display: flex;
@@ -874,6 +878,7 @@ ul { list-style: none; }
   :root { --nav-height: 60px; }
   .nav-links, .nav-cta, .navbar .lang-toggle { display: none; }
   .nav-hamburger { display: flex; }
+  .nav-logo-img { height: 50px; }
   .hero { height: 56.25vw; min-height: 300px; max-height: 100vh; }
   .hero-video { object-position: center 30%; }
   .hero-title { font-size: 2.5rem; }
@@ -888,7 +893,11 @@ ul { list-style: none; }
   .contact-details { align-items: center; }
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-4); }
   .team-gallery { grid-template-columns: repeat(2, 1fr); }
-  .arc-panel { min-height: 70vh; }
+  .arc-panel {
+    min-height: auto;
+    aspect-ratio: 16 / 9;
+    background-size: contain;
+  }
   .section { padding: var(--space-6) 0; }
 
   /* Simplify animations on mobile */
