@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <title>Redirecting...</title>
     <script>
-      // GitHub Pages project sites are served from /<repo-name>/, so we keep one segment.
-      const pathSegmentsToKeep = 1;
+      const pathSegmentsToKeep = location.hostname.endsWith('.github.io') ? 1 : 0;
       const locationData = window.location;
       const redirectUrl =
         locationData.protocol +
