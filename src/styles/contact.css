@@ -1,0 +1,261 @@
+.page-shell.contact-page-shell {
+  width: min(1240px, calc(100vw - 64px));
+  padding-top: clamp(36px, 5vw, 72px);
+  padding-bottom: clamp(48px, 7vw, 92px);
+}
+
+.contact-direct {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(520px, 72vh, 680px);
+  padding: clamp(36px, 4vw, 56px);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(55, 120, 255, 0.16), transparent 24%),
+    radial-gradient(circle at 86% 72%, rgba(55, 120, 255, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(8, 12, 22, 0.96) 0%, rgba(3, 6, 13, 0.98) 100%);
+  border: 1px solid rgba(118, 156, 230, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 28px 80px rgba(2, 7, 18, 0.34);
+}
+
+.contact-direct::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(90, 128, 196, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 128, 196, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.88) 0%, transparent 82%);
+  pointer-events: none;
+}
+
+.contact-direct-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 420px);
+  align-items: center;
+  gap: clamp(32px, 5vw, 88px);
+  min-height: inherit;
+}
+
+.contact-direct-copy {
+  max-width: 660px;
+}
+
+.contact-direct-kicker {
+  display: inline-block;
+  color: #4d6fff;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.contact-direct-title {
+  margin: 26px 0 0;
+  color: #f5f8ff;
+  font-size: clamp(68px, 7vw, 104px);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.contact-direct-cn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.contact-direct-cn p {
+  margin: 0;
+  color: rgba(245, 248, 255, 0.92);
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.contact-direct-en {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(132, 165, 235, 0.16);
+}
+
+.contact-direct-en h2 {
+  margin: 0 0 18px;
+  color: rgba(239, 244, 255, 0.96);
+  font-size: clamp(20px, 1.8vw, 28px);
+  line-height: 1.28;
+  letter-spacing: -0.03em;
+}
+
+.contact-direct-en ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-direct-en li {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.contact-direct-en span {
+  flex: 0 0 156px;
+  display: block;
+  color: rgba(150, 178, 231, 0.68);
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.contact-direct-en em {
+  flex: 0 0 12px;
+  display: block;
+  color: rgba(150, 178, 231, 0.68);
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.contact-direct-en strong {
+  display: block;
+  flex: 0 0 auto;
+  color: rgba(240, 245, 255, 0.9);
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.5;
+  font-weight: 500;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.contact-direct-media {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-direct-card {
+  width: min(100%, 300px);
+  padding: 16px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.contact-direct-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+@media (max-width: 992px) {
+  .page-shell.contact-page-shell {
+    width: min(1240px, calc(100vw - 40px));
+    padding-top: 28px;
+    padding-bottom: 52px;
+  }
+
+  .contact-direct {
+    min-height: 0;
+    padding: 28px;
+    border-radius: 28px;
+  }
+
+  .contact-direct-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .contact-direct-copy {
+    max-width: none;
+  }
+
+  .contact-direct-title {
+    margin-top: 20px;
+    font-size: clamp(52px, 11vw, 82px);
+  }
+
+  .contact-direct-cn {
+    margin-top: 28px;
+  }
+
+  .contact-direct-en {
+    margin-top: 32px;
+  }
+
+  .contact-direct-media {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-shell.contact-page-shell {
+    width: min(1240px, calc(100vw - 24px));
+    padding-top: 18px;
+    padding-bottom: 40px;
+  }
+
+  .contact-direct {
+    padding: 22px 18px;
+    border-radius: 24px;
+  }
+
+  .contact-direct-kicker {
+    font-size: 12px;
+  }
+
+  .contact-direct-title {
+    font-size: 46px;
+  }
+
+  .contact-direct-cn p {
+    font-size: 18px;
+  }
+
+  .contact-direct-en h2 {
+    font-size: 18px;
+  }
+
+  .contact-direct-en li {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .contact-direct-en em {
+    display: none;
+  }
+
+  .contact-direct-en span {
+    flex: initial;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .contact-direct-en strong {
+    white-space: normal;
+    font-size: 16px;
+  }
+
+  .contact-direct-card {
+    width: min(100%, 280px);
+    padding: 16px;
+    border-radius: 22px;
+  }
+}

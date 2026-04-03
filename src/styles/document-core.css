@@ -1,0 +1,110 @@
+.doc-story-stage,
+.doc-news-stage,
+.doc-jobs-stage,
+.doc-placeholder-stage,
+.doc-partner-stage,
+.doc-distributor-stage {
+  padding-top: var(--section-space-xl);
+}
+
+.doc-subpage-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: var(--section-gap-lg);
+}
+
+.doc-subpage-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(126, 168, 255, 0.12);
+  background: rgba(7, 12, 24, 0.54);
+  color: rgba(228, 234, 246, 0.82);
+  font-size: 14px;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.doc-subpage-tab.is-active,
+.doc-subpage-tab:hover {
+  border-color: rgba(126, 168, 255, 0.24);
+  background: rgba(24, 38, 75, 0.68);
+  color: #f7f9ff;
+}
+
+.doc-jobs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--content-cluster-gap);
+}
+
+.doc-jobs-card,
+.doc-story-card,
+.doc-update-state,
+.doc-update-state {
+  border: 1px solid rgba(126, 168, 255, 0.12);
+  background: linear-gradient(180deg, rgba(8, 13, 26, 0.82) 0%, rgba(8, 13, 26, 0.62) 100%);
+  border-radius: 28px;
+  box-shadow: 0 20px 70px rgba(1, 4, 14, 0.18);
+}
+
+.doc-jobs-card h3,
+.doc-story-card p {
+  margin: 0 !important;
+}
+
+.doc-jobs-card p,
+.doc-news-item-copy p,
+.doc-update-state p,
+.doc-story-card p,
+.doc-story-card p {
+  color: rgba(220, 228, 242, 0.78) !important;
+  line-height: 1.5;
+}
+
+.doc-jobs-grid > * {
+  flex: 1 1 260px;
+}
+
+.doc-update-state {
+  max-width: 820px;
+  padding: clamp(24px, 2.4vw, 32px);
+}
+
+.doc-update-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: rgba(72, 135, 255, 0.14);
+  color: #d6e5ff;
+  font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+  .doc-jobs-grid > * {
+    flex-basis: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 960px) {
+  .doc-jobs-grid > * {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .doc-jobs-card,
+  .doc-update-state {
+    padding: var(--card-padding-md);
+  }
+}

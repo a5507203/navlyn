@@ -1,0 +1,176 @@
+:root {
+  --site-header-height: 64px;
+  --site-header-balance-width: 320px;
+  --brand-blue-start: #1d4daf;
+  --brand-blue-end: #0f2f7c;
+  --brand-blue-hover-start: #245ac4;
+  --brand-blue-hover-end: #133a93;
+  --brand-blue-border: rgba(82, 126, 229, 0.52);
+  --brand-blue-shadow: rgba(12, 41, 124, 0.28);
+  --content-max-width: 1160px;
+  --content-wide-width: 1240px;
+  --content-narrow-width: 840px;
+  --content-reading-width: 720px;
+  --section-space-hero: clamp(96px, 10vw, 144px);
+  --section-space-xl: clamp(80px, 8vw, 124px);
+  --section-space-lg: clamp(60px, 6vw, 92px);
+  --section-space-md: clamp(28px, 3vw, 44px);
+  --section-gap-lg: clamp(26px, 2.8vw, 40px);
+  --section-gap-md: clamp(16px, 1.9vw, 22px);
+  --content-cluster-gap: clamp(20px, 2vw, 30px);
+  --card-padding-lg: clamp(24px, 2.2vw, 32px);
+  --card-padding-md: clamp(18px, 1.6vw, 24px);
+  --surface-radius-xl: 28px;
+  --surface-radius-lg: 24px;
+  --surface-radius-md: 18px;
+  --hero-copy-top: clamp(52px, 7.8vh, 96px);
+  color: rgba(255, 255, 255, 0.92);
+  background:
+    radial-gradient(circle at 50% -12%, rgba(85, 120, 190, 0.16), transparent 22%),
+    radial-gradient(circle at 78% 12%, rgba(60, 92, 152, 0.12), transparent 18%),
+    linear-gradient(180deg, #020408 0%, #060a12 32%, #080d16 64%, #03050a 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.site-shell h1,
+.site-shell h2,
+.site-shell h3,
+.site-shell h4 {
+  max-width: 100% !important;
+  white-space: normal;
+  text-wrap: balance;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.hero-title-en.ant-typography,
+.hero-title-zh,
+.hero-title-sub,
+.about-page-hero-copy h1 {
+  white-space: nowrap;
+  text-wrap: nowrap;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+#root,
+.site-shell {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.page-shell,
+.section-block {
+  position: relative;
+  z-index: 1;
+  width: min(var(--content-max-width), calc(100vw - 64px));
+  margin: 0 auto;
+}
+
+.page-shell {
+  padding-top: var(--section-space-md);
+}
+
+.page-shell.page-shell-home {
+  width: 100%;
+  max-width: none;
+  padding-top: 0;
+}
+
+.brand-mark,
+.quick-nav-link {
+  text-decoration: none;
+}
+
+.button-link {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.route-loader {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(58, 134, 255, 0.16), transparent 18%),
+    linear-gradient(180deg, #060a14 0%, #04070f 100%);
+}
+
+.route-loader-orb {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 173, 255, 0.24);
+  background:
+    radial-gradient(circle at 34% 34%, rgba(255, 255, 255, 0.5), rgba(67, 137, 255, 0.06) 42%, rgba(67, 137, 255, 0) 70%),
+    rgba(10, 18, 34, 0.82);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 10px rgba(60, 140, 255, 0.05),
+    0 20px 56px rgba(2, 8, 24, 0.34);
+  animation: route-loader-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes route-loader-pulse {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.not-found-page {
+  min-height: calc(100vh - var(--site-header-height) - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  text-align: center;
+}
+
+.not-found-copy {
+  max-width: 720px;
+}
+
+.not-found-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+  .page-shell,
+  .section-block {
+    width: min(var(--content-max-width), calc(100vw - 32px));
+  }
+}
