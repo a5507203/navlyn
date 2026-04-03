@@ -4,6 +4,7 @@ import SubpageTabNav from '../components/SubpageTabNav';
 import UpdatePageState from '../components/UpdatePageState';
 import { useI18n } from '../i18n/I18nProvider';
 import SiteLayout from '../layouts/SiteLayout';
+import { assetPath } from '../utils/base';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -18,7 +19,7 @@ export default function AboutCareersPage() {
       hero={
         <ImmersivePageHero
           prefix="about-page-hero"
-          media={<img src="/media/company-news-briefing.jpg" alt="Navlyn careers" decoding="async" />}
+          media={<img src={assetPath('/media/company-news-briefing.jpg')} alt="Navlyn careers" decoding="async" />}
           tag="Careers"
           title={copy.heroTitle}
           description={copy.heroDescription}
@@ -33,7 +34,7 @@ export default function AboutCareersPage() {
           <Paragraph>{copy.sectionDescription}</Paragraph>
         </div>
         <div className="doc-career-banner">
-          <img src="/media/logo-white.png" alt="Navlyn" />
+          <img src={assetPath('/media/logo-white.png')} alt="Navlyn" />
           <div className="doc-career-banner-copy">
             <Text className="panel-label">{copy.bannerLabel}</Text>
             <Title level={3}>{copy.bannerTitle}</Title>

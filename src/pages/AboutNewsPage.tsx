@@ -5,6 +5,7 @@ import SubpageTabNav from '../components/SubpageTabNav';
 import { getNewsItems, formatNewsDate } from '../data/news';
 import { useI18n } from '../i18n/I18nProvider';
 import SiteLayout from '../layouts/SiteLayout';
+import { assetPath } from '../utils/base';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -20,7 +21,7 @@ export default function AboutNewsPage() {
       hero={
         <ImmersivePageHero
           prefix="about-page-hero"
-          media={<img src="/media/company-news-feature.jpg" alt="Navlyn media coverage" decoding="async" />}
+          media={<img src={assetPath('/media/company-news-feature.jpg')} alt="Navlyn media coverage" decoding="async" />}
           tag="Media Coverage"
           title={copy.heroTitle}
           description={copy.heroDescription}

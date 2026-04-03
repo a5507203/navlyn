@@ -17,6 +17,7 @@ import Seo from '../components/Seo';
 import { footerNavGroups, siteNavItems } from '../data/site';
 import { localeOptions } from '../i18n/messages';
 import { useI18n } from '../i18n/I18nProvider';
+import { assetPath } from '../utils/base';
 
 const { Header, Content, Footer } = Layout;
 const { Paragraph, Text } = Typography;
@@ -74,7 +75,7 @@ export default function SiteLayout({
       <Header className="site-header">
         <div className="site-header-side site-header-side-left">
           <Link to="/" className="brand-mark">
-            <img src="/media/logo-white.png" alt="Navlyn 航链科技" />
+            <img src={assetPath('/media/logo-white.png')} alt="Navlyn 航链科技" />
           </Link>
         </div>
         <div className="site-header-center">
@@ -170,7 +171,7 @@ export default function SiteLayout({
           <div className="site-footer-inner">
             <div className="site-footer-main">
               <div className="site-footer-brand">
-                <img src="/media/logo-white.png" alt="Navlyn 航链科技" />
+                <img src={assetPath('/media/logo-white.png')} alt="Navlyn 航链科技" />
                 <div className="site-footer-brand-copy">
                   <Text className="site-footer-brand-name">Navlyn 航链科技</Text>
                   <Paragraph>{shell.footer.summary}</Paragraph>

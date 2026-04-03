@@ -1,3 +1,5 @@
+import { assetPath } from '../utils/base';
+
 interface ProductSpecItem {
   label: string;
   value: string;
@@ -21,8 +23,8 @@ export const productHero = {
   title: '精密，且强悍。为极限作业而生的三款硬核先驱',
   description:
     '基于 ARC Inside 底层内核驱动，实现从边缘算力中心到全自主执行终端的闭环链路，让低空作业不再受限于环境。',
-  video: '/media/product-hardware-rescue.mp4',
-  poster: '/media/commander-x1-product.jpg',
+  video: assetPath('/media/product-hardware-rescue.mp4'),
+  poster: assetPath('/media/commander-x1-product.jpg'),
 };
 
 export const productDetails: ProductDetailItem[] = [
@@ -33,7 +35,7 @@ export const productDetails: ProductDetailItem[] = [
     role: '边缘算力中枢 / 任务决策中心',
     summary:
       '面向低空决策网络构建与大范围任务调度，作为任务理解、算力汇聚与现场指挥的中枢节点。',
-    image: '/media/navlyn-x1.png',
+    image: assetPath('/media/navlyn-x1.png'),
     imageAlt: 'Commander X1',
     imagePosition: 'center 54%',
     specs: [
@@ -58,7 +60,7 @@ export const productDetails: ProductDetailItem[] = [
     role: '高性价比，多功能任务执行',
     summary:
       '聚焦高频巡逻、基础设施检查与矿区巡检，在部署效率和复杂环境适配之间取得平衡。',
-    image: '/media/scout-s1-front.png',
+    image: assetPath('/media/scout-s1-front.png'),
     imageAlt: 'Scout S1',
     imagePosition: 'center 50%',
     specs: [
@@ -82,7 +84,7 @@ export const productDetails: ProductDetailItem[] = [
     role: '救生艇 / 水域响应节点',
     summary:
       '服务江河湖泊海滩巡逻与救生，把低空系统能力延伸到水域现场，形成空海一体的执行闭环。',
-    image: '/media/navlyn-s1.png',
+    image: assetPath('/media/navlyn-s1.png'),
     imageAlt: 'Seal S1',
     imagePosition: 'center 46%',
     specs: [

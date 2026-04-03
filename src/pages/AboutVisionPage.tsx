@@ -3,6 +3,7 @@ import ImmersivePageHero from '../components/ImmersivePageHero';
 import SubpageTabNav from '../components/SubpageTabNav';
 import { useI18n } from '../i18n/I18nProvider';
 import SiteLayout from '../layouts/SiteLayout';
+import { assetPath } from '../utils/base';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -17,7 +18,7 @@ export default function AboutVisionPage() {
       hero={
         <ImmersivePageHero
           prefix="about-page-hero"
-          media={<img src="/media/about-team-collab.jpg" alt="Navlyn company vision" decoding="async" />}
+          media={<img src={assetPath('/media/about-team-collab.jpg')} alt="Navlyn company vision" decoding="async" />}
           tag="Company Vision"
           title={copy.heroTitle}
           description={copy.heroDescription}

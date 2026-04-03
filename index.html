@@ -2,6 +2,24 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function (locationData) {
+        if (!locationData.search.startsWith('?/')) {
+          return;
+        }
+
+        const decodedPath = locationData.search
+          .slice(1)
+          .split('&')
+          .map((segment) => segment.replace(/~and~/g, '&'))
+          .join('?');
+        const normalizedPathname = locationData.pathname.endsWith('/')
+          ? locationData.pathname.slice(0, -1)
+          : locationData.pathname;
+
+        window.history.replaceState(null, '', `${normalizedPathname}${decodedPath}${locationData.hash}`);
+      })(window.location);
+    </script>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -10,7 +28,7 @@
       name="description"
       content="Navlyn 航链科技以 ARC ENGINE 为核心，提供低空经济场景下的飞行智能体系统、硬件终端与行业解决方案。"
     />
-    <link rel="icon" type="image/png" href="/media/logo-white.png" />
+    <link rel="icon" type="image/png" href="%BASE_URL%media/logo-white.png" />
     <title>Navlyn 航链科技</title>
   </head>
   <body>

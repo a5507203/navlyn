@@ -4,6 +4,7 @@ import SubpageTabNav from '../components/SubpageTabNav';
 import { useI18n } from '../i18n/I18nProvider';
 import SiteLayout from '../layouts/SiteLayout';
 import { partnerBrandWall } from '../data/site';
+import { assetPath } from '../utils/base';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -18,7 +19,7 @@ export default function PartnersAlliancesPage() {
       hero={
         <ImmersivePageHero
           prefix="partners-page-hero"
-          media={<img src="/media/about-team-collab.jpg" alt="Navlyn alliances" decoding="async" />}
+          media={<img src={assetPath('/media/about-team-collab.jpg')} alt="Navlyn alliances" decoding="async" />}
           tag="Customers & Partners"
           title={copy.heroTitle}
           description={copy.heroDescription}

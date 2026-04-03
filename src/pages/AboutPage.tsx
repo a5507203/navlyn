@@ -6,9 +6,10 @@
  * @FilePath: /Navlyn_home/src/pages/AboutPage.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { Typography } from "antd";
-import { useI18n } from "../i18n/I18nProvider";
-import SiteLayout from "../layouts/SiteLayout";
+import { Typography } from 'antd';
+import { useI18n } from '../i18n/I18nProvider';
+import SiteLayout from '../layouts/SiteLayout';
+import { assetPath } from '../utils/base';
 
 const { Paragraph } = Typography;
 
@@ -30,9 +31,9 @@ export default function AboutPage() {
               loop
               playsInline
               preload="metadata"
-              poster="/media/about-team-collab.jpg"
+              poster={assetPath('/media/about-team-collab.jpg')}
             >
-              <source src="/media/about.mp4" type="video/mp4" />
+              <source src={assetPath('/media/about.mp4')} type="video/mp4" />
             </video>
           </div>
         </section>

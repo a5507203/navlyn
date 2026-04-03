@@ -1,6 +1,7 @@
-import { Typography } from "antd";
-import { useI18n } from "../i18n/I18nProvider";
-import SiteLayout from "../layouts/SiteLayout";
+import { Typography } from 'antd';
+import { useI18n } from '../i18n/I18nProvider';
+import SiteLayout from '../layouts/SiteLayout';
+import { assetPath } from '../utils/base';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -15,7 +16,7 @@ export default function ArcPage() {
       hero={
         <section className="arc-hero">
           <div className="arc-hero-media">
-            <img src="/media/arc-engine-01.jpg" alt="NAVLYN ARC" />
+            <img src={assetPath('/media/arc-engine-01.jpg')} alt="NAVLYN ARC" />
           </div>
           <div className="arc-hero-overlay" />
           <div className="arc-hero-copy">
@@ -28,7 +29,7 @@ export default function ArcPage() {
           </div>
           <div className="arc-hero-feature">
             <img
-              src="/media/arc-engine-02.jpg"
+              src={assetPath('/media/arc-engine-02.jpg')}
               alt="Voice Control"
               className="arc-hero-feature-image"
               loading="lazy"
@@ -48,7 +49,7 @@ export default function ArcPage() {
           </div>
           <div className="arc-hero-feature">
             <img
-              src="/media/arc-engine-03.jpg"
+              src={assetPath('/media/arc-engine-03.jpg')}
               alt="Voice Control"
               className="arc-hero-feature-image"
               loading="lazy"
@@ -68,7 +69,7 @@ export default function ArcPage() {
           </div>
           <div className="arc-hero-feature">
             <img
-              src="/media/arc-engine-04.jpg"
+              src={assetPath('/media/arc-engine-04.jpg')}
               alt="Voice Control"
               className="arc-hero-feature-image"
               loading="lazy"
@@ -88,7 +89,7 @@ export default function ArcPage() {
           </div>
           <div className="arc-hero-feature">
             <img
-              src="/media/arc-engine-05.jpg"
+              src={assetPath('/media/arc-engine-05.jpg')}
               alt="Voice Control"
               className="arc-hero-feature-image"
               loading="lazy"

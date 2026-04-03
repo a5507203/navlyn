@@ -11,6 +11,7 @@ import {
 } from '../data/home';
 import { useI18n } from '../i18n/I18nProvider';
 import SiteLayout from '../layouts/SiteLayout';
+import { assetPath } from '../utils/base';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -70,12 +71,12 @@ export default function HomePage() {
       hero={
         <section id="home" className={`hero-section${heroVideoReady ? ' is-video-ready' : ''}`}>
           <div className={`hero-media-fallback${heroVideoReady ? ' is-hidden' : ''}`} aria-hidden="true">
-            <img className="hero-fallback-poster" src="/media/commander-x1.jpg" alt="" />
+            <img className="hero-fallback-poster" src={assetPath('/media/commander-x1.jpg')} alt="" />
             <div className="hero-fallback-float hero-fallback-float-left">
-              <img src="/media/scout-s1.png" alt="" />
+              <img src={assetPath('/media/scout-s1.png')} alt="" />
             </div>
             <div className="hero-fallback-float hero-fallback-float-right">
-              <img src="/media/seal-usv.jpg" alt="" />
+              <img src={assetPath('/media/seal-usv.jpg')} alt="" />
             </div>
           </div>
           <video
@@ -86,10 +87,10 @@ export default function HomePage() {
             loop
             playsInline
             preload="metadata"
-            poster="/media/commander-x1.jpg"
+            poster={assetPath('/media/commander-x1.jpg')}
             onLoadedData={() => setHeroVideoReady(true)}
           >
-            <source src="/media/hero-video.mp4" type="video/mp4" />
+            <source src={assetPath('/media/hero-video.mp4')} type="video/mp4" />
           </video>
           <div className="hero-ambient" />
           <div className="hero-overlay" />

@@ -10,6 +10,7 @@ import { Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { useI18n } from '../i18n/I18nProvider';
 import SiteLayout from '../layouts/SiteLayout';
+import { assetPath } from '../utils/base';
 
 const { Paragraph } = Typography;
 
@@ -24,7 +25,7 @@ export default function PartnersPage() {
       hero={
         <section className="partners-hero">
           <div className="partners-hero-media">
-            <img src="/media/partners-01.jpg" alt="Partners" decoding="async" />
+            <img src={assetPath('/media/partners-01.jpg')} alt="Partners" decoding="async" />
           </div>
           <div className="partners-hero-overlay" />
           <div className="partners-hero-copy">
