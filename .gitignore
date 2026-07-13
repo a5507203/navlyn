@@ -5,3 +5,7 @@ dist
 .playwright-cli/
 output/
 .minimax/
+
+# Local source materials; runtime copies belong under public/media.
+/7.15官网更新内容/
+/航链7月更新需求.docx

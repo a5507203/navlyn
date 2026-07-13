@@ -1,5 +1,8 @@
+import { pageMessagesEs } from './messages.es';
+import { pageMessagesFr } from './messages.fr';
+
 export type Locale = "zh" | "en" | "fr" | "es";
-export type ContentLocale = "zh" | "en";
+export type ContentLocale = Locale;
 
 interface LocaleOption {
   key: Locale;
@@ -16,8 +19,8 @@ export const localeOptions: LocaleOption[] = [
 export const contentLocaleMap: Record<Locale, ContentLocale> = {
   zh: "zh",
   en: "en",
-  fr: "en",
-  es: "en",
+  fr: "fr",
+  es: "es",
 };
 
 export const shellMessages = {
@@ -31,9 +34,9 @@ export const shellMessages = {
     },
     nav: {
       home: "首页",
-      products: "产品体系",
-      arc: "ARC ENGINE",
-      industries: "行业应用",
+      arc: "ARC GCS",
+      air: "AIR",
+      sea: "SEA",
       partners: "客户与合作",
       about: "关于我们",
     },
@@ -51,8 +54,9 @@ export const shellMessages = {
         language: "语言",
       },
       items: {
-        products: "产品体系",
-        arc: "ARC ENGINE",
+        air: "AIR 飞行平台",
+        sea: "SEA 水面平台",
+        arc: "ARC GCS",
         flightTraining: "飞行模拟训练",
         vision: "公司愿景",
         news: "新闻报道",
@@ -78,9 +82,9 @@ export const shellMessages = {
     },
     nav: {
       home: "Home",
-      products: "Products",
-      arc: "ARC ENGINE",
-      industries: "Industries",
+      arc: "ARC GCS",
+      air: "AIR",
+      sea: "SEA",
       partners: "Clients & Partners",
       about: "About",
     },
@@ -98,8 +102,9 @@ export const shellMessages = {
         language: "Language",
       },
       items: {
-        products: "Products",
-        arc: "ARC ENGINE",
+        air: "AIR Platforms",
+        sea: "SEA Platforms",
+        arc: "ARC GCS",
         flightTraining: "Flight Simulation",
         vision: "Vision",
         news: "News",
@@ -125,9 +130,9 @@ export const shellMessages = {
     },
     nav: {
       home: "Accueil",
-      products: "Produits",
-      arc: "ARC ENGINE",
-      industries: "Industries",
+      arc: "ARC GCS",
+      air: "AIR",
+      sea: "SEA",
       partners: "Clients & partenaires",
       about: "À propos",
     },
@@ -145,8 +150,9 @@ export const shellMessages = {
         language: "Langue",
       },
       items: {
-        products: "Produits",
-        arc: "ARC ENGINE",
+        air: "Plateformes AIR",
+        sea: "Plateformes SEA",
+        arc: "ARC GCS",
         flightTraining: "Simulation de vol",
         vision: "Vision",
         news: "Actualités",
@@ -172,9 +178,9 @@ export const shellMessages = {
     },
     nav: {
       home: "Inicio",
-      products: "Productos",
-      arc: "ARC ENGINE",
-      industries: "Industrias",
+      arc: "ARC GCS",
+      air: "AIR",
+      sea: "SEA",
       partners: "Clientes y socios",
       about: "Nosotros",
     },
@@ -192,8 +198,9 @@ export const shellMessages = {
         language: "Idioma",
       },
       items: {
-        products: "Productos",
-        arc: "ARC ENGINE",
+        air: "Plataformas AIR",
+        sea: "Plataformas SEA",
+        arc: "ARC GCS",
         flightTraining: "Simulación de vuelo",
         vision: "Visión",
         news: "Noticias",
@@ -233,7 +240,7 @@ export const pageMessages = {
         kicker: "Industry Services",
         title: "行业服务",
         description:
-          "航链科技以全场景解决方案服务农业、矿业、能源、建筑、海岸救援与巡检六大方向，通过空海协同终端与 ARC ENGINE 智能中枢，构建可复制的行业作业体系。",
+          "航链科技以全场景解决方案服务农业、矿业、能源、安防、海岸救援与巡检六大方向，通过空海协同终端与 ARC ENGINE 智能中枢，构建可复制的行业作业体系。",
         stats: ["覆盖全球四大洲", "200+ 实地项目", "累计飞行里程超 400 万公里"],
         cards: {
           agriculture: {
@@ -248,9 +255,9 @@ export const pageMessages = {
             title: "能源",
             summary: "服务油气、电力与能源基础设施，强化远距离巡查与关键节点感知效率。",
           },
-          construction: {
-            title: "建筑",
-            summary: "聚焦工地巡查、进度比对与现场治理，帮助工程现场建立持续更新的空中视角。",
+          security: {
+            title: "安防",
+            summary: "面向边境巡逻、人群监控与关键基础设施保护，提供全天候空中感知和快速响应能力。",
           },
           "coastal-rescue": {
             title: "海岸救援",
@@ -510,6 +517,8 @@ export const pageMessages = {
       placeholderDescription: "当前页面框架已建立，具体资料、图文内容与交互信息将根据后续素材继续补充。",
       whatWeDoCarousel: "我们做什么图片切换",
       newsCarouselItem: "查看报道",
+      pauseCarousel: "暂停轮播",
+      resumeCarousel: "继续轮播",
       hardwareSeries: {
         commander: "Commander Series",
         scout: "Scout Series",
@@ -774,7 +783,7 @@ export const pageMessages = {
         kicker: "Industry Services",
         title: "Industry Services",
         description:
-          "Navlyn serves agriculture, mining, energy, construction, coastal rescue, and inspection with scenario-driven solutions built on air-sea terminals and the ARC ENGINE control core.",
+          "Navlyn serves agriculture, mining, energy, security, coastal rescue, and inspection with scenario-driven solutions built on air-sea terminals and the ARC ENGINE control core.",
         stats: [
           "Serving four continents",
           "200+ field projects",
@@ -796,10 +805,10 @@ export const pageMessages = {
             summary:
               "Long-range inspection and key-node sensing for oil, gas, power, and critical energy infrastructure.",
           },
-          construction: {
-            title: "Construction",
+          security: {
+            title: "Security",
             summary:
-              "Continuous aerial visibility for site patrols, progress comparison, and on-site governance across engineering projects.",
+              "Persistent aerial awareness for border patrol, crowd monitoring, and the protection of critical infrastructure.",
           },
           "coastal-rescue": {
             title: "Coastal Rescue",
@@ -1075,6 +1084,8 @@ export const pageMessages = {
         "The page structure is in place. Detailed materials, imagery, and interactive information will continue to be added as assets arrive.",
       whatWeDoCarousel: "What We Do image carousel",
       newsCarouselItem: "View story",
+      pauseCarousel: "Pause carousel",
+      resumeCarousel: "Resume carousel",
       hardwareSeries: {
         commander: "Commander Series",
         scout: "Scout Series",
@@ -1346,4 +1357,6 @@ export const pageMessages = {
         "The address may have changed, or the content may not be available yet. You can return home or keep exploring Products and ARC ENGINE.",
     },
   },
+  fr: pageMessagesFr,
+  es: pageMessagesEs,
 } as const;

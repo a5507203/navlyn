@@ -51,7 +51,7 @@ export default function IndustryShowcaseSection({
                 <img
                   className="industry-showcase-card-image"
                   src={card.image}
-                  alt={card.imageAlt}
+                  alt={copy.cards[card.key as keyof typeof copy.cards].title}
                   style={{ objectPosition: card.imagePosition }}
                   loading="lazy"
                   decoding="async"

@@ -21,8 +21,8 @@ export default function AboutNewsPage() {
       hero={
         <ImmersivePageHero
           prefix="about-page-hero"
-          media={<img src={assetPath('/media/company-news-feature.jpg')} alt="Navlyn media coverage" decoding="async" />}
-          tag="Media Coverage"
+          media={<img src={assetPath('/media/company-news-feature.jpg')} alt={copy.heroTitle} decoding="async" />}
+          tag={copy.heroTitle}
           title={copy.heroTitle}
           description={copy.heroDescription}
         />
@@ -31,7 +31,7 @@ export default function AboutNewsPage() {
       <section className="page-section doc-news-stage">
         <SubpageTabNav items={page.aboutTabs} />
         <div className="section-heading">
-          <Text className="news-page-kicker">Press</Text>
+          <Text className="news-page-kicker">{copy.heroTitle}</Text>
           <Title level={2}>{copy.sectionTitle}</Title>
           <Paragraph>{copy.sectionDescription}</Paragraph>
         </div>

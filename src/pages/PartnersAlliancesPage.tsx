@@ -19,8 +19,8 @@ export default function PartnersAlliancesPage() {
       hero={
         <ImmersivePageHero
           prefix="partners-page-hero"
-          media={<img src={assetPath('/media/about-team-collab.jpg')} alt="Navlyn alliances" decoding="async" />}
-          tag="Customers & Partners"
+          media={<img src={assetPath('/media/about-team-collab.jpg')} alt={copy.heroTitle} decoding="async" />}
+          tag={copy.heroTitle}
           title={copy.heroTitle}
           description={copy.heroDescription}
         />
@@ -29,7 +29,7 @@ export default function PartnersAlliancesPage() {
       <section className="page-section doc-partner-stage">
         <SubpageTabNav items={page.partners.tabs} />
         <div className="section-heading">
-          <Text className="news-page-kicker">Logo Wall</Text>
+          <Text className="news-page-kicker">{copy.heroTitle}</Text>
           <Title level={2}>{copy.sectionTitle}</Title>
           <Paragraph>{copy.sectionDescription}</Paragraph>
         </div>

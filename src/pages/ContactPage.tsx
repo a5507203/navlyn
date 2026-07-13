@@ -7,36 +7,41 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import SiteLayout from '../layouts/SiteLayout';
+import { useI18n } from '../i18n/I18nProvider';
 import { assetPath } from '../utils/base';
 
 export default function ContactPage() {
+  const { page } = useI18n();
+  const copy = page.contact;
+
   return (
     <SiteLayout
-      title="联系我们 | Navlyn 航链科技"
-      description="联系 Navlyn 航链科技，获取 ARC ENGINE、产品体系与低空智能解决方案支持。"
+      title={copy.seoTitle}
+      description={copy.seoDescription}
       contentClassName="contact-page-shell"
     >
       <section className="contact-direct">
         <div className="contact-direct-grid">
           <div className="contact-direct-copy">
-            <span className="contact-direct-kicker">CONTACT US</span>
-            <h1 className="contact-direct-title">联系我们</h1>
+            <span className="contact-direct-kicker">{copy.panel.kicker}</span>
+            <h1 className="contact-direct-title">{copy.heroTitle}</h1>
 
             <div className="contact-direct-cn">
-              <p>联系方式：+86 190 1288 5610</p>
-              <p>总部：中国·浙江</p>
+              <p>{copy.heroDescription}</p>
             </div>
 
             <div className="contact-direct-en">
-              <h2>Contact Us</h2>
+              <h2>{copy.panel.sideTitle}</h2>
+              <p>{copy.panel.sideDescription}</p>
               <ul>
                 <li>
-                  <strong>Direct Line:</strong>
                   <strong>+86 190 1288 5610</strong>
                 </li>
                 <li>
-                  <strong>Address:</strong>
-                  <strong>ZHEJIANG, CN // 30.27° N, 120.15° E</strong>
+                  <strong>support@navlyn.com</strong>
+                </li>
+                <li>
+                  <strong>{page.common.businessAddress}</strong>
                 </li>
               </ul>
             </div>
@@ -44,7 +49,7 @@ export default function ContactPage() {
 
           <div className="contact-direct-media">
             <div className="contact-direct-card">
-              <img src={assetPath('/media/contact-code.png')} alt="Navlyn 联系二维码" />
+              <img src={assetPath('/media/contact-code.png')} alt={copy.panel.sideTitle} />
             </div>
           </div>
         </div>

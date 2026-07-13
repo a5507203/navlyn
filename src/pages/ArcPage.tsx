@@ -16,7 +16,7 @@ export default function ArcPage() {
       hero={
         <section className="arc-hero">
           <div className="arc-hero-media">
-            <img src={assetPath('/media/arc-engine-01.jpg')} alt="NAVLYN ARC" />
+            <img src={assetPath('/media/arc-engine-01.jpg')} alt={copy.heroTitle} />
           </div>
           <div className="arc-hero-overlay" />
           <div className="arc-hero-copy">
@@ -30,7 +30,7 @@ export default function ArcPage() {
           <div className="arc-hero-feature">
             <img
               src={assetPath('/media/arc-engine-02.jpg')}
-              alt="Voice Control"
+              alt={copy.features[0].title}
               className="arc-hero-feature-image"
               loading="lazy"
               decoding="async"
@@ -50,7 +50,7 @@ export default function ArcPage() {
           <div className="arc-hero-feature">
             <img
               src={assetPath('/media/arc-engine-03.jpg')}
-              alt="Voice Control"
+              alt={copy.features[1].title}
               className="arc-hero-feature-image"
               loading="lazy"
               decoding="async"
@@ -70,7 +70,7 @@ export default function ArcPage() {
           <div className="arc-hero-feature">
             <img
               src={assetPath('/media/arc-engine-04.jpg')}
-              alt="Voice Control"
+              alt={copy.features[2].title}
               className="arc-hero-feature-image"
               loading="lazy"
               decoding="async"
@@ -90,7 +90,7 @@ export default function ArcPage() {
           <div className="arc-hero-feature">
             <img
               src={assetPath('/media/arc-engine-05.jpg')}
-              alt="Voice Control"
+              alt={copy.features[3].title}
               className="arc-hero-feature-image"
               loading="lazy"
               decoding="async"

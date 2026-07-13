@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductsPage = lazy(() => import('./pages/ProductsPage'));
+const AirPage = lazy(() => import('./pages/AirPage'));
+const SeaPage = lazy(() => import('./pages/SeaPage'));
 const ArcPage = lazy(() => import('./pages/ArcPage'));
 const IndustriesPage = lazy(() => import('./pages/IndustriesPage'));
 const PartnersPage = lazy(() => import('./pages/PartnersPage'));
@@ -29,6 +31,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/air" element={<AirPage />} />
+        <Route path="/sea" element={<SeaPage />} />
         <Route path="/arc-os" element={<ArcPage />} />
         <Route path="/industries" element={<IndustriesPage />} />
         <Route path="/partners" element={<PartnersPage />} />

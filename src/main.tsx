@@ -19,6 +19,7 @@ import './styles/document-core.css';
 import './styles/document-feature-pages.css';
 import './styles/news.css';
 import './styles/contact.css';
+import './styles/product-catalog.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

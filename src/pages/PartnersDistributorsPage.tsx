@@ -9,8 +9,9 @@ import { assetPath } from '../utils/base';
 const { Title, Paragraph, Text } = Typography;
 
 export default function PartnersDistributorsPage() {
-  const { page } = useI18n();
+  const { locale, page } = useI18n();
   const copy = page.partnerDistributors;
+  const regionNames = new Intl.DisplayNames([locale], { type: 'region' });
 
   return (
     <SiteLayout
@@ -19,8 +20,8 @@ export default function PartnersDistributorsPage() {
       hero={
         <ImmersivePageHero
           prefix="partners-page-hero"
-          media={<img src={assetPath('/media/company-news-briefing.jpg')} alt="Navlyn distributors" decoding="async" />}
-          tag="Customers & Partners"
+          media={<img src={assetPath('/media/company-news-briefing.jpg')} alt={copy.heroTitle} decoding="async" />}
+          tag={copy.heroTitle}
           title={copy.heroTitle}
           description={copy.heroDescription}
         />
@@ -29,31 +30,39 @@ export default function PartnersDistributorsPage() {
       <section className="page-section doc-distributor-stage">
         <SubpageTabNav items={page.partners.tabs} />
         <div className="section-heading">
-          <Text className="news-page-kicker">Map Layout</Text>
+          <Text className="news-page-kicker">{copy.heroTitle}</Text>
           <Title level={2}>{copy.sectionTitle}</Title>
           <Paragraph>{copy.sectionDescription}</Paragraph>
         </div>
         <div className="doc-distributor-board">
           <div className="doc-distributor-map">
             <div className="doc-distributor-glow" />
-            {distributorMarkers.map((item) => (
-              <div key={`${item.region}-${item.city}`} className="doc-distributor-pin">
+            {distributorMarkers.map((item) => {
+              const regionName = regionNames.of(item.regionCode) ?? item.regionCode;
+
+              return (
+              <div key={`${item.regionCode}-${item.city}`} className="doc-distributor-pin">
                 <span>{item.flag}</span>
-                <strong>{item.region}</strong>
+                <strong>{regionName}</strong>
               </div>
-            ))}
+              );
+            })}
           </div>
           <div className="doc-distributor-list">
-            {distributorMarkers.map((item) => (
-              <article key={`${item.region}-${item.city}`} className="doc-distributor-item">
+            {distributorMarkers.map((item) => {
+              const regionName = regionNames.of(item.regionCode) ?? item.regionCode;
+
+              return (
+              <article key={`${item.regionCode}-${item.city}`} className="doc-distributor-item">
                 <div className="doc-distributor-head">
                   <span>{item.flag}</span>
-                  <strong>{item.region}</strong>
+                  <strong>{regionName}</strong>
                 </div>
                 <p>{item.city}</p>
                 <em>{copy.note}</em>
               </article>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

@@ -1,5 +1,7 @@
 import type { ContentLocale, Locale } from '../i18n/messages';
 import { assetPath } from '../utils/base';
+import { newsItemsEs } from './news.es';
+import { newsItemsFr } from './news.fr';
 
 export interface NewsItem {
   slug: string;
@@ -10,7 +12,7 @@ export interface NewsItem {
   location: string;
   image: string;
   imageAlt: string;
-  body: string[];
+  body: readonly string[];
 }
 
 const NEWS_DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
@@ -48,7 +50,7 @@ export function formatNewsDate(date: string, locale: Locale) {
   }).format(parsedDate);
 }
 
-const newsItemsByLocale: Record<ContentLocale, NewsItem[]> = {
+const newsItemsByLocale: Record<ContentLocale, readonly NewsItem[]> = {
   zh: [
     {
       slug: 'technology-breakthroughs',
@@ -135,6 +137,8 @@ const newsItemsByLocale: Record<ContentLocale, NewsItem[]> = {
       ],
     },
   ],
+  fr: newsItemsFr,
+  es: newsItemsEs,
 };
 
 export function getNewsItems(locale: ContentLocale) {

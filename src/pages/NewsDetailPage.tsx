@@ -19,7 +19,7 @@ export default function NewsDetailPage() {
       <SiteLayout title={copy.notFoundTitle} description={copy.notFoundDescription}>
         <section className="page-section not-found-page">
           <div className="section-heading not-found-copy">
-            <Text className="news-page-kicker">Story Not Found</Text>
+            <Text className="news-page-kicker">{copy.notFoundTitle}</Text>
             <Title level={1}>{copy.notFoundTitle}</Title>
             <Paragraph>{copy.notFoundDescription}</Paragraph>
           </div>
@@ -79,7 +79,7 @@ export default function NewsDetailPage() {
 
         <div className="news-detail-related">
           <div className="section-heading">
-            <Text className="news-page-kicker">More Stories</Text>
+            <Text className="news-page-kicker">{copy.moreStories}</Text>
             <Title level={2}>{copy.moreStories}</Title>
           </div>
           <div className="news-grid-side news-detail-related-grid">

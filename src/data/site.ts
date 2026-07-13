@@ -1,13 +1,13 @@
 type SiteNavIconKey =
   | 'home'
-  | 'products'
   | 'arc'
-  | 'industries'
+  | 'air'
+  | 'sea'
   | 'partners'
   | 'about';
 
 interface SiteNavItem {
-  key: 'home' | 'products' | 'arc' | 'industries' | 'partners' | 'about';
+  key: 'home' | 'arc' | 'air' | 'sea' | 'partners' | 'about';
   label: string;
   path: string;
   iconKey: SiteNavIconKey;
@@ -17,7 +17,8 @@ interface FooterNavGroup {
   key: 'productServices' | 'about' | 'ecosystem' | 'language';
   items: Array<{
     key:
-      | 'products'
+      | 'air'
+      | 'sea'
       | 'arc'
       | 'flightTraining'
       | 'vision'
@@ -36,17 +37,16 @@ interface FooterNavGroup {
 }
 
 interface DistributorMarker {
-  region: string;
+  regionCode: 'FR' | 'TG' | 'MY' | 'CA';
   flag: string;
   city: string;
-  note: string;
 }
 
 export const siteNavItems: SiteNavItem[] = [
   { key: 'home', label: '首页', path: '/', iconKey: 'home' },
-  { key: 'products', label: '产品体系', path: '/products', iconKey: 'products' },
-  { key: 'arc', label: 'ARC ENGINE', path: '/arc-os', iconKey: 'arc' },
-  { key: 'industries', label: '行业应用', path: '/industries', iconKey: 'industries' },
+  { key: 'arc', label: 'ARC GCS', path: '/arc-os', iconKey: 'arc' },
+  { key: 'air', label: 'AIR', path: '/air', iconKey: 'air' },
+  { key: 'sea', label: 'SEA', path: '/sea', iconKey: 'sea' },
   { key: 'partners', label: '客户与合作', path: '/partners', iconKey: 'partners' },
   { key: 'about', label: '关于我们', path: '/about', iconKey: 'about' },
 ];
@@ -64,28 +64,24 @@ export const partnerBrandWall = [
 
 export const distributorMarkers: DistributorMarker[] = [
   {
-    region: '法国',
+    regionCode: 'FR',
     flag: '🇫🇷',
     city: 'Grenoble',
-    note: '代理商与联系方式待补充',
   },
   {
-    region: '多哥',
+    regionCode: 'TG',
     flag: '🇹🇬',
     city: 'Lome',
-    note: '代理商与联系方式待补充',
   },
   {
-    region: '马来西亚',
+    regionCode: 'MY',
     flag: '🇲🇾',
     city: 'Kuala Lumpur',
-    note: '代理商与联系方式待补充',
   },
   {
-    region: '加拿大',
+    regionCode: 'CA',
     flag: '🇨🇦',
     city: 'Montreal',
-    note: '代理商与联系方式待补充',
   },
 ];
 
@@ -93,9 +89,9 @@ export const footerNavGroups: FooterNavGroup[] = [
   {
     key: 'productServices',
     items: [
-      { key: 'products', path: '/products' },
+      { key: 'air', path: '/air' },
+      { key: 'sea', path: '/sea' },
       { key: 'arc', path: '/arc-os' },
-      { key: 'flightTraining' },
     ],
   },
   {

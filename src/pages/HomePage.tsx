@@ -1,59 +1,69 @@
 import { Typography } from 'antd';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import HomeProductShowcase from '../components/HomeProductShowcase';
 import IndustryShowcaseSection from '../components/IndustryShowcaseSection';
 import {
   homeCapabilities,
-  homeHardwareMatrix,
-  homeHero,
   homeNews,
-  homeWhatWeDo,
 } from '../data/home';
+import { homeProductSlides } from '../data/productCatalog';
 import { useI18n } from '../i18n/I18nProvider';
+import { productCatalogMessages } from '../i18n/productCatalogMessages';
 import SiteLayout from '../layouts/SiteLayout';
-import { assetPath } from '../utils/base';
 
 const { Title, Paragraph, Text } = Typography;
 
+const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+
+function shouldPauseAutomaticCarousels() {
+  return typeof window !== 'undefined' && window.matchMedia(REDUCED_MOTION_QUERY).matches;
+}
+
 export default function HomePage() {
-  const { page } = useI18n();
+  const { locale, page } = useI18n();
   const copy = page.home;
-  const [heroVideoReady, setHeroVideoReady] = useState(false);
-  const [whatWeDoSlideIndex, setWhatWeDoSlideIndex] = useState(0);
+  const productCopy = productCatalogMessages[locale].home;
+  const [heroSlideIndex, setHeroSlideIndex] = useState(0);
   const [newsSlideIndex, setNewsSlideIndex] = useState(0);
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const [heroCarouselPaused, setHeroCarouselPaused] = useState(shouldPauseAutomaticCarousels);
+  const [newsCarouselPaused, setNewsCarouselPaused] = useState(shouldPauseAutomaticCarousels);
 
   useEffect(() => {
-    const video = heroVideoRef.current;
+    const motionPreference = window.matchMedia(REDUCED_MOTION_QUERY);
+    const pauseForReducedMotion = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        setHeroCarouselPaused(true);
+        setNewsCarouselPaused(true);
+      }
+    };
 
-    if (!video) {
-      return;
-    }
-
-    const handleLoaded = () => setHeroVideoReady(true);
-
-    if (video.readyState >= 2) {
-      setHeroVideoReady(true);
-    }
-
-    video.addEventListener('loadeddata', handleLoaded);
+    motionPreference.addEventListener('change', pauseForReducedMotion);
 
     return () => {
-      video.removeEventListener('loadeddata', handleLoaded);
+      motionPreference.removeEventListener('change', pauseForReducedMotion);
     };
   }, []);
 
   useEffect(() => {
+    if (heroCarouselPaused) {
+      return undefined;
+    }
+
     const rotation = window.setInterval(() => {
-      setWhatWeDoSlideIndex((current) => (current + 1) % homeWhatWeDo.slides.length);
-    }, 4600);
+      setHeroSlideIndex((current) => (current + 1) % homeProductSlides.length);
+    }, 5200);
 
     return () => {
       window.clearInterval(rotation);
     };
-  }, []);
+  }, [heroCarouselPaused]);
 
   useEffect(() => {
+    if (newsCarouselPaused) {
+      return undefined;
+    }
+
     const rotation = window.setInterval(() => {
       setNewsSlideIndex((current) => (current + 1) % homeNews.items.length);
     }, 5000);
@@ -61,7 +71,7 @@ export default function HomePage() {
     return () => {
       window.clearInterval(rotation);
     };
-  }, []);
+  }, [newsCarouselPaused]);
 
   return (
     <SiteLayout
@@ -69,38 +79,38 @@ export default function HomePage() {
       description={copy.seoDescription}
       contentClassName="page-shell-home"
       hero={
-        <section id="home" className={`hero-section${heroVideoReady ? ' is-video-ready' : ''}`}>
-          <div className={`hero-media-fallback${heroVideoReady ? ' is-hidden' : ''}`} aria-hidden="true">
-            <img className="hero-fallback-poster" src={assetPath('/media/commander-x1.jpg')} alt="" />
-            <div className="hero-fallback-float hero-fallback-float-left">
-              <img src={assetPath('/media/scout-s1.png')} alt="" />
-            </div>
-            <div className="hero-fallback-float hero-fallback-float-right">
-              <img src={assetPath('/media/seal-usv.jpg')} alt="" />
-            </div>
+        <section id="home" className="hero-section">
+          <div className="hero-product-carousel" aria-live="off">
+            {homeProductSlides.map((slide, index) => (
+              <div
+                key={slide.key}
+                className={`hero-product-slide${index === heroSlideIndex ? ' is-active' : ''}${slide.image ? '' : ' is-empty'}`}
+                aria-hidden={index !== heroSlideIndex}
+              >
+                {slide.image ? (
+                  <img
+                    src={slide.image}
+                    alt=""
+                    style={{ objectPosition: slide.imagePosition }}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="hero-product-placeholder" aria-hidden="true">
+                    <span>{productCopy.counterUas.name}</span>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          <video
-            ref={heroVideoRef}
-            className="hero-background-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={assetPath('/media/commander-x1.jpg')}
-            onLoadedData={() => setHeroVideoReady(true)}
-          >
-            <source src={assetPath('/media/hero-video.mp4')} type="video/mp4" />
-          </video>
           <div className="hero-ambient" />
           <div className="hero-overlay" />
           <div className="hero-grid">
-              <div className="hero-copy">
-              <Title className="hero-title-en">{homeHero.titleEn}</Title>
-              <Text className="hero-title-zh">{copy.heroSecondary}</Text>
+            <div className="hero-copy">
+              <Title className="hero-title-en">{copy.heroSecondary}</Title>
               <Text className="hero-title-sub">{copy.heroSubtitle}</Text>
               <div className="hero-actions">
-                <Link className="hero-cta-primary" to="/products">
+                <Link className="hero-cta-primary" to="/air">
                   <span>{copy.heroPrimaryCta}</span>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -112,60 +122,42 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+          <div className="hero-product-controls" aria-label={copy.productGateway.title}>
+            <button
+              type="button"
+              className="hero-carousel-toggle"
+              onClick={() => setHeroCarouselPaused((paused) => !paused)}
+              aria-label={heroCarouselPaused ? page.common.resumeCarousel : page.common.pauseCarousel}
+              title={heroCarouselPaused ? page.common.resumeCarousel : page.common.pauseCarousel}
+            >
+              {heroCarouselPaused ? (
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M5 3.5v9l7-4.5-7-4.5Z" fill="currentColor" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M5 3.5v9M11 3.5v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              )}
+            </button>
+            {homeProductSlides.map((slide, index) => (
+              <button
+                key={slide.key}
+                type="button"
+                className={`hero-product-dot${index === heroSlideIndex ? ' is-active' : ''}`}
+                onClick={() => {
+                  setHeroSlideIndex(index);
+                  setHeroCarouselPaused(true);
+                }}
+                aria-label={`${copy.productGateway.title} ${index + 1}`}
+                aria-pressed={index === heroSlideIndex}
+              />
+            ))}
+          </div>
         </section>
       }
     >
-      <section className="section-block what-we-do-section">
-        <div className="what-we-do-media">
-          <div className="what-we-do-carousel-shell">
-              <div className="what-we-do-carousel">
-              {homeWhatWeDo.slides.map((slide, index) => (
-                <div
-                  key={slide.image}
-                  className={`what-we-do-slide${index === whatWeDoSlideIndex ? ' is-active' : ''}`}
-                  aria-hidden={index === whatWeDoSlideIndex ? 'false' : 'true'}
-                >
-                  <img
-                    src={slide.image}
-                    alt={slide.alt}
-                    style={{ objectPosition: slide.imagePosition }}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              ))}
-              <div className="what-we-do-carousel-overlay" />
-              <div className="what-we-do-copy">
-                <div className="what-we-do-header">
-                  <Text className="what-we-do-kicker">{copy.whatWeDo.kicker}</Text>
-                  <Title level={2}>{copy.whatWeDo.title}</Title>
-                </div>
-                <div className="what-we-do-body">
-                  {copy.whatWeDo.paragraphs.map((paragraph) => (
-                    <Paragraph key={paragraph} className="section-lead-copy">
-                      {paragraph}
-                    </Paragraph>
-                  ))}
-                </div>
-              </div>
-              <div className="what-we-do-carousel-orb what-we-do-carousel-orb-left" aria-hidden="true" />
-              <div className="what-we-do-carousel-orb what-we-do-carousel-orb-right" aria-hidden="true" />
-              <div className="what-we-do-carousel-controls" aria-label={page.common.whatWeDoCarousel}>
-                {homeWhatWeDo.slides.map((slide, index) => (
-                  <button
-                    key={slide.image}
-                    type="button"
-                    className={`what-we-do-carousel-dot${index === whatWeDoSlideIndex ? ' is-active' : ''}`}
-                    onClick={() => setWhatWeDoSlideIndex(index)}
-                    aria-label={`${page.common.whatWeDoCarousel} ${index + 1}`}
-                    aria-pressed={index === whatWeDoSlideIndex}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeProductShowcase />
 
       <IndustryShowcaseSection />
 
@@ -184,7 +176,7 @@ export default function HomePage() {
               <div className="capability-card-tech-visual">
                 <img
                   src={item.image}
-                  alt={item.imageAlt}
+                  alt={capabilityCopy.title}
                   style={{ objectPosition: item.imagePosition }}
                   loading="lazy"
                   decoding="async"
@@ -252,106 +244,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-block product-entry-section">
-        <div className="product-entry-heading">
-          <Text className="product-entry-kicker">{copy.productGateway.kicker}</Text>
-          <Title level={2}>{copy.productGateway.title}</Title>
-          <Paragraph className="product-entry-lead">{copy.productGateway.lead}</Paragraph>
-        </div>
-        <div className="product-entry-cta-wrapper">
-          <Link className="product-entry-link product-entry-cta" to={homeHardwareMatrix.ctaTo}>
-            {copy.productGateway.cta}
-          </Link>
-        </div>
-        
-        {/* Hardware Matrix - Tech Style */}
-        <div className="product-hardware-tech-section">
-          <div className="product-hardware-tech-sidebar">
-            <Text className="product-hardware-tech-kicker">{copy.productGateway.hardwareKicker}</Text>
-            <Title level={3} className="product-hardware-tech-title">{copy.productGateway.hardwareTitle}</Title>
-            <Paragraph className="product-hardware-tech-desc">{copy.productGateway.hardwareDescription}</Paragraph>
-          </div>
-          <div className="product-hardware-tech-grid">
-            {homeHardwareMatrix.items.map((item, index) => {
-              const productCopy = copy.productGateway.hardwareItems[item.key as keyof typeof copy.productGateway.hardwareItems];
-
-              return (
-              <Link 
-                key={item.key} 
-                className={`product-hardware-tech-card product-hardware-tech-card-${index + 1}`} 
-                to="/products"
-              >
-                <div className="product-hardware-tech-visual">
-                  <img 
-                    src={item.image} 
-                    alt={item.imageAlt} 
-                    style={{ objectPosition: item.imagePosition }} 
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="product-hardware-tech-overlay" />
-                  <div className="product-hardware-tech-glow" aria-hidden="true" />
-                  <div className="product-hardware-tech-corner product-hardware-tech-corner-tl" />
-                  <div className="product-hardware-tech-corner product-hardware-tech-corner-br" />
-                </div>
-                <div className="product-hardware-tech-content">
-                  <div className="product-hardware-tech-badge">
-                    {productCopy.badge}
-                  </div>
-                  <div className="product-hardware-tech-info">
-                    <Text className="product-hardware-tech-label">{productCopy.label}</Text>
-                    <Title level={3} className="product-hardware-tech-name">{productCopy.title}</Title>
-                    <Paragraph className="product-hardware-tech-spec">{productCopy.description}</Paragraph>
-                  </div>
-                  <div className="product-hardware-tech-action">
-                    <span className="product-hardware-tech-cta">
-                      {copy.labels.detail}
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Software Section - ARC ENGINE (简洁版) */}
-        <div className="product-software-tech-section">
-          <div className="product-software-tech-sidebar">
-            <Text className="product-software-tech-kicker">{copy.productGateway.softwareKicker}</Text>
-            <Title level={3} className="product-software-tech-title">{copy.productGateway.softwareTitle}</Title>
-          </div>
-          <Link className="product-software-tech-card" to="/arc-os">
-            <div className="product-software-tech-bg" aria-hidden="true">
-              <img 
-                src={homeHardwareMatrix.software.image} 
-                alt="" 
-                style={{ objectPosition: homeHardwareMatrix.software.imagePosition }} 
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="product-software-tech-bg-overlay" />
-              <div className="product-software-tech-grid-lines" />
-              <div className="product-software-tech-orb product-software-tech-orb-1" />
-              <div className="product-software-tech-orb product-software-tech-orb-2" />
-            </div>
-            <div className="product-software-tech-shell">
-              <div className="product-software-tech-content">
-                <div className="product-software-tech-main">
-                  <Title level={2} className="product-software-tech-heading">{copy.productGateway.softwareDescription} </Title>
-                  <Paragraph className="product-software-tech-text">{copy.productGateway.softwareSummary}</Paragraph>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </div>
-        
-        
-      </section>
-
       <section className="section-block news-section">
         <div className="news-heading">
           <Text className="news-kicker">{copy.news.kicker}</Text>
@@ -376,7 +268,7 @@ export default function HomePage() {
                 aria-hidden={index === newsSlideIndex ? 'false' : 'true'}
               >
                 <div className="news-carousel-media">
-                  <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
+                  <img src={item.image} alt={newsCopy.title} loading="lazy" decoding="async" />
                   <div className="news-carousel-overlay" />
                   <div className="news-carousel-glow" />
                 </div>
@@ -408,12 +300,32 @@ export default function HomePage() {
             })}
           </div>
           <div className="news-carousel-controls">
+            <button
+              type="button"
+              className="news-carousel-toggle"
+              onClick={() => setNewsCarouselPaused((paused) => !paused)}
+              aria-label={newsCarouselPaused ? page.common.resumeCarousel : page.common.pauseCarousel}
+              title={newsCarouselPaused ? page.common.resumeCarousel : page.common.pauseCarousel}
+            >
+              {newsCarouselPaused ? (
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M5 3.5v9l7-4.5-7-4.5Z" fill="currentColor" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M5 3.5v9M11 3.5v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              )}
+            </button>
             {homeNews.items.map((item, index) => (
               <button
                 key={item.title}
                 type="button"
                 className={`news-carousel-dot${index === newsSlideIndex ? ' is-active' : ''}`}
-                onClick={() => setNewsSlideIndex(index)}
+                onClick={() => {
+                  setNewsSlideIndex(index);
+                  setNewsCarouselPaused(true);
+                }}
                 aria-label={`${page.common.newsCarouselItem} ${index + 1}`}
                 aria-pressed={index === newsSlideIndex}
               />

@@ -19,8 +19,8 @@ export default function AboutCareersPage() {
       hero={
         <ImmersivePageHero
           prefix="about-page-hero"
-          media={<img src={assetPath('/media/company-news-briefing.jpg')} alt="Navlyn careers" decoding="async" />}
-          tag="Careers"
+          media={<img src={assetPath('/media/company-news-briefing.jpg')} alt={copy.heroTitle} decoding="async" />}
+          tag={copy.heroTitle}
           title={copy.heroTitle}
           description={copy.heroDescription}
         />
@@ -29,7 +29,7 @@ export default function AboutCareersPage() {
       <section className="page-section doc-jobs-stage">
         <SubpageTabNav items={page.aboutTabs} />
         <div className="section-heading">
-          <Text className="news-page-kicker">Hiring Categories</Text>
+          <Text className="news-page-kicker">{copy.heroTitle}</Text>
           <Title level={2}>{copy.sectionTitle}</Title>
           <Paragraph>{copy.sectionDescription}</Paragraph>
         </div>
@@ -61,7 +61,7 @@ export default function AboutCareersPage() {
 
       <section className="page-section doc-placeholder-stage">
         <UpdatePageState
-          kicker="Careers"
+          kicker={copy.heroTitle}
           title={copy.updateTitle}
           description={copy.updateDescription}
         />

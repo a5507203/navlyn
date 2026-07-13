@@ -81,7 +81,7 @@ export const homeIndustryService = {
   kicker: 'Industry Services',
   title: '行业服务',
   description:
-    '航链科技以全场景解决方案服务农业、矿业、能源、建筑、海岸救援与巡检六大方向，通过空海协同终端与 ARC ENGINE 智能中枢，构建可复制的行业作业体系。',
+    '航链科技以全场景解决方案服务农业、矿业、能源、安防、海岸救援与巡检六大方向，通过空海协同终端与 ARC ENGINE 智能中枢，构建可复制的行业作业体系。',
   stats: [
     '覆盖全球四大洲',
     '200+ 实地项目',
@@ -119,13 +119,13 @@ export const homeIndustryService = {
       imagePosition: 'center 28%',
     },
     {
-      key: 'construction',
-      title: '建筑',
-      titleEn: 'Construction',
-      summary: '聚焦工地巡查、进度比对与现场治理，帮助工程现场建立持续更新的空中视角。',
-      scene: 'Construction Progress',
-      image: assetPath('/media/industry-showcase/construction.jpg'),
-      imageAlt: '建筑工地场景图',
+      key: 'security',
+      title: '安防',
+      titleEn: 'Security',
+      summary: '面向边境巡逻、人群监控与关键基础设施保护，提供全天候空中感知和快速响应能力。',
+      scene: 'Security Operations',
+      image: assetPath('/media/july-update/security.jpg'),
+      imageAlt: '安防与应急响应场景图',
       imagePosition: 'center center',
     },
     {

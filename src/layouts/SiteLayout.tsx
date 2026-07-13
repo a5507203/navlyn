@@ -24,9 +24,9 @@ const { Paragraph, Text } = Typography;
 
 const navIcons = {
   home: <HomeOutlined />,
-  products: <DeploymentUnitOutlined />,
   arc: <ClusterOutlined />,
-  industries: <CompassOutlined />,
+  air: <DeploymentUnitOutlined />,
+  sea: <CompassOutlined />,
   partners: <ContactsOutlined />,
   about: <InfoCircleOutlined />,
 } as const;

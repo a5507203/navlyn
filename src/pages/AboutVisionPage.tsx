@@ -18,8 +18,8 @@ export default function AboutVisionPage() {
       hero={
         <ImmersivePageHero
           prefix="about-page-hero"
-          media={<img src={assetPath('/media/about-team-collab.jpg')} alt="Navlyn company vision" decoding="async" />}
-          tag="Company Vision"
+          media={<img src={assetPath('/media/about-team-collab.jpg')} alt={copy.heroTitle} decoding="async" />}
+          tag={copy.heroTitle}
           title={copy.heroTitle}
           description={copy.heroDescription}
         />
@@ -28,7 +28,7 @@ export default function AboutVisionPage() {
       <section className="page-section doc-story-stage">
         <SubpageTabNav items={page.aboutTabs} />
         <div className="section-heading">
-          <Text className="news-page-kicker">Vision</Text>
+          <Text className="news-page-kicker">{copy.heroTitle}</Text>
           <Title level={2}>{copy.sectionTitle}</Title>
           <Paragraph>{copy.sectionDescription}</Paragraph>
         </div>
