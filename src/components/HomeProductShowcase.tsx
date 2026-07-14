@@ -39,10 +39,10 @@ export default function HomeProductShowcase() {
                 )}
                 <div className="home-product-showcase-overlay" aria-hidden="true" />
               </div>
+              <Text className="home-product-showcase-index">
+                {String(index + 1).padStart(2, '0')}
+              </Text>
               <div className="home-product-showcase-copy">
-                <Text className="home-product-showcase-index">
-                  {String(index + 1).padStart(2, '0')}
-                </Text>
                 <Title level={3}>{productCopy.name}</Title>
                 <Text className="home-product-showcase-summary">{productCopy.summary}</Text>
                 <span className="home-product-showcase-action">

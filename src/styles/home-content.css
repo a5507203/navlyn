@@ -2832,6 +2832,10 @@
 }
 
 .home-product-showcase-index {
+  position: absolute;
+  z-index: 2;
+  right: 24px;
+  bottom: 24px;
   color: #7facff !important;
   font-size: 12px;
   letter-spacing: 0.16em;
