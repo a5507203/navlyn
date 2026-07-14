@@ -280,6 +280,7 @@ export const pageMessages = {
             description:
               "L4 级端侧智能平台，实现任务意图理解、自动规划与全域治理。低空经济的「安卓系统」，让飞行从遥控执行走向意图决策。",
             tags: ["意图理解", "自动规划", "全域治理"],
+            statValue: "L4",
             statLabel: "自主等级",
           },
           {
@@ -287,6 +288,7 @@ export const pageMessages = {
             description:
               "空海一体硬件矩阵与 AI 中枢深度融合。硬件标准化、软件持续进化，达成「硬件折旧，软件增值」的持续演进能力。",
             tags: ["硬件标准化", "AI 融合", "持续进化"],
+            statValue: "200+",
             statLabel: "协同设备",
           },
           {
@@ -294,6 +296,7 @@ export const pageMessages = {
             description:
               "多机与空海联动协同，最多调度 200 台设备并行作业。主权级权限治理与主动安全防护，满足关键行业合规要求。",
             tags: ["多机协同", "主动安全", "权限治理"],
+            statValue: "200",
             statLabel: "最大协同",
           },
           {
@@ -301,12 +304,13 @@ export const pageMessages = {
             description:
               "从厘米级精密测绘到 24 小时无人巡检，从极端环境到应急救援，提供可落地、可复盘、可规模化的系统能力。",
             tags: ["全球交付", "实地验证", "规模落地"],
+            statValue: "400万+",
             statLabel: "飞行里程",
           },
         ],
       },
       productGateway: {
-        kicker: "Product Gateways",
+        kicker: "Product",
         title: "产品入口",
         lead: "从空海一体硬件终端到 ARC ENGINE 智能中枢，航链科技构建完整的低空智能产品体系。",
         cta: "预约体验",
@@ -768,7 +772,7 @@ export const pageMessages = {
       seoDescription:
         "Navlyn powers low-altitude intelligence with ARC ENGINE, smart hardware terminals, and industry solutions for surveying, mining, engineering, and emergency response.",
       heroSecondary: "The Era of Intelligent Flight",
-      heroSubtitle: "Pilotless | Safe & Controllable | Swarm Collaboration",
+      heroSubtitle: "Autonomy | Reliability | Collaboration",
       heroPrimaryCta: "Explore Products",
       heroSecondaryCta: "Learn More",
       whatWeDo: {
@@ -833,6 +837,7 @@ export const pageMessages = {
             description:
               "An L4 edge intelligence platform for intent understanding, autonomous planning, and full-domain governance. It turns flight from remote execution into intent-driven decision making.",
             tags: ["Intent Understanding", "Autonomous Planning", "Governance"],
+            statValue: "L4",
             statLabel: "Autonomy Level",
           },
           {
@@ -840,6 +845,7 @@ export const pageMessages = {
             description:
               "An air-sea hardware matrix fused with an AI control core. Hardware stays standardized while software keeps evolving in the field.",
             tags: ["Standardized Hardware", "AI Fusion", "Continuous Evolution"],
+            statValue: "200+",
             statLabel: "Connected Devices",
           },
           {
@@ -847,6 +853,7 @@ export const pageMessages = {
             description:
               "Coordinate multi-aircraft and air-sea assets at scale, with sovereign-grade governance and active safety for critical industries.",
             tags: ["Multi-Agent Orchestration", "Active Safety", "Access Governance"],
+            statValue: "200",
             statLabel: "Max Coordination",
           },
           {
@@ -854,13 +861,14 @@ export const pageMessages = {
             description:
               "From centimeter-grade surveying to continuous unmanned inspection, Navlyn delivers scalable capabilities for extreme environments and emergency response.",
             tags: ["Global Delivery", "Field Validation", "Scalable Rollout"],
+            statValue: "4M+",
             statLabel: "Flight Distance",
           },
         ],
       },
       productGateway: {
-        kicker: "Product Gateways",
-        title: "Product Gateways",
+        kicker: "Product",
+        title: "Products",
         lead:
           "From air-sea hardware terminals to the ARC ENGINE software core, Navlyn builds a complete low-altitude intelligence product stack.",
         cta: "Book a Demo",

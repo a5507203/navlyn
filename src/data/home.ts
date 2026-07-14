@@ -12,7 +12,6 @@ interface HomeCapabilityItem {
   description: string;
   tags: string[];
   icon: string;
-  stats: { value: string; label: string };
   image: string;
   imageAlt: string;
   imagePosition: string;
@@ -160,7 +159,6 @@ export const homeCapabilities: HomeCapabilityItem[] = [
     description: 'L4 级端侧智能平台，实现任务意图理解、自动规划与全域治理。低空经济的「安卓系统」，让飞行从遥控执行走向意图决策。',
     tags: ['意图理解', '自动规划', '全域治理'],
     icon: 'arc-engine',
-    stats: { value: 'L4', label: '自主等级' },
     image: assetPath('/media/arc-engine-01.jpg'),
     imageAlt: 'ARC ENGINE system capability',
     imagePosition: 'center 38%',
@@ -171,7 +169,6 @@ export const homeCapabilities: HomeCapabilityItem[] = [
     description: '空海一体硬件矩阵与 AI 中枢深度融合。硬件标准化、软件持续进化，达成「硬件折旧，软件增值」的持续演进能力。',
     tags: ['硬件标准化', 'AI 融合', '持续进化'],
     icon: 'hardware',
-    stats: { value: '200+', label: '协同设备' },
     image: assetPath('/media/capability-arc-os-2.jpg'),
     imageAlt: 'Navlyn hardware and AI integration',
     imagePosition: '64% center',
@@ -182,7 +179,6 @@ export const homeCapabilities: HomeCapabilityItem[] = [
     description: '多机与空海联动协同，最多调度 200 台设备并行作业。主权级权限治理与主动安全防护，满足关键行业合规要求。',
     tags: ['多机协同', '主动安全', '权限治理'],
     icon: 'swarm',
-    stats: { value: '200', label: '最大协同' },
     image: assetPath('/media/capability-swarm-security.png'),
     imageAlt: 'Navlyn swarm and secure collaboration',
     imagePosition: '62% 32%',
@@ -193,7 +189,6 @@ export const homeCapabilities: HomeCapabilityItem[] = [
     description: '从厘米级精密测绘到 24 小时无人巡检，从极端环境到应急救援，提供可落地、可复盘、可规模化的系统能力。',
     tags: ['全球交付', '实地验证', '规模落地'],
     icon: 'delivery',
-    stats: { value: '400万+', label: '飞行里程' },
     image: assetPath('/media/capability-delivery.png'),
     imageAlt: 'Navlyn engineering delivery capability',
     imagePosition: 'center center',
@@ -201,7 +196,7 @@ export const homeCapabilities: HomeCapabilityItem[] = [
 ];
 
 export const homeHardwareMatrix = {
-  kicker: 'Product Gateways',
+  kicker: 'Product',
   title: '产品入口',
   lead: '从空海一体硬件终端到 ARC ENGINE 智能中枢，航链科技构建完整的低空智能产品体系。',
   ctaLabel: '预约体验',

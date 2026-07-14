@@ -88,4 +88,21 @@ describe('internationalized page catalogs', () => {
     expect(pageMessages.en.home.industries.description).toContain('security');
     expect(pageMessages.en.home.industries.description).not.toContain('construction');
   });
+
+  it('localizes capability statistics for every content locale', () => {
+    expect(pageMessages.zh.home.capabilities.cards.map(({ statValue }) => statValue)).toEqual([
+      'L4',
+      '200+',
+      '200',
+      '400万+',
+    ]);
+    expect(pageMessages.en.home.capabilities.cards.map(({ statValue }) => statValue)).toEqual([
+      'L4',
+      '200+',
+      '200',
+      '4M+',
+    ]);
+    expect(pageMessages.fr.home.capabilities.cards[3].statValue).toBe('4 M+');
+    expect(pageMessages.es.home.capabilities.cards[3].statValue).toBe('4 M+');
+  });
 });

@@ -36,7 +36,7 @@
 }
 
 .site-footer-brand img {
-  width: 280px;
+  width: 180px;
   height: auto;
   opacity: 0.92;
   flex-shrink: 0;
@@ -44,15 +44,6 @@
 
 .site-footer-brand-copy {
   max-width: 420px;
-}
-
-.site-footer-brand-name {
-  display: block;
-  margin-bottom: 10px;
-  color: rgba(244, 247, 255, 0.96);
-  font-size: 18px;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
 }
 
 .site-footer-brand-copy p {
@@ -236,11 +227,7 @@
   }
 
   .site-footer-brand img {
-    width: 220px;
-  }
-
-  .site-footer-brand-name {
-    font-size: 15px;
+    width: 160px;
   }
 
   .site-footer-brand-copy p {

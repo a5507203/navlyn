@@ -199,7 +199,7 @@ export default function HomePage() {
                     <Title level={3} className="capability-card-tech-title">{capabilityCopy.title}</Title>
                   </div>
                   <div className="capability-card-tech-stats">
-                    <span className="capability-card-tech-stats-value">{item.stats.value}</span>
+                    <span className="capability-card-tech-stats-value">{capabilityCopy.statValue}</span>
                     <span className="capability-card-tech-stats-label">{capabilityCopy.statLabel}</span>
                   </div>
                 </div>

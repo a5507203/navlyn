@@ -171,9 +171,8 @@ export default function SiteLayout({
           <div className="site-footer-inner">
             <div className="site-footer-main">
               <div className="site-footer-brand">
-                <img src={assetPath('/media/logo-white.png')} alt="Navlyn 航链科技" />
+                <img src={assetPath('/media/navlyn-footer-logo.png')} alt="Navlyn 航链科技" />
                 <div className="site-footer-brand-copy">
-                  <Text className="site-footer-brand-name">Navlyn 航链科技</Text>
                   <Paragraph>{shell.footer.summary}</Paragraph>
                 </div>
               </div>

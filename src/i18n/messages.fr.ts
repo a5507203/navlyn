@@ -69,6 +69,7 @@ export const pageMessagesFr = {
           description:
             "Une plateforme d’intelligence en périphérie de niveau L4 dédiée à la compréhension des intentions, à la planification autonome et à la gouvernance de bout en bout. Elle fait évoluer le vol de l’exécution télécommandée vers la décision guidée par l’intention.",
           tags: ["Compréhension des intentions", "Planification autonome", "Gouvernance"],
+          statValue: "L4",
           statLabel: "Niveau d’autonomie",
         },
         {
@@ -76,6 +77,7 @@ export const pageMessagesFr = {
           description:
             "Une gamme de matériels aériens et maritimes associée à un cœur de contrôle par IA. Le matériel reste standardisé tandis que le logiciel progresse continuellement sur le terrain.",
           tags: ["Matériel standardisé", "Fusion par IA", "Évolution continue"],
+          statValue: "200+",
           statLabel: "Appareils connectés",
         },
         {
@@ -83,6 +85,7 @@ export const pageMessagesFr = {
           description:
             "Coordination à grande échelle de plusieurs aéronefs et moyens air-mer, avec une gouvernance de niveau souverain et une sécurité active adaptée aux secteurs critiques.",
           tags: ["Orchestration multi-agents", "Sécurité active", "Gestion des accès"],
+          statValue: "200",
           statLabel: "Coordination maximale",
         },
         {
@@ -90,6 +93,7 @@ export const pageMessagesFr = {
           description:
             "De la cartographie centimétrique à l’inspection autonome continue, Navlyn déploie des capacités évolutives dans les environnements extrêmes et pour les interventions d’urgence.",
           tags: ["Déploiement mondial", "Validation terrain", "Déploiement à grande échelle"],
+          statValue: "4 M+",
           statLabel: "Distance de vol",
         },
       ],
