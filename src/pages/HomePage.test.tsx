@@ -1,4 +1,4 @@
-import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -71,26 +71,20 @@ describe('HomePage automatic carousels', () => {
     expect(activeSlideIndex('.hero-product-slide')).toBe(2);
   });
 
-  it('lets the user pause and resume the news carousel', () => {
+  it('keeps the news carousel automatic without rendering a pause control', () => {
     renderHomePage();
 
-    const newsPauseButton = document.querySelector<HTMLButtonElement>('.news-carousel-toggle');
-    expect(newsPauseButton).not.toBeNull();
-    fireEvent.click(newsPauseButton!);
+    expect(document.querySelector('.news-carousel-toggle')).toBeNull();
+    expect(activeSlideIndex('.news-carousel-slide')).toBe(0);
 
-    const pausedNewsIndex = activeSlideIndex('.news-carousel-slide');
-    const newsSlideCount = document.querySelectorAll('.news-carousel-slide').length;
+    const secondNewsDot = document.querySelectorAll<HTMLButtonElement>('.news-carousel-dot')[1];
+    fireEvent.click(secondNewsDot);
+    expect(activeSlideIndex('.news-carousel-slide')).toBe(1);
 
     act(() => {
       vi.advanceTimersByTime(5_000);
     });
-    expect(activeSlideIndex('.news-carousel-slide')).toBe(pausedNewsIndex);
-
-    fireEvent.click(newsPauseButton!);
-    act(() => {
-      vi.advanceTimersByTime(5_000);
-    });
-    expect(activeSlideIndex('.news-carousel-slide')).toBe((pausedNewsIndex + 1) % newsSlideCount);
+    expect(activeSlideIndex('.news-carousel-slide')).toBe(2);
   });
 
   it('starts both carousels paused when reduced motion is preferred', () => {
@@ -98,7 +92,7 @@ describe('HomePage automatic carousels', () => {
     renderHomePage();
 
     expect(document.querySelector('.hero-carousel-toggle')).toBeNull();
-    expect(screen.getAllByRole('button', { name: '继续轮播' })).toHaveLength(1);
+    expect(document.querySelector('.news-carousel-toggle')).toBeNull();
 
     act(() => {
       vi.advanceTimersByTime(10_400);

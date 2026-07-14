@@ -272,32 +272,12 @@ export default function HomePage() {
             })}
           </div>
           <div className="news-carousel-controls">
-            <button
-              type="button"
-              className="news-carousel-toggle"
-              onClick={() => setNewsCarouselPaused((paused) => !paused)}
-              aria-label={newsCarouselPaused ? page.common.resumeCarousel : page.common.pauseCarousel}
-              title={newsCarouselPaused ? page.common.resumeCarousel : page.common.pauseCarousel}
-            >
-              {newsCarouselPaused ? (
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M5 3.5v9l7-4.5-7-4.5Z" fill="currentColor" />
-                </svg>
-              ) : (
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M5 3.5v9M11 3.5v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              )}
-            </button>
             {homeNews.items.map((item, index) => (
               <button
                 key={item.title}
                 type="button"
                 className={`news-carousel-dot${index === newsSlideIndex ? ' is-active' : ''}`}
-                onClick={() => {
-                  setNewsSlideIndex(index);
-                  setNewsCarouselPaused(true);
-                }}
+                onClick={() => setNewsSlideIndex(index)}
                 aria-label={`${page.common.newsCarouselItem} ${index + 1}`}
                 aria-pressed={index === newsSlideIndex}
               />
