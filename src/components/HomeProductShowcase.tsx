@@ -20,7 +20,7 @@ export default function HomeProductShowcase() {
       </div>
 
       <div className="home-product-showcase-grid">
-        {homeProductSlides.map((product) => {
+        {homeProductSlides.map((product, index) => {
           const isPending = product.key === 'counterUas';
           const productCopy = products[product.key];
           const cardContent = (
@@ -41,7 +41,7 @@ export default function HomeProductShowcase() {
               </div>
               <div className="home-product-showcase-copy">
                 <Text className="home-product-showcase-index">
-                  {String(homeProductSlides.indexOf(product) + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </Text>
                 <Title level={3}>{productCopy.name}</Title>
                 <Text className="home-product-showcase-summary">{productCopy.summary}</Text>

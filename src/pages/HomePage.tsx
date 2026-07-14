@@ -7,9 +7,8 @@ import {
   homeCapabilities,
   homeNews,
 } from '../data/home';
-import { homeProductSlides } from '../data/productCatalog';
+import { homeHeroSlides } from '../data/productCatalog';
 import { useI18n } from '../i18n/I18nProvider';
-import { productCatalogMessages } from '../i18n/productCatalogMessages';
 import SiteLayout from '../layouts/SiteLayout';
 
 const { Title, Paragraph, Text } = Typography;
@@ -21,9 +20,8 @@ function shouldPauseAutomaticCarousels() {
 }
 
 export default function HomePage() {
-  const { locale, page } = useI18n();
+  const { page } = useI18n();
   const copy = page.home;
-  const productCopy = productCatalogMessages[locale].home;
   const [heroSlideIndex, setHeroSlideIndex] = useState(0);
   const [newsSlideIndex, setNewsSlideIndex] = useState(0);
   const [heroCarouselPaused, setHeroCarouselPaused] = useState(shouldPauseAutomaticCarousels);
@@ -51,7 +49,7 @@ export default function HomePage() {
     }
 
     const rotation = window.setInterval(() => {
-      setHeroSlideIndex((current) => (current + 1) % homeProductSlides.length);
+      setHeroSlideIndex((current) => (current + 1) % homeHeroSlides.length);
     }, 5200);
 
     return () => {
@@ -81,25 +79,19 @@ export default function HomePage() {
       hero={
         <section id="home" className="hero-section">
           <div className="hero-product-carousel" aria-live="off">
-            {homeProductSlides.map((slide, index) => (
+            {homeHeroSlides.map((slide, index) => (
               <div
                 key={slide.key}
-                className={`hero-product-slide${index === heroSlideIndex ? ' is-active' : ''}${slide.image ? '' : ' is-empty'}`}
+                className={`hero-product-slide${index === heroSlideIndex ? ' is-active' : ''}`}
                 aria-hidden={index !== heroSlideIndex}
               >
-                {slide.image ? (
-                  <img
-                    src={slide.image}
-                    alt=""
-                    style={{ objectPosition: slide.imagePosition }}
-                    loading={index === 0 ? 'eager' : 'lazy'}
-                    decoding="async"
-                  />
-                ) : (
-                  <div className="hero-product-placeholder" aria-hidden="true">
-                    <span>{productCopy.counterUas.name}</span>
-                  </div>
-                )}
+                <img
+                  src={slide.image}
+                  alt=""
+                  style={{ objectPosition: slide.imagePosition }}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
               </div>
             ))}
           </div>
@@ -123,32 +115,12 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero-product-controls" aria-label={copy.productGateway.title}>
-            <button
-              type="button"
-              className="hero-carousel-toggle"
-              onClick={() => setHeroCarouselPaused((paused) => !paused)}
-              aria-label={heroCarouselPaused ? page.common.resumeCarousel : page.common.pauseCarousel}
-              title={heroCarouselPaused ? page.common.resumeCarousel : page.common.pauseCarousel}
-            >
-              {heroCarouselPaused ? (
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M5 3.5v9l7-4.5-7-4.5Z" fill="currentColor" />
-                </svg>
-              ) : (
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M5 3.5v9M11 3.5v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              )}
-            </button>
-            {homeProductSlides.map((slide, index) => (
+            {homeHeroSlides.map((slide, index) => (
               <button
                 key={slide.key}
                 type="button"
                 className={`hero-product-dot${index === heroSlideIndex ? ' is-active' : ''}`}
-                onClick={() => {
-                  setHeroSlideIndex(index);
-                  setHeroCarouselPaused(true);
-                }}
+                onClick={() => setHeroSlideIndex(index)}
                 aria-label={`${copy.productGateway.title} ${index + 1}`}
                 aria-pressed={index === heroSlideIndex}
               />

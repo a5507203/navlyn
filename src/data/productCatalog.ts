@@ -101,7 +101,7 @@ export const airProducts: ProductCatalogItem[] = [
 export const seaProducts: ProductCatalogItem[] = [
   {
     key: 'seal',
-    image: assetPath('/media/july-update/seal.jpg'),
+    image: assetPath('/media/navlyn-s1.png'),
     imagePosition: 'center 48%',
     specs: [
       { key: 'vesselDimensions', value: '1,000 (L) × 700 (W) × 248 (H) mm' },
@@ -136,7 +136,7 @@ export const homeProductSlides: HomeProductSlide[] = [
   },
   {
     key: 'seal',
-    image: assetPath('/media/july-update/seal.jpg'),
+    image: assetPath('/media/navlyn-s1.png'),
     imagePosition: 'center 48%',
     to: '/sea',
   },
@@ -151,5 +151,38 @@ export const homeProductSlides: HomeProductSlide[] = [
     image: '',
     imagePosition: 'center 50%',
     to: '',
+  },
+];
+
+export const homeHeroSlides: HomeProductSlide[] = [
+  {
+    key: 'arc',
+    image: assetPath('/media/Homepage Carousel/arc-gcs.jpg'),
+    imagePosition: 'center 50%',
+    to: '/arc-os',
+  },
+  {
+    key: 'titan',
+    image: assetPath('/media/Homepage Carousel/titan-t1.jpg'),
+    imagePosition: 'center 68%',
+    to: '/air',
+  },
+  {
+    key: 'commander',
+    image: assetPath('/media/Homepage Carousel/commander-x1.jpg'),
+    imagePosition: 'center 50%',
+    to: '/air',
+  },
+  {
+    key: 'scout',
+    image: assetPath('/media/Homepage Carousel/scout-s1.jpg'),
+    imagePosition: 'center 52%',
+    to: '/air',
+  },
+  {
+    key: 'seal',
+    image: assetPath('/media/Homepage Carousel/seal-s1.jpg'),
+    imagePosition: 'center 48%',
+    to: '/sea',
   },
 ];
