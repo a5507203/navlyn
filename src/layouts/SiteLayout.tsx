@@ -6,21 +6,24 @@ import {
   ContactsOutlined,
   DeploymentUnitOutlined,
   DownOutlined,
+  FacebookFilled,
   HomeOutlined,
   InfoCircleOutlined,
+  LinkedinFilled,
   MenuOutlined,
+  YoutubeFilled,
 } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import type { PropsWithChildren, ReactNode } from 'react';
 import Seo from '../components/Seo';
-import { footerNavGroups, siteNavItems } from '../data/site';
+import { footerNavGroups, footerSocialLinks, siteNavItems } from '../data/site';
 import { localeOptions } from '../i18n/messages';
 import { useI18n } from '../i18n/I18nProvider';
 import { assetPath } from '../utils/base';
 
 const { Header, Content, Footer } = Layout;
-const { Paragraph, Text } = Typography;
+const { Text } = Typography;
 
 const navIcons = {
   home: <HomeOutlined />,
@@ -29,6 +32,12 @@ const navIcons = {
   sea: <CompassOutlined />,
   partners: <ContactsOutlined />,
   about: <InfoCircleOutlined />,
+} as const;
+
+const footerSocialIcons = {
+  linkedin: <LinkedinFilled />,
+  facebook: <FacebookFilled />,
+  youtube: <YoutubeFilled />,
 } as const;
 
 interface SiteLayoutProps extends PropsWithChildren {
@@ -85,9 +94,11 @@ export default function SiteLayout({
 
               return (
                 <Link key={item.path} to={item.path} className={`desktop-nav-link${isActive ? ' is-active' : ''}`}>
-                  <span className="desktop-nav-icon" aria-hidden="true">
-                    {navIcons[item.iconKey]}
-                  </span>
+                  {item.key !== 'about' ? (
+                    <span className="desktop-nav-icon" aria-hidden="true">
+                      {navIcons[item.iconKey]}
+                    </span>
+                  ) : null}
                   <span className="desktop-nav-text">{shell.nav[item.key]}</span>
                 </Link>
               );
@@ -171,10 +182,30 @@ export default function SiteLayout({
           <div className="site-footer-inner">
             <div className="site-footer-main">
               <div className="site-footer-brand">
-                <img src={assetPath('/media/navlyn-footer-logo.png')} alt="Navlyn 航链科技" />
-                <div className="site-footer-brand-copy">
-                  <Paragraph>{shell.footer.summary}</Paragraph>
+                <img
+                  className="site-footer-brand-mark"
+                  src={assetPath('/media/navlyn-brand-mark-blue.png')}
+                  alt="Navlyn"
+                />
+                <p className="site-footer-brand-copy">{shell.footer.summary}</p>
+                <div className="site-footer-socials">
+                  {footerSocialLinks.map((item) => (
+                    <a
+                      key={item.key}
+                      className="site-footer-social-link"
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={item.label}
+                      title={item.label}
+                    >
+                      {footerSocialIcons[item.key]}
+                    </a>
+                  ))}
                 </div>
+                <Link className="site-footer-contact-link" to="/contact">
+                  {shell.contactFloat.title}
+                </Link>
               </div>
 
               <div className="site-footer-grid">

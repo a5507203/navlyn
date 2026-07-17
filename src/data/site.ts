@@ -42,6 +42,14 @@ interface DistributorMarker {
   city: string;
 }
 
+type FooterSocialKey = 'linkedin' | 'facebook' | 'youtube';
+
+interface FooterSocialLink {
+  key: FooterSocialKey;
+  label: string;
+  href: string;
+}
+
 export const siteNavItems: SiteNavItem[] = [
   { key: 'home', label: '首页', path: '/', iconKey: 'home' },
   { key: 'arc', label: 'ARC GCS', path: '/arc-os', iconKey: 'arc' },
@@ -82,6 +90,24 @@ export const distributorMarkers: DistributorMarker[] = [
     regionCode: 'CA',
     flag: '🇨🇦',
     city: 'Montreal',
+  },
+];
+
+export const footerSocialLinks: FooterSocialLink[] = [
+  {
+    key: 'linkedin',
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/navlyn/?viewAsMember=true',
+  },
+  {
+    key: 'facebook',
+    label: 'Facebook',
+    href: 'https://www.facebook.com/Navlyn/',
+  },
+  {
+    key: 'youtube',
+    label: 'YouTube',
+    href: 'https://www.youtube.com/@NavlynDrone',
   },
 ];
 
