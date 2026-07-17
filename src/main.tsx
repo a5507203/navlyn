@@ -5,6 +5,7 @@ import { ConfigProvider, theme } from 'antd';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import { I18nProvider } from './i18n/I18nProvider';
+import { browserRouterFuture } from './routerConfig';
 import { routerBasename } from './utils/base';
 import './styles/base.css';
 import './styles/shared-ui.css';
@@ -38,7 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         }}
       >
         <I18nProvider>
-          <BrowserRouter basename={routerBasename}>
+          <BrowserRouter basename={routerBasename} future={browserRouterFuture}>
             <App />
           </BrowserRouter>
         </I18nProvider>
