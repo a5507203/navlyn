@@ -26,9 +26,11 @@ export default function ContactPage() {
             <span className="contact-direct-kicker">{copy.panel.kicker}</span>
             <h1 className="contact-direct-title">{copy.heroTitle}</h1>
 
-            <div className="contact-direct-cn">
-              <p>{copy.heroDescription}</p>
-            </div>
+            {copy.heroDescription ? (
+              <div className="contact-direct-cn">
+                <p>{copy.heroDescription}</p>
+              </div>
+            ) : null}
 
             <div className="contact-direct-en">
               <h2>{copy.panel.sideTitle}</h2>

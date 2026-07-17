@@ -105,4 +105,11 @@ describe('internationalized page catalogs', () => {
     expect(pageMessages.fr.home.capabilities.cards[3].statValue).toBe('4 M+');
     expect(pageMessages.es.home.capabilities.cards[3].statValue).toBe('4 M+');
   });
+
+  it('uses the approved English contact hero without secondary copy', () => {
+    expect(pageMessages.en.contact.heroTitle).toBe(
+      'Explore the ways Navlyn can enhance your operations.',
+    );
+    expect(pageMessages.en.contact.heroDescription).toBe('');
+  });
 });

@@ -1104,9 +1104,8 @@ export const pageMessages = {
       seoTitle: "Contact | Navlyn",
       seoDescription:
         "Book product demos, discuss industry solutions, and start collaboration conversations with the Navlyn team.",
-      heroTitle: "Turn brand interest into real demos, conversations, and partnerships",
-      heroDescription:
-        "Create a clear and trusted entry point for product demos, solution planning, channel collaboration, and international business opportunities.",
+      heroTitle: "Explore the ways Navlyn can enhance your operations.",
+      heroDescription: "",
       actions: {
         services: "View Services",
         contact: "View Contact Paths",
