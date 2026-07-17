@@ -112,4 +112,16 @@ describe('internationalized page catalogs', () => {
     );
     expect(pageMessages.en.contact.heroDescription).toBe('');
   });
+
+  it('keeps the contact inquiry form localized for every supported language', () => {
+    expect(pageMessages.zh.contact.inquiryForm.title).toBe('联系我们的团队');
+    expect(pageMessages.en.contact.inquiryForm.title).toBe('Reach out to our team');
+    expect(pageMessages.fr.contact.inquiryForm.title).toBe('Contactez notre équipe');
+    expect(pageMessages.es.contact.inquiryForm.title).toBe('Contacte con nuestro equipo');
+
+    for (const locale of localeOptions.map((option) => option.key)) {
+      expect(pageMessages[locale].contact.inquiryForm.fields.description).toBeTruthy();
+      expect(pageMessages[locale].contact.inquiryForm.organizationOptions).toHaveLength(5);
+    }
+  });
 });

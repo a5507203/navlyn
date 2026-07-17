@@ -445,6 +445,36 @@ export const pageMessagesEs = {
         },
       ],
     },
+    inquiryForm: {
+      kicker: "Iniciar una conversación",
+      title: "Contacte con nuestro equipo",
+      description:
+        "Cuéntenos sobre su organización, su escenario operativo y sus objetivos para que podamos preparar la conversación adecuada.",
+      fields: {
+        countryRegion: "País / Región",
+        firstName: "Nombre",
+        lastName: "Apellidos",
+        email: "Correo electrónico profesional",
+        phone: "Número de teléfono",
+        organizationType: "Tipo de organización",
+        companyName: "Nombre de la empresa / organización",
+        website: "Sitio web de la empresa / organización",
+        description: "Descripción",
+      },
+      selectPlaceholder: "Seleccione una opción",
+      descriptionPlaceholder:
+        "Describa su caso de uso, objetivos, lugar de despliegue, calendario o los productos que desea conocer.",
+      organizationOptions: [
+        { value: "enterprise", label: "Empresa" },
+        { value: "government", label: "Gobierno / Sector público" },
+        { value: "partner", label: "Distribuidor / Socio" },
+        { value: "research", label: "Universidad / Investigación" },
+        { value: "other", label: "Otro" },
+      ],
+      submitLabel: "Enviar consulta por correo",
+      submitNote: "Se abrirá su aplicación de correo. No se enviará nada automáticamente.",
+      mailSubject: "Consulta desde el sitio web de Navlyn",
+    },
   },
   partners: {
     seoTitle: "Clientes y socios | Navlyn",

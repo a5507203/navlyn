@@ -445,6 +445,36 @@ export const pageMessagesFr = {
         },
       ],
     },
+    inquiryForm: {
+      kicker: "Démarrer une conversation",
+      title: "Contactez notre équipe",
+      description:
+        "Présentez-nous votre organisation, votre scénario opérationnel et vos objectifs afin que nous préparions un échange adapté.",
+      fields: {
+        countryRegion: "Pays / Région",
+        firstName: "Prénom",
+        lastName: "Nom",
+        email: "E-mail professionnel",
+        phone: "Numéro de téléphone",
+        organizationType: "Type d’organisation",
+        companyName: "Nom de l’entreprise / organisation",
+        website: "Site de l’entreprise / organisation",
+        description: "Description",
+      },
+      selectPlaceholder: "Veuillez sélectionner",
+      descriptionPlaceholder:
+        "Décrivez votre cas d’usage, vos objectifs, le lieu de déploiement, le calendrier ou les produits que vous souhaitez découvrir.",
+      organizationOptions: [
+        { value: "enterprise", label: "Entreprise" },
+        { value: "government", label: "Administration / Secteur public" },
+        { value: "partner", label: "Distributeur / Partenaire" },
+        { value: "research", label: "Université / Recherche" },
+        { value: "other", label: "Autre" },
+      ],
+      submitLabel: "Envoyer la demande par e-mail",
+      submitNote: "Votre application de messagerie s’ouvrira. Aucun message n’est envoyé automatiquement.",
+      mailSubject: "Demande depuis le site Navlyn",
+    },
   },
   partners: {
     seoTitle: "Clients et partenaires | Navlyn",
