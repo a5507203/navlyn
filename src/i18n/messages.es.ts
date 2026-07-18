@@ -471,7 +471,7 @@ export const pageMessagesEs = {
         { value: "research", label: "Universidad / Investigación" },
         { value: "other", label: "Otro" },
       ],
-      submitLabel: "Enviar consulta por correo",
+      submitLabel: "Enviar",
       submitNote: "Se abrirá su aplicación de correo. No se enviará nada automáticamente.",
       mailSubject: "Consulta desde el sitio web de Navlyn",
     },

@@ -42,6 +42,6 @@ describe('ContactPage', () => {
     expect(screen.getByLabelText('Company / Organization name')).not.toBeRequired();
     expect(screen.getByLabelText('Company / Organization website')).not.toBeRequired();
     expect(screen.getByLabelText(/Description/)).toBeRequired();
-    expect(screen.getByRole('button', { name: 'Send inquiry by email' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
   });
 });
