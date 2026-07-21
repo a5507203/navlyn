@@ -264,38 +264,51 @@ export const pageMessagesEs = {
     ],
   },
   arc: {
-    seoTitle: "ARC ENGINE | Navlyn",
+    seoTitle: "ARC GCS, sistema operativo de IA de baja altitud | Navlyn",
     seoDescription:
-      "Descubra cómo NAVLYN ARC transforma las operaciones de baja altitud en un sistema de inteligencia autónoma basado en la intención.",
-    heroTitle: "NAVLYN ARC: el cerebro de las operaciones inteligentes de baja altitud",
-    heroSubtitle:
-      "De la ejecución remota a la toma de decisiones basada en la intención. Una arquitectura de autonomía nativa de la IA que proporciona a cada aeronave la intuición de un piloto profesional.",
+      "Descubra ARC GCS para la planificación inteligente, la coordinación multiplataforma y la comprobación previa de riesgos de vuelo.",
+    heroTitle: "ARC GCS | Sistema operativo de IA de baja altitud",
+    downloadLabel: "Descargar ARC GCS",
+    downloadPending: "Descarga disponible próximamente",
+    featuresLabel: "Funciones de ARC GCS",
+    videoFallback: "Su navegador no admite la reproducción de este vídeo.",
     features: [
       {
-        label: "Control por voz y comandos",
-        title: "Instrucciones naturales en lugar de operaciones complejas",
-        description:
-          "Una misión puede comenzar con sencillas instrucciones humanas que el sistema traduce en una planificación de vuelo autónoma.",
+        label: "ASISTENTE DE VOZ",
+        title: "Asistente de voz con IA | Control mínimo, trabajo eficiente",
+        videoLabel: "Vídeo de demostración del asistente de voz con IA",
       },
       {
-        label: "Flexibilidad multidominio",
-        title: "Coordinación flexible en distintos ámbitos",
-        description:
-          "Un solo operador puede coordinar una flota completa y hacer que cada terminal colabore como parte de un equipo organizado sobre el terreno.",
+        label: "PLANIFICACIÓN DE ÁREA",
+        title: "Dibujo de área en un toque | Generación automática de rutas topográficas",
+        videoLabel: "Vídeo de demostración de la planificación de área",
       },
       {
-        label: "Control de acceso seguro",
-        title: "Permisos controlados y pleno cumplimiento",
-        description:
-          "La gobernanza y las reglas de aprobación integradas garantizan que solo las personas autorizadas puedan operar misiones aéreas críticas.",
+        label: "MISIONES MIXTAS",
+        title: "Planificación de misiones mixtas | Todas las tareas en un solo espacio",
+        videoLabel: "Vídeo de demostración de la planificación de misiones mixtas",
       },
       {
-        label: "Medir el progreso, reproducir el éxito",
-        title: "Avances cuantificados para un crecimiento repetible",
-        description:
-          "Los datos históricos de vuelo mejoran continuamente la planificación, sustituyen la intuición por evaluaciones medibles y convierten los protocolos probados en recursos sectoriales reutilizables.",
+        label: "COMPROBACIÓN DE RIESGOS",
+        title: "Comprobación inteligente de riesgos | Prevención temprana, vuelo seguro",
+        videoLabel: "Vídeo de demostración de la comprobación inteligente de riesgos",
       },
     ],
+    resources: {
+      eyebrow: "RECURSOS Y ASISTENCIA",
+      title: "Manual de ARC GCS y asistencia",
+      description: "Consulte la documentación o póngase en contacto con el equipo de Navlyn.",
+      softwareTitle: "Cliente ARC GCS",
+      softwareDescription:
+        "Los enlaces de descarga para Windows y Android estarán disponibles con el lanzamiento oficial.",
+      manualTitle: "Manual de usuario de ARC GCS",
+      manualDescription:
+        "Descargue las instrucciones de uso, planificación de misiones y compatibilidad de dispositivos.",
+      manualDownloadLabel: "Descargar el manual",
+      supportTitle: "Servicio posventa",
+      supportDescription: "Escríbanos si tiene preguntas de uso o necesita asistencia técnica.",
+      supportAction: "Enviar correo",
+    },
   },
   about: {
     seoTitle: "Quiénes somos | Navlyn",

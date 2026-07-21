@@ -21,7 +21,7 @@ export default function AboutNewsPage() {
       hero={
         <ImmersivePageHero
           prefix="about-page-hero"
-          media={<img src={assetPath('/media/company-news-feature.jpg')} alt={copy.heroTitle} decoding="async" />}
+          media={<img src={assetPath('/media/about/news-feature.webp')} alt={copy.heroTitle} decoding="async" />}
           tag={copy.heroTitle}
           title={copy.heroTitle}
           description={copy.heroDescription}

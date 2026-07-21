@@ -84,7 +84,7 @@ export default function SiteLayout({
       <Header className="site-header">
         <div className="site-header-side site-header-side-left">
           <Link to="/" className="brand-mark">
-            <img src={assetPath('/media/logo-white.png')} alt="Navlyn 航链科技" />
+            <img src={assetPath('/media/brand/logo-white.webp')} alt="Navlyn 航链科技" />
           </Link>
         </div>
         <div className="site-header-center">
@@ -184,7 +184,7 @@ export default function SiteLayout({
               <div className="site-footer-brand">
                 <img
                   className="site-footer-brand-mark"
-                  src={assetPath('/media/navlyn-brand-mark-blue.png')}
+                  src={assetPath('/media/brand/mark-blue.webp')}
                   alt="Navlyn"
                 />
                 <p className="site-footer-brand-copy">{shell.footer.summary}</p>

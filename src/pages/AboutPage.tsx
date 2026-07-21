@@ -31,9 +31,9 @@ export default function AboutPage() {
               loop
               playsInline
               preload="metadata"
-              poster={assetPath('/media/about-team-collab.jpg')}
+              poster={assetPath('/media/about/team-collab.webp')}
             >
-              <source src={assetPath('/media/about.mp4')} type="video/mp4" />
+              <source src={assetPath('/media/about/about.mp4')} type="video/mp4" />
             </video>
           </div>
         </section>

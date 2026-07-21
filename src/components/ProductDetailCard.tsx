@@ -4,6 +4,7 @@ import type { CSSProperties } from 'react';
 import type { ProductCatalogItem, ProductSpecKey } from '../data/productCatalog';
 import { productManualPath } from '../data/productCatalog';
 import type { ProductCatalogCopy, ProductMessage } from '../i18n/productCatalogMessages';
+import '../styles/product-catalog.css';
 
 const { Paragraph, Text, Title } = Typography;
 

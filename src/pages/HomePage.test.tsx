@@ -58,17 +58,20 @@ describe('HomePage automatic carousels', () => {
     expect(document.querySelector('.hero-carousel-toggle')).toBeNull();
     expect(document.querySelectorAll('.hero-product-dot')).toHaveLength(5);
     expect(activeSlideIndex('.hero-product-slide')).toBe(0);
+    expect(document.querySelectorAll('.hero-product-slide img')).toHaveLength(1);
     expect(document.querySelector<HTMLImageElement>('.hero-product-slide.is-active img')?.src)
-      .toContain('/media/Homepage%20Carousel/arc-gcs.jpg');
+      .toContain('/media/home/carousel/arc-gcs.webp');
 
     const secondHeroDot = document.querySelectorAll<HTMLButtonElement>('.hero-product-dot')[1];
     fireEvent.click(secondHeroDot);
     expect(activeSlideIndex('.hero-product-slide')).toBe(1);
+    expect(document.querySelectorAll('.hero-product-slide img')).toHaveLength(2);
 
     act(() => {
       vi.advanceTimersByTime(5_200);
     });
     expect(activeSlideIndex('.hero-product-slide')).toBe(2);
+    expect(document.querySelectorAll('.hero-product-slide img')).toHaveLength(3);
   });
 
   it('keeps the news carousel automatic without rendering a pause control', () => {

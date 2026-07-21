@@ -19,7 +19,7 @@ export default function PartnersAlliancesPage() {
       hero={
         <ImmersivePageHero
           prefix="partners-page-hero"
-          media={<img src={assetPath('/media/about-team-collab.jpg')} alt={copy.heroTitle} decoding="async" />}
+          media={<img src={assetPath('/media/about/team-collab.webp')} alt={copy.heroTitle} decoding="async" />}
           tag={copy.heroTitle}
           title={copy.heroTitle}
           description={copy.heroDescription}

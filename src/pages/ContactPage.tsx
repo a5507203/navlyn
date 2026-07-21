@@ -12,6 +12,7 @@ import { assetPath } from '../utils/base';
 import { getContactApiBaseUrl } from '../config/environment';
 import { submitContactInquiry, type ContactInquiryValues } from './contactInquiry';
 import { useRef, useState, type FormEvent, type ReactNode } from 'react';
+import '../styles/contact.css';
 
 const CONTACT_EMAIL = 'contact@navlyn.com';
 type SubmissionState = 'idle' | 'submitting' | 'success' | 'error';
@@ -121,7 +122,7 @@ export default function ContactPage() {
           {showContactQr ? (
             <div className="contact-direct-media">
               <div className="contact-direct-card">
-                <img src={assetPath('/media/contact-code.png')} alt={copy.panel.sideTitle} />
+                <img src={assetPath('/media/contact/wechat-qr.png')} alt={copy.panel.sideTitle} />
               </div>
             </div>
           ) : null}

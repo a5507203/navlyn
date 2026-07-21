@@ -59,7 +59,7 @@ const newsItemsByLocale: Record<ContentLocale, readonly NewsItem[]> = {
       description: '持续展示航链科技在飞行智能、系统协同与低空作业能力上的研发进展。',
       date: '2026-01-26',
       location: '浙江 · 杭州',
-      image: assetPath('/media/news-team-1.jpg'),
+      image: assetPath('/media/news/team-1.webp'),
       imageAlt: 'Navlyn technology collaboration',
       body: [
         '围绕飞行智能体、系统协同与任务执行闭环，航链科技正在把技术能力持续沉淀为可复用的工程体系。现阶段官网先以品牌资料中的真实团队素材作为占位，后续可逐步替换为正式新闻稿与研发动态。',
@@ -73,7 +73,7 @@ const newsItemsByLocale: Record<ContentLocale, readonly NewsItem[]> = {
       description: '围绕产品发布、系统演示与品牌活动，逐步沉淀官网新闻内容。',
       date: '2026-01-26',
       location: '浙江 · 嘉兴',
-      image: assetPath('/media/news-team-2.jpg'),
+      image: assetPath('/media/news/team-2.webp'),
       imageAlt: 'Navlyn product and team presentation',
       body: [
         '从品牌发布、产品首秀到系统演示，产品动态页将作为官网对外呈现的重要信息入口，帮助客户与合作伙伴快速理解航链科技的产品矩阵与品牌节奏。',
@@ -87,7 +87,7 @@ const newsItemsByLocale: Record<ContentLocale, readonly NewsItem[]> = {
       description: '记录中法团队合作、海外交流与行业展会中的关键时刻与落地实践。',
       date: '2026-01-26',
       location: '中国 / 法国',
-      image: assetPath('/media/news-team-3.jpg'),
+      image: assetPath('/media/news/team-3.webp'),
       imageAlt: 'Navlyn international team collaboration',
       body: [
         '中法团队协作、海外交流与行业展会，是航链科技建立国际品牌识别与合作信任的重要组成部分。官网新闻区未来可以承接国际合作纪要、行业参展记录与跨区域项目沟通成果。',
@@ -102,7 +102,7 @@ const newsItemsByLocale: Record<ContentLocale, readonly NewsItem[]> = {
       description: 'A running view of Navlyn’s progress in flight intelligence, system coordination, and low-altitude operational capability.',
       date: '2026-01-26',
       location: 'Hangzhou, Zhejiang',
-      image: assetPath('/media/news-team-1.jpg'),
+      image: assetPath('/media/news/team-1.webp'),
       imageAlt: 'Navlyn technology collaboration',
       body: [
         'Across flight agents, coordinated systems, and closed-loop task execution, Navlyn is steadily turning technical strength into reusable engineering capability. The current site uses authentic team imagery from the brand archive as a placeholder and can later be replaced with formal news stories and R&D updates.',
@@ -116,7 +116,7 @@ const newsItemsByLocale: Record<ContentLocale, readonly NewsItem[]> = {
       description: 'A space for product releases, system showcases, and brand activity to gradually build the public news timeline.',
       date: '2026-01-26',
       location: 'Jiaxing, Zhejiang',
-      image: assetPath('/media/news-team-2.jpg'),
+      image: assetPath('/media/news/team-2.webp'),
       imageAlt: 'Navlyn product and team presentation',
       body: [
         'From brand launches and first product reveals to live system demonstrations, this stream is meant to become a key public-facing window into Navlyn’s product matrix and brand rhythm.',
@@ -130,7 +130,7 @@ const newsItemsByLocale: Record<ContentLocale, readonly NewsItem[]> = {
       description: 'Moments from Sino-French collaboration, international exchange, and industry exhibitions that shape Navlyn’s global presence.',
       date: '2026-01-26',
       location: 'China / France',
-      image: assetPath('/media/news-team-3.jpg'),
+      image: assetPath('/media/news/team-3.webp'),
       imageAlt: 'Navlyn international team collaboration',
       body: [
         'Cross-border teamwork, international exchange, and industry exhibitions are central to how Navlyn builds global trust and brand recognition. This section can later host partnership summaries, event records, and transregional project milestones.',

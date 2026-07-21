@@ -19,7 +19,7 @@ export default function AboutCareersPage() {
       hero={
         <ImmersivePageHero
           prefix="about-page-hero"
-          media={<img src={assetPath('/media/company-news-briefing.jpg')} alt={copy.heroTitle} decoding="async" />}
+          media={<img src={assetPath('/media/about/news-briefing.webp')} alt={copy.heroTitle} decoding="async" />}
           tag={copy.heroTitle}
           title={copy.heroTitle}
           description={copy.heroDescription}
@@ -34,7 +34,7 @@ export default function AboutCareersPage() {
           <Paragraph>{copy.sectionDescription}</Paragraph>
         </div>
         <div className="doc-career-banner">
-          <img src={assetPath('/media/logo-white.png')} alt="Navlyn" />
+          <img src={assetPath('/media/brand/logo-white.webp')} alt="Navlyn" />
           <div className="doc-career-banner-copy">
             <Text className="panel-label">{copy.bannerLabel}</Text>
             <Title level={3}>{copy.bannerTitle}</Title>

@@ -467,35 +467,48 @@ export const pageMessages = {
       ],
     },
     arc: {
-      seoTitle: "ARC ENGINE | Navlyn 航链科技",
-      seoDescription:
-        "查看 NAVLYN ARC 如何重塑低空作业的大脑，并通过 Learning Loop 持续进化。",
-      heroTitle: 'NAVLYN ARC：重塑低空作业的"大脑"',
-      heroSubtitle:
-        '从"遥控执行"进化至"意图决策"。基于 AI 驱动的自主飞行架构，让每一架无人机拥有专业飞手的直觉。',
+      seoTitle: "ARC GCS 低空 AI 操作系统 | Navlyn 航链科技",
+      seoDescription: "了解 ARC GCS 的智能任务规划、多形态协同与飞行风险预检能力。",
+      heroTitle: "ARC GCS｜低空 AI 操作系统",
+      downloadLabel: "下载 ARC GCS",
+      downloadPending: "下载地址即将开放",
+      featuresLabel: "ARC GCS 核心能力",
+      videoFallback: "您的浏览器暂不支持视频播放。",
       features: [
         {
-          label: "Voice & Command Control",
-          title: "语音指令，代替复杂人工",
-          description: "无需复杂操作，通过简单指令即可让无人机理解意图，自主规划飞行路线。",
+          label: "VOICE ASSISTANT",
+          title: "AI 语音助手｜极简操控，高效作业",
+          videoLabel: "AI 语音助手演示视频",
         },
         {
-          label: "Muti-domain Flexibility",
-          title: "跨域协同，灵活调度",
-          description: "一个人就能轻松掌控一整队无人机，让它们像团队一样配合工作。",
+          label: "AREA PLANNING",
+          title: "一键绘区｜自动生成测绘航线",
+          videoLabel: "一键绘区演示视频",
         },
         {
-          label: "Secure Access Control",
-          title: "权限分明，操作合规",
-          description: "内置严格的安全审批流程，只有获得授权的人才能操作，防止任何违规飞行。",
+          label: "MIXED MISSIONS",
+          title: "多形态混排｜全域任务一体规划",
+          videoLabel: "多形态混排演示视频",
         },
         {
-          label: "Quantify Progress Scale Success",
-          title: "量化进步大脑，快速迭代经验",
-          description:
-            "根据历史作业数据，系统能帮你优化下一次的任务规划，让作业效率持续翻倍。用数据评价飞行好坏，不再靠感觉。成功的经验可以快速打包，复制到其他行业。",
+          label: "RISK PREFLIGHT",
+          title: "智能风险预检｜前置防护，安全飞行",
+          videoLabel: "智能风险预检演示视频",
         },
       ],
+      resources: {
+        eyebrow: "RESOURCES & SUPPORT",
+        title: "ARC GCS 使用手册与售后支持",
+        description: "获取使用资料，或联系 Navlyn 售后团队。",
+        softwareTitle: "ARC GCS 客户端",
+        softwareDescription: "Windows 与 Android 下载地址将在正式发布后开放。",
+        manualTitle: "ARC GCS 使用手册",
+        manualDescription: "下载操作、任务规划与设备适配说明。",
+        manualDownloadLabel: "下载使用手册",
+        supportTitle: "售后支持",
+        supportDescription: "产品使用或技术问题，请发送邮件联系我们。",
+        supportAction: "发送邮件",
+      },
     },
     about: {
       seoTitle: "关于我们 | Navlyn 航链科技",
@@ -1062,38 +1075,49 @@ export const pageMessages = {
       ],
     },
     arc: {
-      seoTitle: "ARC ENGINE | Navlyn",
+      seoTitle: "ARC GCS Low-Altitude AI Operating System | Navlyn",
       seoDescription:
-        "Discover how NAVLYN ARC reshapes low-altitude operations into an intent-driven autonomous intelligence stack.",
-      heroTitle: 'NAVLYN ARC: The Brain Behind Intelligent Low-Altitude Work',
-      heroSubtitle:
-        'From remote execution to intent-driven decision making. An AI-native autonomy architecture that gives every aircraft the intuition of a professional pilot.',
+        "Explore ARC GCS for intelligent mission planning, mixed-platform coordination, and flight risk preflight checks.",
+      heroTitle: "ARC GCS | Low-Altitude AI Operating System",
+      downloadLabel: "Download ARC GCS",
+      downloadPending: "Download coming soon",
+      featuresLabel: "ARC GCS capabilities",
+      videoFallback: "Your browser does not support video playback.",
       features: [
         {
-          label: "Voice & Command Control",
-          title: "Natural commands instead of complex operation",
-          description:
-            "A mission can begin with simple human instructions while the system translates intent into autonomous flight planning.",
+          label: "VOICE ASSISTANT",
+          title: "AI Voice Assistant | Minimal Control, Efficient Operations",
+          videoLabel: "AI Voice Assistant demonstration video",
         },
         {
-          label: "Multi-domain Flexibility",
-          title: "Flexible coordination across domains",
-          description:
-            "One operator can orchestrate an entire fleet and let every terminal collaborate as a coordinated team in the field.",
+          label: "AREA PLANNING",
+          title: "One-Tap Area Planning | Generate Survey Routes Automatically",
+          videoLabel: "One-Tap Area Planning demonstration video",
         },
         {
-          label: "Secure Access Control",
-          title: "Permission-aware and fully compliant",
-          description:
-            "Built-in governance and approval logic make sure only authorized people can operate critical flight missions.",
+          label: "MIXED MISSIONS",
+          title: "Mixed Mission Planning | Plan Every Mission in One Workspace",
+          videoLabel: "Mixed Mission Planning demonstration video",
         },
         {
-          label: "Quantify Progress Scale Success",
-          title: "Quantified progress and repeatable growth",
-          description:
-            "Historical flight data continuously improves mission planning, replaces intuition with measurable evaluation, and turns successful protocols into reusable industry assets.",
+          label: "RISK PREFLIGHT",
+          title: "Smart Risk Preflight | Detect Issues Early, Fly Safely",
+          videoLabel: "Smart Risk Preflight demonstration video",
         },
       ],
+      resources: {
+        eyebrow: "RESOURCES & SUPPORT",
+        title: "ARC GCS Manual and Support",
+        description: "Get product guidance or contact the Navlyn support team.",
+        softwareTitle: "ARC GCS Client",
+        softwareDescription: "Windows and Android download links will open with the official release.",
+        manualTitle: "ARC GCS User Manual",
+        manualDescription: "Download guidance for operation, mission planning, and device compatibility.",
+        manualDownloadLabel: "Download user manual",
+        supportTitle: "After-Sales Support",
+        supportDescription: "Email us with product usage or technical questions.",
+        supportAction: "Send email",
+      },
     },
     about: {
       seoTitle: "About | Navlyn",

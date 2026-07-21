@@ -264,38 +264,51 @@ export const pageMessagesFr = {
     ],
   },
   arc: {
-    seoTitle: "ARC ENGINE | Navlyn",
+    seoTitle: "ARC GCS, système d’exploitation IA en basse altitude | Navlyn",
     seoDescription:
-      "Découvrez comment NAVLYN ARC transforme les opérations en basse altitude en un système d’intelligence autonome guidé par l’intention.",
-    heroTitle: "NAVLYN ARC : le cerveau des opérations intelligentes en basse altitude",
-    heroSubtitle:
-      "De l’exécution télécommandée à la décision guidée par l’intention. Une architecture d’autonomie native de l’IA qui donne à chaque aéronef l’intuition d’un pilote professionnel.",
+      "Découvrez ARC GCS pour la planification intelligente, la coordination multiplateforme et le précontrôle des risques de vol.",
+    heroTitle: "ARC GCS | Système d’exploitation IA en basse altitude",
+    downloadLabel: "Télécharger ARC GCS",
+    downloadPending: "Téléchargement bientôt disponible",
+    featuresLabel: "Fonctionnalités ARC GCS",
+    videoFallback: "Votre navigateur ne permet pas la lecture de cette vidéo.",
     features: [
       {
-        label: "Commande vocale et textuelle",
-        title: "Des instructions naturelles à la place d’opérations complexes",
-        description:
-          "Une mission peut commencer par de simples instructions humaines, que le système traduit en planification de vol autonome.",
+        label: "ASSISTANT VOCAL",
+        title: "Assistant vocal IA | Un contrôle minimal, des opérations efficaces",
+        videoLabel: "Vidéo de démonstration de l’assistant vocal IA",
       },
       {
-        label: "Souplesse multidomaine",
-        title: "Une coordination flexible dans tous les domaines",
-        description:
-          "Un seul opérateur peut orchestrer une flotte entière et permettre à chaque terminal de collaborer au sein d’une équipe coordonnée sur le terrain.",
+        label: "PLANIFICATION DE ZONE",
+        title: "Délimitation en un geste | Génération automatique des plans de vol",
+        videoLabel: "Vidéo de démonstration de la planification de zone",
       },
       {
-        label: "Contrôle sécurisé des accès",
-        title: "Des autorisations maîtrisées et une conformité complète",
-        description:
-          "La gouvernance et les règles d’approbation intégrées garantissent que seules les personnes autorisées peuvent conduire des missions aériennes critiques.",
+        label: "MISSIONS MIXTES",
+        title: "Planification multimission | Toutes les missions dans un même espace",
+        videoLabel: "Vidéo de démonstration de la planification multimission",
       },
       {
-        label: "Mesurer les progrès, reproduire les réussites",
-        title: "Des progrès quantifiés pour une croissance reproductible",
-        description:
-          "Les données de vol historiques améliorent en continu la planification, remplacent l’intuition par une évaluation mesurable et transforment les protocoles éprouvés en ressources sectorielles réutilisables.",
+        label: "PRÉCONTRÔLE DES RISQUES",
+        title: "Précontrôle intelligent des risques | Anticiper pour voler en sécurité",
+        videoLabel: "Vidéo de démonstration du précontrôle des risques",
       },
     ],
+    resources: {
+      eyebrow: "RESSOURCES ET ASSISTANCE",
+      title: "Manuel ARC GCS et assistance",
+      description: "Consultez la documentation ou contactez l’équipe d’assistance Navlyn.",
+      softwareTitle: "Client ARC GCS",
+      softwareDescription:
+        "Les liens de téléchargement Windows et Android seront disponibles lors de la sortie officielle.",
+      manualTitle: "Manuel d’utilisation ARC GCS",
+      manualDescription:
+        "Téléchargez les instructions d’utilisation, de planification des missions et de compatibilité des appareils.",
+      manualDownloadLabel: "Télécharger le manuel",
+      supportTitle: "Service après-vente",
+      supportDescription: "Écrivez-nous pour toute question d’utilisation ou d’assistance technique.",
+      supportAction: "Envoyer un e-mail",
+    },
   },
   about: {
     seoTitle: "À propos | Navlyn",

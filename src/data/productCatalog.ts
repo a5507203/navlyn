@@ -42,7 +42,7 @@ export interface HomeProductSlide {
   to: string;
 }
 
-export const productManualPath = assetPath('/media/july-update/navlyn-product-manual-zh.pdf');
+export const productManualPath = assetPath('/media/manuals/navlyn-product-manual-zh.pdf');
 
 /**
  * Public specifications transcribed from the uploaded Chinese Navlyn product
@@ -51,7 +51,7 @@ export const productManualPath = assetPath('/media/july-update/navlyn-product-ma
 export const airProducts: ProductCatalogItem[] = [
   {
     key: 'titan',
-    image: assetPath('/media/july-update/titan.jpg'),
+    image: assetPath('/media/products/catalog/titan.webp'),
     imagePosition: 'center 68%',
     specs: [
       { key: 'aircraftDimensions', value: '415 (L) × 195 (W) × 75 (H) cm' },
@@ -66,7 +66,7 @@ export const airProducts: ProductCatalogItem[] = [
   },
   {
     key: 'commander',
-    image: assetPath('/media/scout-s1.png'),
+    image: assetPath('/media/products/scout-s1.webp'),
     imagePosition: 'center 50%',
     specs: [
       { key: 'aircraftDimensions', value: '338 (L) × 150 (W) × 50 (H) cm' },
@@ -81,7 +81,7 @@ export const airProducts: ProductCatalogItem[] = [
   },
   {
     key: 'scout',
-    image: assetPath('/media/july-update/scout.png'),
+    image: assetPath('/media/products/catalog/scout.webp'),
     imagePosition: 'center 52%',
     specs: [
       { key: 'aircraftDimensions', value: '175 (L) × 120 (W) × 25 (H) cm' },
@@ -101,7 +101,7 @@ export const airProducts: ProductCatalogItem[] = [
 export const seaProducts: ProductCatalogItem[] = [
   {
     key: 'seal',
-    image: assetPath('/media/navlyn-s1.png'),
+    image: assetPath('/media/products/navlyn-s1.webp'),
     imagePosition: 'center 48%',
     specs: [
       { key: 'vesselDimensions', value: '1,000 (L) × 700 (W) × 248 (H) mm' },
@@ -118,31 +118,31 @@ export const seaProducts: ProductCatalogItem[] = [
 export const homeProductSlides: HomeProductSlide[] = [
   {
     key: 'titan',
-    image: assetPath('/media/july-update/titan.jpg'),
+    image: assetPath('/media/home/products/titan.webp'),
     imagePosition: 'center 68%',
     to: '/air',
   },
   {
     key: 'commander',
-    image: assetPath('/media/scout-s1.png'),
+    image: assetPath('/media/products/scout-s1.webp'),
     imagePosition: 'center 50%',
     to: '/air',
   },
   {
     key: 'scout',
-    image: assetPath('/media/navlyn-x1.png'),
+    image: assetPath('/media/products/navlyn-x1.webp'),
     imagePosition: 'center 52%',
     to: '/air',
   },
   {
     key: 'seal',
-    image: assetPath('/media/navlyn-s1.png'),
+    image: assetPath('/media/products/navlyn-s1.webp'),
     imagePosition: 'center 48%',
     to: '/sea',
   },
   {
     key: 'arc',
-    image: assetPath('/media/july-update/arc.jpg'),
+    image: assetPath('/media/products/catalog/arc.webp'),
     imagePosition: 'center 50%',
     to: '/arc-os',
   },
@@ -157,31 +157,31 @@ export const homeProductSlides: HomeProductSlide[] = [
 export const homeHeroSlides: HomeProductSlide[] = [
   {
     key: 'arc',
-    image: assetPath('/media/Homepage Carousel/arc-gcs.jpg'),
+    image: assetPath('/media/home/carousel/arc-gcs.webp'),
     imagePosition: 'center 50%',
     to: '/arc-os',
   },
   {
     key: 'titan',
-    image: assetPath('/media/Homepage Carousel/titan-t1.jpg'),
+    image: assetPath('/media/home/carousel/titan-t1.webp'),
     imagePosition: 'center 68%',
     to: '/air',
   },
   {
     key: 'commander',
-    image: assetPath('/media/Homepage Carousel/commander-x1.jpg'),
+    image: assetPath('/media/home/carousel/commander-x1.webp'),
     imagePosition: 'center 50%',
     to: '/air',
   },
   {
     key: 'scout',
-    image: assetPath('/media/Homepage Carousel/scout-s1.jpg'),
+    image: assetPath('/media/home/carousel/scout-s1.webp'),
     imagePosition: 'center 52%',
     to: '/air',
   },
   {
     key: 'seal',
-    image: assetPath('/media/Homepage Carousel/seal-s1.jpg'),
+    image: assetPath('/media/home/carousel/seal-s1.webp'),
     imagePosition: 'center 48%',
     to: '/sea',
   },

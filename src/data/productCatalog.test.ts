@@ -37,27 +37,27 @@ describe('July product catalog', () => {
   it('uses the existing in-water Seal image on the SEA product page', () => {
     const seal = seaProducts.find(({ key }) => key === 'seal');
 
-    expect(seal?.image).toBe('/media/navlyn-s1.png');
+    expect(seal?.image).toBe('/media/products/navlyn-s1.webp');
   });
 
   it('keeps the product grid images separate from the hero carousel', () => {
     expect(homeProductSlides.map(({ key, image }) => ({ key, image }))).toEqual([
-      { key: 'titan', image: '/media/july-update/titan.jpg' },
-      { key: 'commander', image: '/media/scout-s1.png' },
-      { key: 'scout', image: '/media/navlyn-x1.png' },
-      { key: 'seal', image: '/media/navlyn-s1.png' },
-      { key: 'arc', image: '/media/july-update/arc.jpg' },
+      { key: 'titan', image: '/media/home/products/titan.webp' },
+      { key: 'commander', image: '/media/products/scout-s1.webp' },
+      { key: 'scout', image: '/media/products/navlyn-x1.webp' },
+      { key: 'seal', image: '/media/products/navlyn-s1.webp' },
+      { key: 'arc', image: '/media/products/catalog/arc.webp' },
       { key: 'counterUas', image: '' },
     ]);
   });
 
   it('uses five provided hero images with ARC first', () => {
     expect(homeHeroSlides.map(({ key, image }) => ({ key, image }))).toEqual([
-      { key: 'arc', image: '/media/Homepage Carousel/arc-gcs.jpg' },
-      { key: 'titan', image: '/media/Homepage Carousel/titan-t1.jpg' },
-      { key: 'commander', image: '/media/Homepage Carousel/commander-x1.jpg' },
-      { key: 'scout', image: '/media/Homepage Carousel/scout-s1.jpg' },
-      { key: 'seal', image: '/media/Homepage Carousel/seal-s1.jpg' },
+      { key: 'arc', image: '/media/home/carousel/arc-gcs.webp' },
+      { key: 'titan', image: '/media/home/carousel/titan-t1.webp' },
+      { key: 'commander', image: '/media/home/carousel/commander-x1.webp' },
+      { key: 'scout', image: '/media/home/carousel/scout-s1.webp' },
+      { key: 'seal', image: '/media/home/carousel/seal-s1.webp' },
     ]);
     expect(homeHeroSlides.some(({ key }) => key === 'counterUas')).toBe(false);
   });

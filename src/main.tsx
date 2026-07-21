@@ -11,16 +11,11 @@ import './styles/base.css';
 import './styles/shared-ui.css';
 import './styles/footer.css';
 import './styles/header.css';
-import './styles/home-hero.css';
-import './styles/home-immersive.css';
-import './styles/home-content.css';
 import './styles/subpage-hero.css';
 import './styles/route-hero.css';
 import './styles/document-core.css';
 import './styles/document-feature-pages.css';
 import './styles/news.css';
-import './styles/contact.css';
-import './styles/product-catalog.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

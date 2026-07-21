@@ -10,6 +10,9 @@ import {
 import { homeHeroSlides } from '../data/productCatalog';
 import { useI18n } from '../i18n/I18nProvider';
 import SiteLayout from '../layouts/SiteLayout';
+import '../styles/home-hero.css';
+import '../styles/home-immersive.css';
+import '../styles/home-content.css';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -22,10 +25,23 @@ function shouldPauseAutomaticCarousels() {
 export default function HomePage() {
   const { page } = useI18n();
   const copy = page.home;
-  const [heroSlideIndex, setHeroSlideIndex] = useState(0);
+  const [heroCarousel, setHeroCarousel] = useState(() => ({
+    activeIndex: 0,
+    loadedIndices: new Set([0]),
+  }));
   const [newsSlideIndex, setNewsSlideIndex] = useState(0);
   const [heroCarouselPaused, setHeroCarouselPaused] = useState(shouldPauseAutomaticCarousels);
   const [newsCarouselPaused, setNewsCarouselPaused] = useState(shouldPauseAutomaticCarousels);
+  const heroSlideIndex = heroCarousel.activeIndex;
+
+  const selectHeroSlide = (nextIndex: number) => {
+    setHeroCarousel((current) => {
+      const loadedIndices = new Set(current.loadedIndices);
+      loadedIndices.add(nextIndex);
+
+      return { activeIndex: nextIndex, loadedIndices };
+    });
+  };
 
   useEffect(() => {
     const motionPreference = window.matchMedia(REDUCED_MOTION_QUERY);
@@ -49,7 +65,13 @@ export default function HomePage() {
     }
 
     const rotation = window.setInterval(() => {
-      setHeroSlideIndex((current) => (current + 1) % homeHeroSlides.length);
+      setHeroCarousel((current) => {
+        const activeIndex = (current.activeIndex + 1) % homeHeroSlides.length;
+        const loadedIndices = new Set(current.loadedIndices);
+        loadedIndices.add(activeIndex);
+
+        return { activeIndex, loadedIndices };
+      });
     }, 5200);
 
     return () => {
@@ -85,13 +107,17 @@ export default function HomePage() {
                 className={`hero-product-slide${index === heroSlideIndex ? ' is-active' : ''}`}
                 aria-hidden={index !== heroSlideIndex}
               >
-                <img
-                  src={slide.image}
-                  alt=""
-                  style={{ objectPosition: slide.imagePosition }}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
+                {heroCarousel.loadedIndices.has(index) ? (
+                  <img
+                    src={slide.image}
+                    alt=""
+                    width="2560"
+                    height="1440"
+                    style={{ objectPosition: slide.imagePosition }}
+                    loading={index === heroSlideIndex ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                ) : null}
               </div>
             ))}
           </div>
@@ -120,7 +146,7 @@ export default function HomePage() {
                 key={slide.key}
                 type="button"
                 className={`hero-product-dot${index === heroSlideIndex ? ' is-active' : ''}`}
-                onClick={() => setHeroSlideIndex(index)}
+                onClick={() => selectHeroSlide(index)}
                 aria-label={`${copy.productGateway.title} ${index + 1}`}
                 aria-pressed={index === heroSlideIndex}
               />
