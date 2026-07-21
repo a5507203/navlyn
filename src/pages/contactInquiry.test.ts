@@ -46,7 +46,7 @@ describe('contact inquiry API client', () => {
   it('posts with the production fetch path and returns the accepted feedback receipt', async () => {
     const fetchMock = vi.fn().mockResolvedValue(
       responseWith({
-        code: 0,
+        code: 200,
         msg: 'success',
         data: { id: 42, status: 'PENDING', createdAt: 1_784_592_000_000 },
       }),
@@ -72,6 +72,7 @@ describe('contact inquiry API client', () => {
 
   it.each([
     ['http error', responseWith({ code: 500 }, 500), 'http'],
+    ['unexpected zero code', responseWith({ code: 0, msg: 'success' }), 'business'],
     ['business error', responseWith({ code: 1001, msg: 'rejected' }), 'business'],
     ['invalid response', responseWith({ code: '0' }), 'invalid-response'],
   ])('reports a semantic error for %s', async (_label, response, reason) => {

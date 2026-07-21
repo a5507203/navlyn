@@ -1,4 +1,5 @@
 const FEEDBACK_PATH = '/settings/api/v1/feedbacks';
+const FEEDBACK_SUCCESS_CODE = 200;
 const FEEDBACK_STATUSES = new Set(['PENDING', 'PROCESSING', 'RESOLVED', 'CLOSED']);
 const REQUEST_TIMEOUT_MS = 15_000;
 
@@ -145,7 +146,7 @@ function parseReceipt(payload: unknown): ContactInquiryReceipt {
     throw new ContactInquirySubmissionError('invalid-response');
   }
 
-  if (typeof payload.code === 'number' && payload.code !== 0) {
+  if (typeof payload.code === 'number' && payload.code !== FEEDBACK_SUCCESS_CODE) {
     throw new ContactInquirySubmissionError('business');
   }
 

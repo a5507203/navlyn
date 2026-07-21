@@ -79,7 +79,7 @@ describe('ContactPage', () => {
       ok: true,
       status: 200,
       json: vi.fn().mockResolvedValue({
-        code: 0,
+        code: 200,
         data: { id: 42, status: 'PENDING', createdAt: 1_784_592_000_000 },
       }),
     } as unknown as Response);
