@@ -17,22 +17,22 @@ const featureMedia = [
   {
     copyIndex: 0,
     video: '/media/arc-gcs/videos/voice-assistant.mp4',
-    poster: '/media/arc-gcs/posters/voice-assistant.webp',
+    poster: '/media/arc-gcs/posters/voice-assistant-first-frame.webp',
   },
   {
     copyIndex: 1,
     video: '/media/arc-gcs/videos/area-routing.mp4',
-    poster: '/media/arc-gcs/posters/area-routing.webp',
+    poster: '/media/arc-gcs/posters/area-routing-first-frame.webp',
   },
   {
     copyIndex: 2,
     video: '/media/arc-gcs/videos/mixed-missions.mp4',
-    poster: '/media/arc-gcs/posters/mixed-missions.webp',
+    poster: '/media/arc-gcs/posters/mixed-missions-first-frame.webp',
   },
   {
     copyIndex: 3,
     video: '/media/arc-gcs/videos/risk-preflight.mp4',
-    poster: '/media/arc-gcs/posters/risk-preflight.webp',
+    poster: '/media/arc-gcs/posters/risk-preflight-first-frame.webp',
   },
 ] as const;
 
@@ -83,6 +83,7 @@ export default function ArcPage() {
     <SiteLayout
       title={copy.seoTitle}
       description={copy.seoDescription}
+      headerSize="large"
       hero={
         <div className="arc-gcs-page">
           <section className="arc-gcs-hero" aria-labelledby="arc-gcs-title">
@@ -111,15 +112,17 @@ export default function ArcPage() {
           <section className="arc-gcs-capabilities" aria-label={copy.featuresLabel}>
             {featureMedia.map((media) => {
               const feature = copy.features[media.copyIndex];
+              const [titleLead, titleDetail] = feature.title.split(/\s*[｜|]\s*/, 2);
 
               return (
                 <article className="arc-gcs-feature" key={feature.label}>
                   <header className="arc-gcs-feature-heading">
                     <span className="arc-gcs-feature-label">{feature.label}</span>
-                    <h2
-                      className={media.copyIndex === 3 ? 'arc-gcs-feature-title-long' : undefined}
-                    >
-                      {feature.title}
+                    <h2 aria-label={feature.title}>
+                      <span className="arc-gcs-feature-title-lead">{titleLead}</span>
+                      {titleDetail ? (
+                        <span className="arc-gcs-feature-title-detail">{titleDetail}</span>
+                      ) : null}
                     </h2>
                   </header>
                   <div className="arc-gcs-video-shell">

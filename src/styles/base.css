@@ -1,6 +1,8 @@
 :root {
-  --site-header-height: 64px;
-  --site-header-balance-width: 320px;
+  /* Desktop header dimensions use the 2048px design viewport so browser zoom does not resize the navigation. */
+  --site-header-height: 3.125vw;
+  --site-header-balance-width: 15.625vw;
+  --site-header-font-size: 0.634765625vw;
   --brand-blue-start: #1d4daf;
   --brand-blue-end: #0f2f7c;
   --brand-blue-hover-start: #245ac4;

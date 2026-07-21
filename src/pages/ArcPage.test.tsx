@@ -36,7 +36,7 @@ describe('ArcPage', () => {
     ];
     const renderedFeatureHeadings = Array.from(
       document.querySelectorAll<HTMLHeadingElement>('.arc-gcs-feature h2'),
-      (heading) => heading.textContent,
+      (heading) => heading.getAttribute('aria-label'),
     );
     expect(renderedFeatureHeadings).toEqual(featureHeadings);
 
@@ -44,7 +44,8 @@ describe('ArcPage', () => {
     expect(videos).toHaveLength(4);
     expect(document.querySelector('.arc-gcs-flight-path')).toBeNull();
     expect(document.querySelector('.arc-gcs-video-bar')).toBeNull();
-    expect(document.querySelectorAll('.arc-gcs-feature-title-long')).toHaveLength(1);
+    expect(document.querySelectorAll('.arc-gcs-feature-title-lead')).toHaveLength(4);
+    expect(document.querySelectorAll('.arc-gcs-feature-title-detail')).toHaveLength(4);
     expect(videos.map((video) => video.querySelector('source')?.getAttribute('src'))).toEqual([
       '/media/arc-gcs/videos/voice-assistant.mp4',
       '/media/arc-gcs/videos/area-routing.mp4',

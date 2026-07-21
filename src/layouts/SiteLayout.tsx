@@ -46,6 +46,7 @@ interface SiteLayoutProps extends PropsWithChildren {
   hero?: ReactNode;
   showFooter?: boolean;
   contentClassName?: string;
+  headerSize?: 'default' | 'large';
 }
 
 export default function SiteLayout({
@@ -55,6 +56,7 @@ export default function SiteLayout({
   children,
   showFooter = true,
   contentClassName,
+  headerSize = 'default',
 }: SiteLayoutProps) {
   const location = useLocation();
   const { locale, setLocale, shell } = useI18n();
@@ -81,7 +83,7 @@ export default function SiteLayout({
   return (
     <Layout className="site-shell">
       <Seo title={title} description={description} />
-      <Header className="site-header">
+      <Header className={`site-header${headerSize === 'large' ? ' is-large' : ''}`}>
         <div className="site-header-side site-header-side-left">
           <Link to="/" className="brand-mark">
             <img src={assetPath('/media/brand/logo-white.webp')} alt="Navlyn 航链科技" />
