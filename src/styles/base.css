@@ -1,8 +1,8 @@
 :root {
   /* Desktop header dimensions use the 2048px design viewport so browser zoom does not resize the navigation. */
-  --site-header-height: 3.125vw;
-  --site-header-balance-width: 15.625vw;
-  --site-header-font-size: 0.634765625vw;
+  --site-header-height: 5.625vw;
+  --site-header-balance-width: 19.6vw;
+  --site-header-font-size: 1.142578125vw;
   --brand-blue-start: #1d4daf;
   --brand-blue-end: #0f2f7c;
   --brand-blue-hover-start: #245ac4;
@@ -168,6 +168,14 @@ body {
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 992px) and (hover: none) and (pointer: coarse) {
+  :root {
+    --site-header-height: 72px;
+    --site-header-balance-width: auto;
+    --site-header-font-size: 13px;
+  }
 }
 
 @media (max-width: 992px) {

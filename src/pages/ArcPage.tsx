@@ -83,7 +83,6 @@ export default function ArcPage() {
     <SiteLayout
       title={copy.seoTitle}
       description={copy.seoDescription}
-      headerSize="large"
       hero={
         <div className="arc-gcs-page">
           <section className="arc-gcs-hero" aria-labelledby="arc-gcs-title">

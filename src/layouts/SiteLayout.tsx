@@ -19,6 +19,7 @@ import type { PropsWithChildren, ReactNode } from 'react';
 import Seo from '../components/Seo';
 import { footerNavGroups, footerSocialLinks, siteNavItems } from '../data/site';
 import { localeOptions } from '../i18n/messages';
+import type { Locale } from '../i18n/messages';
 import { useI18n } from '../i18n/I18nProvider';
 import { assetPath } from '../utils/base';
 
@@ -40,13 +41,30 @@ const footerSocialIcons = {
   youtube: <YoutubeFilled />,
 } as const;
 
+const flagStarPath = 'M0-1 .5878.809-.9511-.309H.9511L-.5878.809Z';
+
+function LanguageFlag({ locale }: { locale: Locale }) {
+  return (
+    <span className="language-flag-icon" data-locale={locale} aria-hidden="true">
+      {locale === 'zh' ? (
+        <svg viewBox="0 0 30 20" focusable="false">
+          <path d={flagStarPath} transform="translate(5 5) scale(3)" />
+          <path d={flagStarPath} transform="translate(10 2) rotate(23.04)" />
+          <path d={flagStarPath} transform="translate(12 4) rotate(45.87)" />
+          <path d={flagStarPath} transform="translate(12 7) rotate(69.95)" />
+          <path d={flagStarPath} transform="translate(10 9) rotate(20.66)" />
+        </svg>
+      ) : null}
+    </span>
+  );
+}
+
 interface SiteLayoutProps extends PropsWithChildren {
   title: string;
   description: string;
   hero?: ReactNode;
   showFooter?: boolean;
   contentClassName?: string;
-  headerSize?: 'default' | 'large';
 }
 
 export default function SiteLayout({
@@ -56,7 +74,6 @@ export default function SiteLayout({
   children,
   showFooter = true,
   contentClassName,
-  headerSize = 'default',
 }: SiteLayoutProps) {
   const location = useLocation();
   const { locale, setLocale, shell } = useI18n();
@@ -83,7 +100,7 @@ export default function SiteLayout({
   return (
     <Layout className="site-shell">
       <Seo title={title} description={description} />
-      <Header className={`site-header${headerSize === 'large' ? ' is-large' : ''}`}>
+      <Header className="site-header">
         <div className="site-header-side site-header-side-left">
           <Link to="/" className="brand-mark">
             <img src={assetPath('/media/brand/logo-white.webp')} alt="Navlyn 航链科技" />
@@ -120,7 +137,7 @@ export default function SiteLayout({
               placement="bottomRight"
             >
               <Button type="default" ghost className="header-language-button">
-                <span className="language-flag-icon" data-locale={locale} aria-hidden="true" />
+                <LanguageFlag locale={locale} />
                 <span>{shell.languageLabel}</span>
                 <DownOutlined />
               </Button>
@@ -164,7 +181,7 @@ export default function SiteLayout({
             placement="bottomRight"
           >
             <Button block type="default" ghost className="header-language-button mobile-language-button">
-              <span className="language-flag-icon" data-locale={locale} aria-hidden="true" />
+              <LanguageFlag locale={locale} />
               <span>{shell.languageLabel}</span>
               <DownOutlined />
             </Button>
