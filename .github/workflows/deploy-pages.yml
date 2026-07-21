@@ -37,6 +37,8 @@ jobs:
 
       - name: Build site
         run: npm run build
+        env:
+          VITE_CONTACT_API_BASE_URL: https://gcs-api.navlyn.com
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

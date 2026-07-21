@@ -338,12 +338,32 @@
   margin-top: 4px;
 }
 
-.contact-inquiry-actions p {
+.contact-inquiry-action-copy {
+  display: flex;
+  max-width: 640px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-inquiry-action-copy p {
   max-width: 520px;
   margin: 0;
   color: rgba(176, 191, 219, 0.58);
   font-size: 13px;
   line-height: 1.55;
+}
+
+.contact-inquiry-action-copy .contact-inquiry-status {
+  max-width: 640px;
+  font-weight: 600;
+}
+
+.contact-inquiry-status.is-success {
+  color: #79d7a7;
+}
+
+.contact-inquiry-status.is-error {
+  color: #ff9d9d;
 }
 
 .contact-inquiry-actions button {
@@ -365,10 +385,16 @@
     box-shadow 180ms ease;
 }
 
-.contact-inquiry-actions button:hover {
+.contact-inquiry-actions button:hover:not(:disabled) {
   filter: brightness(1.08);
   transform: translateY(-2px);
   box-shadow: 0 20px 38px rgba(35, 78, 211, 0.3);
+}
+
+.contact-inquiry-actions button:disabled {
+  cursor: wait;
+  filter: saturate(0.65) brightness(0.82);
+  box-shadow: none;
 }
 
 .contact-inquiry-actions button:focus-visible {

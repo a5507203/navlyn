@@ -465,15 +465,17 @@ export const pageMessagesEs = {
       descriptionPlaceholder:
         "Describa su caso de uso, objetivos, lugar de despliegue, calendario o los productos que desea conocer.",
       organizationOptions: [
-        { value: "enterprise", label: "Empresa" },
+        { value: "company", label: "Empresa" },
         { value: "government", label: "Gobierno / Sector público" },
-        { value: "partner", label: "Distribuidor / Socio" },
+        { value: "distributor", label: "Distribuidor / Socio" },
         { value: "research", label: "Universidad / Investigación" },
         { value: "other", label: "Otro" },
       ],
       submitLabel: "Enviar",
-      submitNote: "Se abrirá su aplicación de correo. No se enviará nada automáticamente.",
-      mailSubject: "Consulta desde el sitio web de Navlyn",
+      submittingLabel: "Enviando…",
+      submitNote: "Envíe sus datos y nuestro equipo se pondrá en contacto con usted.",
+      successMessage: "Su consulta se ha enviado correctamente. Nuestro equipo se pondrá en contacto con usted pronto.",
+      errorMessage: "No hemos podido enviar su consulta. Inténtelo de nuevo o escriba a contact@navlyn.com.",
     },
   },
   partners: {

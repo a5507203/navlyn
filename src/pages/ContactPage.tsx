@@ -9,10 +9,12 @@
 import SiteLayout from '../layouts/SiteLayout';
 import { useI18n } from '../i18n/I18nProvider';
 import { assetPath } from '../utils/base';
-import { buildContactMailto, type ContactInquiryValues } from './contactInquiry';
-import type { FormEvent, ReactNode } from 'react';
+import { getContactApiBaseUrl } from '../config/environment';
+import { submitContactInquiry, type ContactInquiryValues } from './contactInquiry';
+import { useRef, useState, type FormEvent, type ReactNode } from 'react';
 
 const CONTACT_EMAIL = 'contact@navlyn.com';
+type SubmissionState = 'idle' | 'submitting' | 'success' | 'error';
 
 interface ContactFieldProps {
   children: ReactNode;
@@ -42,38 +44,43 @@ export default function ContactPage() {
   const { locale, page } = useI18n();
   const copy = page.contact;
   const showContactQr = locale === 'zh';
+  const [submissionState, setSubmissionState] = useState<SubmissionState>('idle');
+  const submissionInFlight = useRef(false);
 
-  const handleInquirySubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleInquirySubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const form = event.currentTarget;
-    if (!form.checkValidity()) {
+    if (submissionInFlight.current || !form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
     const formData = new FormData(form);
-    const organizationTypeValue = readTextField(formData, 'organizationType');
-    const organizationType =
-      copy.inquiryForm.organizationOptions.find((option) => option.value === organizationTypeValue)
-        ?.label ?? organizationTypeValue;
-    const mailto = buildContactMailto({
-      recipient: CONTACT_EMAIL,
-      subjectPrefix: copy.inquiryForm.mailSubject,
-      values: {
-        countryRegion: readTextField(formData, 'countryRegion'),
-        firstName: readTextField(formData, 'firstName'),
-        lastName: readTextField(formData, 'lastName'),
-        email: readTextField(formData, 'email'),
-        phone: readTextField(formData, 'phone'),
-        organizationType,
-        companyName: readTextField(formData, 'companyName'),
-        website: readTextField(formData, 'website'),
-        description: readTextField(formData, 'description'),
-      },
-    });
+    const values: ContactInquiryValues = {
+      countryRegion: readTextField(formData, 'countryRegion'),
+      firstName: readTextField(formData, 'firstName'),
+      lastName: readTextField(formData, 'lastName'),
+      email: readTextField(formData, 'email'),
+      phone: readTextField(formData, 'phone'),
+      organizationType: readTextField(formData, 'organizationType'),
+      companyName: readTextField(formData, 'companyName'),
+      website: readTextField(formData, 'website'),
+      description: readTextField(formData, 'description'),
+    };
 
-    window.location.assign(mailto);
+    submissionInFlight.current = true;
+    setSubmissionState('submitting');
+
+    try {
+      await submitContactInquiry({ apiBaseUrl: getContactApiBaseUrl(), values });
+      form.reset();
+      setSubmissionState('success');
+    } catch {
+      setSubmissionState('error');
+    } finally {
+      submissionInFlight.current = false;
+    }
   };
 
   return (
@@ -130,7 +137,11 @@ export default function ContactPage() {
           <p>{copy.inquiryForm.description}</p>
         </div>
 
-        <form className="contact-inquiry-form" onSubmit={handleInquirySubmit}>
+        <form
+          className="contact-inquiry-form"
+          onSubmit={handleInquirySubmit}
+          aria-busy={submissionState === 'submitting'}
+        >
           <ContactField label={copy.inquiryForm.fields.countryRegion}>
             <input
               type="text"
@@ -155,23 +166,23 @@ export default function ContactPage() {
           </ContactField>
 
           <ContactField label={copy.inquiryForm.fields.firstName}>
-            <input type="text" name="firstName" autoComplete="given-name" maxLength={80} required />
+            <input type="text" name="firstName" autoComplete="given-name" maxLength={100} required />
           </ContactField>
 
           <ContactField label={copy.inquiryForm.fields.lastName}>
-            <input type="text" name="lastName" autoComplete="family-name" maxLength={80} required />
+            <input type="text" name="lastName" autoComplete="family-name" maxLength={100} required />
           </ContactField>
 
           <ContactField label={copy.inquiryForm.fields.email}>
-            <input type="email" name="email" autoComplete="email" maxLength={160} required />
+            <input type="email" name="email" autoComplete="email" maxLength={320} required />
           </ContactField>
 
           <ContactField label={copy.inquiryForm.fields.phone} required={false}>
-            <input type="tel" name="phone" autoComplete="tel" maxLength={40} />
+            <input type="tel" name="phone" autoComplete="tel" maxLength={50} />
           </ContactField>
 
           <ContactField label={copy.inquiryForm.fields.companyName} required={false}>
-            <input type="text" name="companyName" autoComplete="organization" maxLength={120} />
+            <input type="text" name="companyName" autoComplete="organization" maxLength={200} />
           </ContactField>
 
           <ContactField label={copy.inquiryForm.fields.website} required={false}>
@@ -180,7 +191,7 @@ export default function ContactPage() {
               name="website"
               autoComplete="url"
               placeholder="https://"
-              maxLength={240}
+              maxLength={2048}
             />
           </ContactField>
 
@@ -189,14 +200,30 @@ export default function ContactPage() {
               name="description"
               placeholder={copy.inquiryForm.descriptionPlaceholder}
               rows={6}
-              maxLength={1200}
+              maxLength={5000}
               required
             />
           </ContactField>
 
           <div className="contact-inquiry-actions">
-            <p>{copy.inquiryForm.submitNote}</p>
-            <button type="submit">{copy.inquiryForm.submitLabel}</button>
+            <div className="contact-inquiry-action-copy" aria-live="polite">
+              <p>{copy.inquiryForm.submitNote}</p>
+              {submissionState === 'success' ? (
+                <p className="contact-inquiry-status is-success" role="status">
+                  {copy.inquiryForm.successMessage}
+                </p>
+              ) : null}
+              {submissionState === 'error' ? (
+                <p className="contact-inquiry-status is-error" role="alert">
+                  {copy.inquiryForm.errorMessage}
+                </p>
+              ) : null}
+            </div>
+            <button type="submit" disabled={submissionState === 'submitting'}>
+              {submissionState === 'submitting'
+                ? copy.inquiryForm.submittingLabel
+                : copy.inquiryForm.submitLabel}
+            </button>
           </div>
         </form>
       </section>

@@ -122,6 +122,9 @@ describe('internationalized page catalogs', () => {
     for (const locale of localeOptions.map((option) => option.key)) {
       expect(pageMessages[locale].contact.inquiryForm.fields.description).toBeTruthy();
       expect(pageMessages[locale].contact.inquiryForm.organizationOptions).toHaveLength(5);
+      expect(pageMessages[locale].contact.inquiryForm.submittingLabel).toBeTruthy();
+      expect(pageMessages[locale].contact.inquiryForm.successMessage).toBeTruthy();
+      expect(pageMessages[locale].contact.inquiryForm.errorMessage).toContain('contact@navlyn.com');
     }
   });
 });
