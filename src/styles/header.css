@@ -276,9 +276,15 @@
 }
 
 .brand-mark img {
-  width: 16.9230769231em;
+  width: 6.7692307692em;
   height: auto;
   display: block;
+}
+
+@media (min-width: 993px) {
+  .site-header-side-left .brand-mark {
+    margin-left: clamp(20px, 2vw, 40px);
+  }
 }
 
 .desktop-nav {
@@ -381,6 +387,6 @@
   }
 
   .site-header-side-left .brand-mark img {
-    width: 158px;
+    width: 63px;
   }
 }
