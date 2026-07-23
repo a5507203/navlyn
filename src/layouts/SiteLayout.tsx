@@ -78,9 +78,7 @@ export default function SiteLayout({
   const location = useLocation();
   const { locale, setLocale, shell } = useI18n();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [partnersNavOpen, setPartnersNavOpen] = useState(false);
   const isPartnersLocation =
-    location.pathname === '/contact' ||
     location.pathname === '/partners' ||
     location.pathname.startsWith('/partners/');
   const activeNavPath = isPartnersLocation
@@ -90,62 +88,11 @@ export default function SiteLayout({
           item.path === location.pathname ||
           (item.path !== '/' && location.pathname.startsWith(`${item.path}/`)),
       )?.path ?? location.pathname;
-  const selectedMobilePath =
-    location.pathname === '/contact'
-      ? '/contact'
-      : location.pathname.startsWith('/partners/suppliers')
-        ? '/partners/suppliers'
-        : activeNavPath;
-
-  const createMenuItems = (showIcons: boolean): MenuProps['items'] =>
-    siteNavItems.map((item) =>
-      item.key === 'partners'
-        ? {
-            key: item.path,
-            icon: showIcons ? navIcons[item.iconKey] : undefined,
-            label: showIcons ? (
-              <Link
-                to={item.path}
-                className="mobile-nav-parent-link"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setMobileNavOpen(false);
-                }}
-              >
-                {shell.nav.partners}
-              </Link>
-            ) : (
-              shell.nav.partners
-            ),
-            children: [
-              {
-                key: '/contact',
-                label: <Link to="/contact">{shell.nav.partnersContact}</Link>,
-              },
-              {
-                key: '/partners/suppliers',
-                label: <Link to="/partners/suppliers">{shell.nav.supplierEcosystem}</Link>,
-              },
-            ],
-          }
-        : {
-            key: item.path,
-            icon: showIcons ? navIcons[item.iconKey] : undefined,
-            label: <Link to={item.path}>{shell.nav[item.key]}</Link>,
-          },
-    );
-
-  const mobileMenuItems = createMenuItems(true);
-  const partnersMenuItems: MenuProps['items'] = [
-    {
-      key: '/contact',
-      label: <Link to="/contact">{shell.nav.partnersContact}</Link>,
-    },
-    {
-      key: '/partners/suppliers',
-      label: <Link to="/partners/suppliers">{shell.nav.supplierEcosystem}</Link>,
-    },
-  ];
+  const mobileMenuItems: MenuProps['items'] = siteNavItems.map((item) => ({
+    key: item.path,
+    icon: navIcons[item.iconKey],
+    label: <Link to={item.path}>{shell.nav[item.key]}</Link>,
+  }));
 
   const languageItems: MenuProps['items'] = localeOptions.map((item) => ({
     key: item.key,
@@ -166,49 +113,13 @@ export default function SiteLayout({
             {siteNavItems.map((item) => {
               const isActive = activeNavPath === item.path;
 
-              return item.key === 'partners' ? (
-                <Dropdown
+              return (
+                <Link
                   key={item.path}
-                  menu={{
-                    items: partnersMenuItems,
-                    onClick: () => setPartnersNavOpen(false),
-                  }}
-                  trigger={['hover', 'click']}
-                  placement="bottom"
-                  overlayClassName="partners-nav-dropdown"
-                  open={partnersNavOpen}
-                  onOpenChange={setPartnersNavOpen}
+                  to={item.path}
+                  className={`desktop-nav-link${isActive ? ' is-active' : ''}`}
+                  aria-current={location.pathname === item.path ? 'page' : undefined}
                 >
-                  <span
-                    className={`desktop-nav-link desktop-nav-menu-trigger${isActive ? ' is-active' : ''}`}
-                  >
-                    <Link
-                      to={item.path}
-                      className="desktop-nav-menu-link"
-                      aria-current={location.pathname === item.path ? 'page' : undefined}
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        setPartnersNavOpen(false);
-                      }}
-                    >
-                      <span className="desktop-nav-icon" aria-hidden="true">
-                        {navIcons[item.iconKey]}
-                      </span>
-                      <span className="desktop-nav-text">{shell.nav[item.key]}</span>
-                    </Link>
-                    <button
-                      type="button"
-                      className="desktop-nav-menu-toggle"
-                      aria-label={shell.nav.partnersMenuTrigger}
-                      aria-haspopup="menu"
-                      aria-expanded={partnersNavOpen}
-                    >
-                      <DownOutlined className="desktop-nav-chevron" aria-hidden="true" />
-                    </button>
-                  </span>
-                </Dropdown>
-              ) : (
-                <Link key={item.path} to={item.path} className={`desktop-nav-link${isActive ? ' is-active' : ''}`}>
                   {item.key !== 'about' ? (
                     <span className="desktop-nav-icon" aria-hidden="true">
                       {navIcons[item.iconKey]}
@@ -261,8 +172,7 @@ export default function SiteLayout({
       >
         <Menu
           mode="inline"
-          selectedKeys={[selectedMobilePath]}
-          defaultOpenKeys={isPartnersLocation ? ['/partners'] : []}
+          selectedKeys={[activeNavPath]}
           items={mobileMenuItems}
           onClick={() => setMobileNavOpen(false)}
         />

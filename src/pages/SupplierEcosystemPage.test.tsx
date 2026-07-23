@@ -10,7 +10,7 @@ import SupplierEcosystemPage from './SupplierEcosystemPage';
 function renderSupplierDirectory() {
   return render(
     <HelmetProvider>
-      <MemoryRouter initialEntries={['/partners/suppliers']} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <MemoryRouter initialEntries={['/partners']} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <I18nProvider>
           <SupplierEcosystemPage />
         </I18nProvider>
@@ -34,18 +34,32 @@ function renderSupplierDetail(path: string) {
 }
 
 describe('SupplierEcosystemPage', () => {
-  it('uses the confirmed two-line hero without supporting copy', () => {
+  it('uses the supplied world hero with localized live text', () => {
     renderSupplierDirectory();
 
     const heading = screen.getByRole('heading', {
       level: 1,
-      name: '开放 · 协同 · 卓越： 构建严选供应链与技术生态',
+      name: '链接世界，航向未来',
     });
-    expect(within(heading).getByText('开放 · 协同 · 卓越：')).toBeInTheDocument();
-    expect(within(heading).getByText('构建严选供应链与技术生态')).toBeInTheDocument();
+    expect(heading).toBeInTheDocument();
+    expect(screen.getByText('每一处航迹，都有我们的伙伴。')).toBeInTheDocument();
+    expect(document.querySelector('.supplier-ecosystem-hero-image')).toHaveAttribute(
+      'src',
+      '/media/partners/suppliers/hero-world.png',
+    );
+  });
+
+  it('renders the new hero copy in English', () => {
+    window.localStorage.setItem('navlyn-locale', 'en');
+    renderSupplierDirectory();
+
     expect(
-      screen.queryByText('从供应商到产品资料，在同一个目录中找到可靠、清晰的合作信息。'),
-    ).not.toBeInTheDocument();
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'Connecting the World, Navigating the Future',
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Every journey is shared with our partners.')).toBeInTheDocument();
   });
 
   it('renders all suppliers while only ready records expose detail links', () => {
@@ -82,20 +96,14 @@ describe('SupplierEcosystemPage', () => {
     expect(document.querySelectorAll('.supplier-card')).toHaveLength(11);
   });
 
-  it('keeps the original partners page reachable and opens the two confirmed menu destinations', async () => {
-    const user = userEvent.setup();
+  it('links Clients & Partners directly to the supplier ecosystem without a submenu', () => {
     renderSupplierDirectory();
 
     const header = screen.getByRole('banner');
     const partnersPageLink = within(header).getByRole('link', { name: '客户与合作' });
     expect(partnersPageLink).toHaveAttribute('href', '/partners');
-
-    await user.click(within(header).getByRole('button', { name: '展开客户与合作菜单' }));
-
-    const contactLink = await screen.findByRole('link', { name: '联系我们' });
-    const suppliersLink = screen.getByRole('link', { name: '供应商生态' });
-    expect(contactLink).toHaveAttribute('href', '/contact');
-    expect(suppliersLink).toHaveAttribute('href', '/partners/suppliers');
+    expect(within(header).queryByRole('button', { name: '展开客户与合作菜单' })).not.toBeInTheDocument();
+    expect(within(header).queryByRole('link', { name: '联系我们' })).not.toBeInTheDocument();
   });
 });
 

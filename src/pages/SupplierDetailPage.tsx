@@ -33,7 +33,7 @@ export default function SupplierDetailPage() {
         <section className="supplier-detail-hero">
           <div className="supplier-detail-hero-orbit" aria-hidden="true" />
           <div className="supplier-detail-hero-content">
-            <Link to="/partners/suppliers" className="supplier-detail-back">
+            <Link to="/partners" className="supplier-detail-back">
               <ArrowLeftOutlined aria-hidden="true" />
               {copy.backToDirectory}
             </Link>

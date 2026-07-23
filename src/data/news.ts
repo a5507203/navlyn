@@ -19,8 +19,6 @@ const NEWS_DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 const DATE_FORMAT_LOCALE: Record<Locale, string> = {
   zh: 'zh-CN',
   en: 'en-US',
-  fr: 'fr-FR',
-  es: 'es-ES',
 };
 
 export function formatNewsDate(date: string, locale: Locale) {

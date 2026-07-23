@@ -18,8 +18,8 @@ export interface SupplierCopy {
 export interface SupplierEcosystemCopy {
   seoTitle: string;
   seoDescription: string;
-  heroTitleLead: string;
-  heroTitleMain: string;
+  heroTitle: string;
+  heroDescription: string;
   directoryKicker: string;
   directoryTitle: string;
   directoryDescription: string;
@@ -59,8 +59,8 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
   zh: {
     seoTitle: '供应商生态 | Navlyn 航链科技',
     seoDescription: '浏览 Navlyn 供应商生态，搜索供应商与产品，并下载公开产品资料。',
-    heroTitleLead: '开放 · 协同 · 卓越：',
-    heroTitleMain: '构建严选供应链与技术生态',
+    heroTitle: '链接世界，航向未来',
+    heroDescription: '每一处航迹，都有我们的伙伴。',
     directoryKicker: 'Supplier Network',
     directoryTitle: '供应商与产品目录',
     directoryDescription: '输入供应商名称或产品关键词实时筛选；资料已就绪的供应商可进入详情页。',
@@ -190,8 +190,8 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
   en: {
     seoTitle: 'Supplier Ecosystem | Navlyn',
     seoDescription: 'Browse the Navlyn supplier ecosystem, search suppliers and products, and download public materials.',
-    heroTitleLead: 'Open · Collaborative · Excellent:',
-    heroTitleMain: 'Building a Trusted Supply and Technology Ecosystem',
+    heroTitle: 'Connecting the World, Navigating the Future',
+    heroDescription: 'Every journey is shared with our partners.',
     directoryKicker: 'Supplier Network',
     directoryTitle: 'Supplier and product directory',
     directoryDescription:

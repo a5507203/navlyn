@@ -29,9 +29,7 @@ interface FooterNavGroup {
       | 'distributors'
       | 'contact'
       | 'zh'
-      | 'en'
-      | 'fr'
-      | 'es';
+      | 'en';
     path?: string;
   }>;
 }
@@ -139,6 +137,6 @@ export const footerNavGroups: FooterNavGroup[] = [
   },
   {
     key: 'language',
-    items: [{ key: 'zh' }, { key: 'en' }, { key: 'fr' }, { key: 'es' }],
+    items: [{ key: 'zh' }, { key: 'en' }],
   },
 ];

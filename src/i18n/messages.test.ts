@@ -5,7 +5,8 @@ import {
   pageMessages,
 } from './messages';
 
-const localeKeys = ['en', 'es', 'fr', 'zh'];
+const supportedLocaleKeys = ['en', 'zh'];
+const contentLocaleKeys = ['en', 'es', 'fr', 'zh'];
 
 function shapeOf(value: unknown): unknown {
   if (Array.isArray(value)) {
@@ -52,10 +53,10 @@ function stringLeaves(value: unknown, path = ''): Map<string, string> {
 }
 
 describe('internationalized page catalogs', () => {
-  it('provides four independent content locales', () => {
-    expect(localeOptions.map(({ key }) => key).sort()).toEqual(localeKeys);
-    expect(Object.keys(pageMessages).sort()).toEqual(localeKeys);
-    expect(contentLocaleMap).toEqual({ zh: 'zh', en: 'en', fr: 'fr', es: 'es' });
+  it('offers only Chinese and English while retaining archived content catalogs', () => {
+    expect(localeOptions.map(({ key }) => key).sort()).toEqual(supportedLocaleKeys);
+    expect(Object.keys(pageMessages).sort()).toEqual(contentLocaleKeys);
+    expect(contentLocaleMap).toEqual({ zh: 'zh', en: 'en' });
   });
 
   it('keeps every translated catalog structurally aligned', () => {

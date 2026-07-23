@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductsPage = lazy(() => import('./pages/ProductsPage'));
@@ -7,7 +7,6 @@ const AirPage = lazy(() => import('./pages/AirPage'));
 const SeaPage = lazy(() => import('./pages/SeaPage'));
 const ArcPage = lazy(() => import('./pages/ArcPage'));
 const IndustriesPage = lazy(() => import('./pages/IndustriesPage'));
-const PartnersPage = lazy(() => import('./pages/PartnersPage'));
 const PartnersAlliancesPage = lazy(() => import('./pages/PartnersAlliancesPage'));
 const PartnersDistributorsPage = lazy(() => import('./pages/PartnersDistributorsPage'));
 const SupplierEcosystemPage = lazy(() => import('./pages/SupplierEcosystemPage'));
@@ -37,10 +36,10 @@ export default function App() {
         <Route path="/sea" element={<SeaPage />} />
         <Route path="/arc-os" element={<ArcPage />} />
         <Route path="/industries" element={<IndustriesPage />} />
-        <Route path="/partners" element={<PartnersPage />} />
+        <Route path="/partners" element={<SupplierEcosystemPage />} />
         <Route path="/partners/alliances" element={<PartnersAlliancesPage />} />
         <Route path="/partners/distributors" element={<PartnersDistributorsPage />} />
-        <Route path="/partners/suppliers" element={<SupplierEcosystemPage />} />
+        <Route path="/partners/suppliers" element={<Navigate replace to="/partners" />} />
         <Route path="/partners/suppliers/:supplierSlug" element={<SupplierDetailPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/about/vision" element={<AboutVisionPage />} />

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { footerSocialLinks, siteNavItems } from './site';
+import { footerNavGroups, footerSocialLinks, siteNavItems } from './site';
 
 describe('primary navigation information architecture', () => {
   it('matches the July update document exactly', () => {
@@ -28,5 +28,11 @@ describe('primary navigation information architecture', () => {
         href: 'https://www.youtube.com/@NavlynDrone',
       },
     ]);
+  });
+
+  it('shows only Chinese and English in the footer language group', () => {
+    const languageGroup = footerNavGroups.find(({ key }) => key === 'language');
+
+    expect(languageGroup?.items.map(({ key }) => key)).toEqual(['zh', 'en']);
   });
 });

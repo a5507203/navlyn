@@ -1,8 +1,8 @@
 /**
  * THESIS: Turn the partner area into a searchable flight-network directory, not a generic logo wall.
- * OWN-WORLD: Navlyn task-black, signal blue, paper-white logo fields, and one tilted horizon cut.
+ * OWN-WORLD: Navlyn task-black, signal blue, paper-white logo fields, and a connected-world night horizon.
  * STORY: Visitors identify the ecosystem, search by supplier or product, then enter only complete records.
- * FIRST VIEWPORT: A full-bleed aerial horizon carries the title; the search console docks directly beneath it.
+ * FIRST VIEWPORT: A full-width Earth-at-night image hands off to a dedicated bilingual statement panel.
  * FORM: Existing-world extension, directory staging; the Word brief fixes the structure, so no concept seed applies.
  */
 import {
@@ -63,18 +63,17 @@ export default function SupplierEcosystemPage() {
       contentClassName="supplier-ecosystem-shell"
       hero={
         <section className="supplier-ecosystem-hero">
-          <img
-            className="supplier-ecosystem-hero-image"
-            src={assetPath('/media/partners/suppliers/hero.webp')}
-            alt=""
-            decoding="async"
-          />
-          <div className="supplier-ecosystem-hero-shade" />
+          <div className="supplier-ecosystem-hero-media" aria-hidden="true">
+            <img
+              className="supplier-ecosystem-hero-image"
+              src={assetPath('/media/partners/suppliers/hero-world.png')}
+              alt=""
+              decoding="async"
+            />
+          </div>
           <div className="supplier-ecosystem-hero-content" data-content-locale={contentLocale}>
-            <h1>
-              <span>{copy.heroTitleLead}</span>
-              <span>{copy.heroTitleMain}</span>
-            </h1>
+            <h1>{copy.heroTitle}</h1>
+            <p>{copy.heroDescription}</p>
           </div>
         </section>
       }
