@@ -10,6 +10,8 @@ const IndustriesPage = lazy(() => import('./pages/IndustriesPage'));
 const PartnersPage = lazy(() => import('./pages/PartnersPage'));
 const PartnersAlliancesPage = lazy(() => import('./pages/PartnersAlliancesPage'));
 const PartnersDistributorsPage = lazy(() => import('./pages/PartnersDistributorsPage'));
+const SupplierEcosystemPage = lazy(() => import('./pages/SupplierEcosystemPage'));
+const SupplierDetailPage = lazy(() => import('./pages/SupplierDetailPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const AboutVisionPage = lazy(() => import('./pages/AboutVisionPage'));
 const AboutNewsPage = lazy(() => import('./pages/AboutNewsPage'));
@@ -38,6 +40,8 @@ export default function App() {
         <Route path="/partners" element={<PartnersPage />} />
         <Route path="/partners/alliances" element={<PartnersAlliancesPage />} />
         <Route path="/partners/distributors" element={<PartnersDistributorsPage />} />
+        <Route path="/partners/suppliers" element={<SupplierEcosystemPage />} />
+        <Route path="/partners/suppliers/:supplierSlug" element={<SupplierDetailPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/about/vision" element={<AboutVisionPage />} />
         <Route path="/about/news" element={<AboutNewsPage />} />

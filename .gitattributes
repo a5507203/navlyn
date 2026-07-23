@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Keep supplier documents binary so Git does not render PDF internals as text diffs.
+*.pdf binary

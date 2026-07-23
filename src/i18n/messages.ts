@@ -38,6 +38,9 @@ export const shellMessages = {
       air: "AIR",
       sea: "SEA",
       partners: "客户与合作",
+      partnersMenuTrigger: "展开客户与合作菜单",
+      partnersContact: "联系我们",
+      supplierEcosystem: "供应商生态",
       about: "关于我们",
     },
     contactFloat: {
@@ -86,6 +89,9 @@ export const shellMessages = {
       air: "AIR",
       sea: "SEA",
       partners: "Clients & Partners",
+      partnersMenuTrigger: "Open Clients & Partners menu",
+      partnersContact: "Contact Us",
+      supplierEcosystem: "Supplier Ecosystem",
       about: "About",
     },
     contactFloat: {
@@ -134,6 +140,9 @@ export const shellMessages = {
       air: "AIR",
       sea: "SEA",
       partners: "Clients & partenaires",
+      partnersMenuTrigger: "Ouvrir le menu Clients et partenaires",
+      partnersContact: "Contact Us",
+      supplierEcosystem: "Supplier Ecosystem",
       about: "À propos",
     },
     contactFloat: {
@@ -182,6 +191,9 @@ export const shellMessages = {
       air: "AIR",
       sea: "SEA",
       partners: "Clientes y socios",
+      partnersMenuTrigger: "Abrir el menú Clientes y socios",
+      partnersContact: "Contact Us",
+      supplierEcosystem: "Supplier Ecosystem",
       about: "Nosotros",
     },
     contactFloat: {
