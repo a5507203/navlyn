@@ -497,7 +497,7 @@ export const pageMessages = {
         title: "ARC GCS 使用手册与售后支持",
         description: "获取使用资料，或联系 Navlyn 售后团队。",
         softwareTitle: "ARC GCS 客户端",
-        softwareDescription: "Windows 与 Android 下载地址将在正式发布后开放。",
+        softwareDescription: "前往下载页查看 Windows 与 Android 的发布状态。",
         manualTitle: "ARC GCS 使用手册",
         manualDescription: "下载操作、任务规划与设备适配说明。",
         manualDownloadLabel: "下载使用手册",
@@ -1106,7 +1106,8 @@ export const pageMessages = {
         title: "ARC GCS Manual and Support",
         description: "Get product guidance or contact the Navlyn support team.",
         softwareTitle: "ARC GCS Client",
-        softwareDescription: "Windows and Android download links will open with the official release.",
+        softwareDescription:
+          "Visit the download page for Windows and Android release availability.",
         manualTitle: "ARC GCS User Manual",
         manualDescription: "Download guidance for operation, mission planning, and device compatibility.",
         manualDownloadLabel: "Download user manual",

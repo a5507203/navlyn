@@ -61,11 +61,17 @@ describe('ArcPage', () => {
     }
   });
 
-  it('keeps unconfigured downloads visible but disabled and exposes after-sales email', () => {
+  it('routes software downloads to the platform page and keeps the manual fallback safe', () => {
     renderArcPage();
 
+    const softwareLinks = screen.getAllByRole('link', { name: '下载 ARC GCS' });
+    expect(softwareLinks).toHaveLength(2);
+    softwareLinks.forEach((softwareLink) => {
+      expect(softwareLink).toHaveAttribute('href', '/downloads/arc-gcs');
+    });
+
     const pendingLabels = screen.getAllByText('下载地址即将开放');
-    expect(pendingLabels).toHaveLength(3);
+    expect(pendingLabels).toHaveLength(1);
     pendingLabels.forEach((pendingLabel) => {
       expect(pendingLabel.closest('button')).toBeDisabled();
     });

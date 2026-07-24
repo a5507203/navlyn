@@ -6,6 +6,7 @@ const ProductsPage = lazy(() => import('./pages/ProductsPage'));
 const AirPage = lazy(() => import('./pages/AirPage'));
 const SeaPage = lazy(() => import('./pages/SeaPage'));
 const ArcPage = lazy(() => import('./pages/ArcPage'));
+const ArcGcsDownloadPage = lazy(() => import('./pages/ArcGcsDownloadPage'));
 const IndustriesPage = lazy(() => import('./pages/IndustriesPage'));
 const PartnersAlliancesPage = lazy(() => import('./pages/PartnersAlliancesPage'));
 const PartnersDistributorsPage = lazy(() => import('./pages/PartnersDistributorsPage'));
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/air" element={<AirPage />} />
         <Route path="/sea" element={<SeaPage />} />
         <Route path="/arc-os" element={<ArcPage />} />
+        <Route path="/downloads/arc-gcs" element={<ArcGcsDownloadPage />} />
         <Route path="/industries" element={<IndustriesPage />} />
         <Route path="/partners" element={<SupplierEcosystemPage />} />
         <Route path="/partners/alliances" element={<PartnersAlliancesPage />} />

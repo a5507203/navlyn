@@ -3,9 +3,10 @@ import {
   FileTextOutlined,
   MailOutlined,
 } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 import {
+  ARC_GCS_DOWNLOAD_PAGE_PATH,
   ARC_GCS_SUPPORT_EMAIL,
-  arcGcsDownloadUrl,
   arcGcsManualUrl,
 } from '../config/arcGcs';
 import { useI18n } from '../i18n/I18nProvider';
@@ -75,6 +76,28 @@ function DownloadCta({
   );
 }
 
+interface DownloadPageCtaProps {
+  label: string;
+  tone?: 'primary' | 'quiet';
+}
+
+function DownloadPageCta({
+  label,
+  tone = 'primary',
+}: DownloadPageCtaProps) {
+  return (
+    <Link
+      className={`arc-gcs-download arc-gcs-download-${tone}`}
+      to={ARC_GCS_DOWNLOAD_PAGE_PATH}
+    >
+      <DownloadOutlined aria-hidden="true" />
+      <span className="arc-gcs-download-copy">
+        <span>{label}</span>
+      </span>
+    </Link>
+  );
+}
+
 export default function ArcPage() {
   const { page } = useI18n();
   const copy = page.arc;
@@ -100,11 +123,7 @@ export default function ArcPage() {
             </h1>
             <div className="arc-gcs-hero-shade" aria-hidden="true" />
             <div className="arc-gcs-hero-action">
-              <DownloadCta
-                href={arcGcsDownloadUrl}
-                label={copy.downloadLabel}
-                pendingLabel={copy.downloadPending}
-              />
+              <DownloadPageCta label={copy.downloadLabel} />
             </div>
           </section>
 
@@ -156,10 +175,8 @@ export default function ArcPage() {
                   <h3>{copy.resources.softwareTitle}</h3>
                   <p>{copy.resources.softwareDescription}</p>
                 </div>
-                <DownloadCta
-                  href={arcGcsDownloadUrl}
+                <DownloadPageCta
                   label={copy.downloadLabel}
-                  pendingLabel={copy.downloadPending}
                   tone="quiet"
                 />
               </article>

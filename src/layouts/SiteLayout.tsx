@@ -17,6 +17,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import type { PropsWithChildren, ReactNode } from 'react';
 import Seo from '../components/Seo';
+import { ARC_GCS_DOWNLOAD_PAGE_PATH } from '../config/arcGcs';
 import { footerNavGroups, footerSocialLinks, siteNavItems } from '../data/site';
 import { localeOptions } from '../i18n/messages';
 import type { Locale } from '../i18n/messages';
@@ -81,8 +82,13 @@ export default function SiteLayout({
   const isPartnersLocation =
     location.pathname === '/partners' ||
     location.pathname.startsWith('/partners/');
+  const isArcLocation =
+    location.pathname === '/arc-os' ||
+    location.pathname === ARC_GCS_DOWNLOAD_PAGE_PATH;
   const activeNavPath = isPartnersLocation
     ? '/partners'
+    : isArcLocation
+      ? '/arc-os'
     : siteNavItems.find(
         (item) =>
           item.path === location.pathname ||
@@ -118,7 +124,13 @@ export default function SiteLayout({
                   key={item.path}
                   to={item.path}
                   className={`desktop-nav-link${isActive ? ' is-active' : ''}`}
-                  aria-current={location.pathname === item.path ? 'page' : undefined}
+                  aria-current={
+                    isActive
+                      ? location.pathname === item.path
+                        ? 'page'
+                        : 'location'
+                      : undefined
+                  }
                 >
                   {item.key !== 'about' ? (
                     <span className="desktop-nav-icon" aria-hidden="true">
