@@ -39,6 +39,9 @@ jobs:
         run: npm run build
         env:
           VITE_CONTACT_API_BASE_URL: https://gcs-api.navlyn.com
+          VITE_ARC_GCS_WINDOWS_DOWNLOAD_URL: ${{ vars.VITE_ARC_GCS_WINDOWS_DOWNLOAD_URL }}
+          VITE_ARC_GCS_MACOS_DOWNLOAD_URL: ${{ vars.VITE_ARC_GCS_MACOS_DOWNLOAD_URL }}
+          VITE_ARC_GCS_ANDROID_DOWNLOAD_URL: ${{ vars.VITE_ARC_GCS_ANDROID_DOWNLOAD_URL }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

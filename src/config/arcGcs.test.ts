@@ -41,10 +41,12 @@ describe('ARC GCS download configuration', () => {
     expect(
       resolveArcGcsDownloadUrls({
         windows: 'https://downloads.example.com/arc-gcs/windows.exe',
+        macos: 'https://downloads.example.com/arc-gcs/macos.dmg',
         android: 'https://downloads.example.com/arc-gcs/android.apk',
       }),
     ).toEqual({
       windows: 'https://downloads.example.com/arc-gcs/windows.exe',
+      macos: 'https://downloads.example.com/arc-gcs/macos.dmg',
       android: 'https://downloads.example.com/arc-gcs/android.apk',
     });
   });

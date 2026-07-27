@@ -300,7 +300,7 @@ export const pageMessagesEs = {
       description: "Consulte la documentación o póngase en contacto con el equipo de Navlyn.",
       softwareTitle: "Cliente ARC GCS",
       softwareDescription:
-        "Consulte la página de descarga para conocer la disponibilidad en Windows y Android.",
+        "Consulte la página de descarga para conocer la disponibilidad en Windows, macOS y Android.",
       manualTitle: "Manual de usuario de ARC GCS",
       manualDescription:
         "Descargue las instrucciones de uso, planificación de misiones y compatibilidad de dispositivos.",

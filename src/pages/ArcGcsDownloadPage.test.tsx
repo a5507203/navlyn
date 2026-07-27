@@ -9,6 +9,7 @@ import ArcGcsDownloadPage from './ArcGcsDownloadPage';
 
 const unavailableDownloads: ArcGcsDownloadUrls = {
   windows: undefined,
+  macos: undefined,
   android: undefined,
 };
 
@@ -37,7 +38,7 @@ describe('ArcGcsDownloadPage', () => {
     window.localStorage.clear();
   });
 
-  it('renders the current version and two unavailable platform releases', () => {
+  it('renders the current version and three unavailable platform releases', () => {
     renderDownloadPage();
 
     expect(
@@ -51,10 +52,13 @@ describe('ArcGcsDownloadPage', () => {
         ),
         (action) => action.dataset.platform,
       ),
-    ).toEqual(['windows', 'android']);
+    ).toEqual(['windows', 'macos', 'android']);
 
     expect(
       screen.getByRole('button', { name: 'Windows 版即将开放' }),
+    ).toBeDisabled();
+    expect(
+      screen.getByRole('button', { name: 'macOS 版即将开放' }),
     ).toBeDisabled();
     expect(
       screen.getByRole('button', { name: 'Android 版即将开放' }),
@@ -68,6 +72,7 @@ describe('ArcGcsDownloadPage', () => {
     renderDownloadPage('zh', {
       windows: 'https://downloads.example.com/arc-gcs/windows.exe',
       android: undefined,
+      macos: undefined,
     });
 
     expect(
@@ -78,8 +83,29 @@ describe('ArcGcsDownloadPage', () => {
     );
     expect(screen.getByText('选择平台下载安装')).toBeVisible();
     expect(
+      screen.getByRole('button', { name: 'macOS 版即将开放' }),
+    ).toBeDisabled();
+    expect(
       screen.getByRole('button', { name: 'Android 版即将开放' }),
     ).toBeDisabled();
+  });
+
+  it('renders a configured macOS DMG as the Apple platform download', () => {
+    renderDownloadPage('en', {
+      windows: undefined,
+      macos: 'https://downloads.example.com/arc-gcs/macos.dmg',
+      android: undefined,
+    });
+
+    expect(
+      screen.getByRole('link', { name: 'Download for macOS' }),
+    ).toHaveAttribute(
+      'href',
+      'https://downloads.example.com/arc-gcs/macos.dmg',
+    );
+    expect(
+      document.querySelector('[data-platform="macos"] .anticon-apple'),
+    ).toBeInTheDocument();
   });
 
   it('keeps all nine FAQ answers visible and numbered in order', () => {
@@ -105,7 +131,7 @@ describe('ArcGcsDownloadPage', () => {
     ).toBeInTheDocument();
     expect(
       document.querySelectorAll('.arc-gcs-download-platform-action'),
-    ).toHaveLength(2);
+    ).toHaveLength(3);
     expect(document.querySelectorAll('.arc-gcs-download-faq-item')).toHaveLength(9);
     expect(
       screen.getByRole('heading', {

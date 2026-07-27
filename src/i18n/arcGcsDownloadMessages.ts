@@ -36,10 +36,10 @@ export const arcGcsDownloadMessages: Record<Locale, ArcGcsDownloadCopy> = {
   zh: {
     seoTitle: '下载 ARC GCS v1.0.0 | Navlyn 航链科技',
     seoDescription:
-      '获取 ARC GCS Windows 与 Android 客户端发布状态，并查看安装、连接、离线使用和航线导出常见问题。',
+      '获取 ARC GCS Windows、macOS 与 Android 客户端发布状态，并查看安装、连接、离线使用和航线导出常见问题。',
     heroKicker: 'ARC GCS SOFTWARE',
     title: '下载 ARC GCS',
-    summary: '选择适合的操作平台。安装包将在完成发布准备后逐项开放。',
+    summary: '选择适合的操作平台，下载 ARC GCS v1.0.0。',
     versionLabel: '当前版本',
     platformSectionLabel: 'ARC GCS 平台下载',
     availableNotice: '选择平台下载安装',
@@ -49,6 +49,11 @@ export const arcGcsDownloadMessages: Record<Locale, ArcGcsDownloadCopy> = {
         name: 'Windows',
         pendingStatus: 'Windows 版即将开放',
         downloadAction: '下载 Windows 版',
+      },
+      macos: {
+        name: 'macOS',
+        pendingStatus: 'macOS 版即将开放',
+        downloadAction: '下载 macOS 版',
       },
       android: {
         name: 'Android',
@@ -66,6 +71,7 @@ export const arcGcsDownloadMessages: Record<Locale, ArcGcsDownloadCopy> = {
         lead: 'ARC GCS 提供桌面端与手持端适配：',
         points: [
           'Windows：支持 Windows 10 及以上 64 位系统，建议运行内存 8GB 以上，并预留 2GB 以上存储空间。',
+          'macOS：提供 DMG 安装包；如需确认支持的系统版本与芯片架构，请联系技术支持。',
           'Android：适配云卓主流工业级手持地面站，可通过正式发布的 APK 安装。',
         ],
       },
@@ -73,7 +79,8 @@ export const arcGcsDownloadMessages: Record<Locale, ArcGcsDownloadCopy> = {
         question: '安装过程中报错、无法正常安装怎么办？',
         lead: '请按以下顺序排查：',
         points: [
-          '权限不足：右键点击安装包，选择“以管理员身份运行”后重试。',
+          'Windows 权限不足：右键点击安装包，选择“以管理员身份运行”后重试。',
+          'macOS 安全提示：确认文件来自 Navlyn 官方渠道；若系统提示无法验证开发者或安装包已损坏，请停止安装并联系技术支持，不要绕过系统安全检查。',
           '安全软件拦截：确认安装包来自 Navlyn 官方发布渠道，查看安全软件的隔离或拦截记录，并仅允许经确认的官方安装包。',
           '安装包损坏：从官方渠道重新下载完整安装包，再次安装。',
         ],
@@ -121,11 +128,10 @@ export const arcGcsDownloadMessages: Record<Locale, ArcGcsDownloadCopy> = {
   en: {
     seoTitle: 'Download ARC GCS v1.0.0 | Navlyn',
     seoDescription:
-      'Check ARC GCS release availability for Windows and Android, then review common questions about installation, connection, offline use, and route export.',
+      'Check ARC GCS release availability for Windows, macOS, and Android, then review common questions about installation, connection, offline use, and route export.',
     heroKicker: 'ARC GCS SOFTWARE',
     title: 'Download ARC GCS',
-    summary:
-      'Choose your operating platform. Installers will become available individually as each release is ready.',
+    summary: 'Choose your operating platform and download ARC GCS v1.0.0.',
     versionLabel: 'Current version',
     platformSectionLabel: 'ARC GCS platform downloads',
     availableNotice: 'Choose a platform to download',
@@ -135,6 +141,11 @@ export const arcGcsDownloadMessages: Record<Locale, ArcGcsDownloadCopy> = {
         name: 'Windows',
         pendingStatus: 'Windows release coming soon',
         downloadAction: 'Download for Windows',
+      },
+      macos: {
+        name: 'macOS',
+        pendingStatus: 'macOS release coming soon',
+        downloadAction: 'Download for macOS',
       },
       android: {
         name: 'Android',
@@ -153,14 +164,16 @@ export const arcGcsDownloadMessages: Record<Locale, ArcGcsDownloadCopy> = {
         lead: 'ARC GCS is designed for desktop and handheld deployments:',
         points: [
           'Windows: Windows 10 or later, 64-bit; 8 GB RAM or more and at least 2 GB of available storage are recommended.',
-          'Android: supported Skydroid industrial handheld ground stations can install the official APK when released.',
+          'macOS: a DMG installer is provided. Contact technical support to confirm supported macOS versions and processor architectures.',
+          'Android: supported Skydroid industrial handheld ground stations can install the official APK.',
         ],
       },
       {
         question: 'What should I do if installation fails or reports an error?',
         lead: 'Check the following in order:',
         points: [
-          'Insufficient permissions: right-click the installer and choose “Run as administrator,” then try again.',
+          'Windows permissions: right-click the installer and choose “Run as administrator,” then try again.',
+          'macOS security prompt: confirm the file came from an official Navlyn channel. If macOS cannot verify the developer or reports a damaged installer, stop and contact support instead of bypassing system security checks.',
           'Security software block: verify that the installer came from an official Navlyn release channel, review quarantine or block records, and allow only the verified official installer.',
           'Damaged installer: download a fresh copy from the official channel and try again.',
         ],

@@ -4,7 +4,7 @@ export const ARC_GCS_SUPPORT_EMAIL = 'support@navlyn.com';
 export const ARC_GCS_DOWNLOAD_PAGE_PATH = '/downloads/arc-gcs';
 export const ARC_GCS_DOWNLOAD_VERSION = 'v1.0.0';
 
-export type ArcGcsDownloadPlatform = 'windows' | 'android';
+export type ArcGcsDownloadPlatform = 'windows' | 'macos' | 'android';
 export type ArcGcsDownloadUrls = Record<
   ArcGcsDownloadPlatform,
   string | undefined
@@ -12,6 +12,7 @@ export type ArcGcsDownloadUrls = Record<
 
 interface ArcGcsDownloadConfigValues {
   windows?: string;
+  macos?: string;
   android?: string;
 }
 
@@ -47,6 +48,10 @@ export function resolveArcGcsDownloadUrls(
       values.windows,
       'VITE_ARC_GCS_WINDOWS_DOWNLOAD_URL',
     ),
+    macos: resolveArcGcsDownloadUrl(
+      values.macos,
+      'VITE_ARC_GCS_MACOS_DOWNLOAD_URL',
+    ),
     android: resolveArcGcsDownloadUrl(
       values.android,
       'VITE_ARC_GCS_ANDROID_DOWNLOAD_URL',
@@ -66,6 +71,7 @@ export const arcGcsDownloadUrl = resolveArcGcsDownloadUrl(
 
 export const arcGcsDownloadUrls = resolveArcGcsDownloadUrls({
   windows: import.meta.env.VITE_ARC_GCS_WINDOWS_DOWNLOAD_URL,
+  macos: import.meta.env.VITE_ARC_GCS_MACOS_DOWNLOAD_URL,
   android: import.meta.env.VITE_ARC_GCS_ANDROID_DOWNLOAD_URL,
 });
 
