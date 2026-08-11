@@ -1,6 +1,5 @@
 import {
   AndroidOutlined,
-  AppleOutlined,
   WindowsOutlined,
 } from '@ant-design/icons';
 import type { ReactNode } from 'react';
@@ -20,11 +19,10 @@ interface ArcGcsDownloadPageProps {
   downloadUrls?: ArcGcsDownloadUrls;
 }
 
-const platformOrder: ArcGcsDownloadPlatform[] = ['windows', 'macos', 'android'];
+const platformOrder = ['windows', 'android'] as const satisfies readonly ArcGcsDownloadPlatform[];
 
-const platformIcons: Record<ArcGcsDownloadPlatform, ReactNode> = {
+const platformIcons: Record<(typeof platformOrder)[number], ReactNode> = {
   windows: <WindowsOutlined aria-hidden />,
-  macos: <AppleOutlined aria-hidden />,
   android: <AndroidOutlined aria-hidden />,
 };
 

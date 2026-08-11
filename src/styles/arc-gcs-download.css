@@ -1,11 +1,11 @@
 /*
 THESIS: Extend the ARC GCS task-console world into a focused release surface:
-one cinematic banner establishes identity, then three compact platform controls
+one cinematic banner establishes identity, then two compact platform controls
 resolve the next action without introducing a second card-based visual system.
 OWN-WORLD: task black, Navlyn blue, electric violet, system white, instrument
 gray, and restrained route-green focus cues.
 STORY: brand signal → platform choice → practical setup answers.
-FIRST VIEWPORT: the supplied 16:9 campaign image leads; Windows, macOS, and Android
+FIRST VIEWPORT: the supplied 16:9 campaign image leads; Windows and Android
 controls sit in its authored download zone on desktop and flow below on mobile.
 FORM: transparent outlined controls and an editorial FAQ, with no ornamental
 cards, invented compatibility claims, or decorative motion.
@@ -56,7 +56,7 @@ cards, invented compatibility claims, or decorative motion.
   z-index: 1;
   top: 61.5%;
   left: 50%;
-  width: min(780px, calc(100% - 32px));
+  width: min(520px, calc(100% - 32px));
   transform: translateX(-50%);
 }
 
@@ -74,7 +74,7 @@ cards, invented compatibility claims, or decorative motion.
 
 .arc-gcs-download-platform-actions {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -111,7 +111,6 @@ cards, invented compatibility claims, or decorative motion.
   background: rgba(16, 59, 151, 0.34);
 }
 
-.arc-gcs-download-platform-action.is-macos,
 .arc-gcs-download-platform-action.is-android {
   border-color: rgba(255, 255, 255, 0.86);
   color: #ffffff;
@@ -282,7 +281,7 @@ cards, invented compatibility claims, or decorative motion.
 
   .arc-gcs-download-hero-actions {
     position: static;
-    width: min(780px, calc(100% - 32px));
+    width: min(520px, calc(100% - 32px));
     margin: 0 auto;
     padding: 30px 0 50px;
     transform: none;

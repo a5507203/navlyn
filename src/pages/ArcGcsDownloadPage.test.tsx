@@ -38,7 +38,7 @@ describe('ArcGcsDownloadPage', () => {
     window.localStorage.clear();
   });
 
-  it('renders the current version and three unavailable platform releases', () => {
+  it('renders the current version and two unavailable platform releases', () => {
     renderDownloadPage();
 
     expect(
@@ -52,13 +52,10 @@ describe('ArcGcsDownloadPage', () => {
         ),
         (action) => action.dataset.platform,
       ),
-    ).toEqual(['windows', 'macos', 'android']);
+    ).toEqual(['windows', 'android']);
 
     expect(
       screen.getByRole('button', { name: 'Windows 版即将开放' }),
-    ).toBeDisabled();
-    expect(
-      screen.getByRole('button', { name: 'macOS 版即将开放' }),
     ).toBeDisabled();
     expect(
       screen.getByRole('button', { name: 'Android 版即将开放' }),
@@ -83,14 +80,11 @@ describe('ArcGcsDownloadPage', () => {
     );
     expect(screen.getByText('选择平台下载安装')).toBeVisible();
     expect(
-      screen.getByRole('button', { name: 'macOS 版即将开放' }),
-    ).toBeDisabled();
-    expect(
       screen.getByRole('button', { name: 'Android 版即将开放' }),
     ).toBeDisabled();
   });
 
-  it('renders a configured macOS DMG as the Apple platform download', () => {
+  it('does not render a macOS action when a DMG URL is configured', () => {
     renderDownloadPage('en', {
       windows: undefined,
       macos: 'https://downloads.example.com/arc-gcs/macos.dmg',
@@ -98,14 +92,9 @@ describe('ArcGcsDownloadPage', () => {
     });
 
     expect(
-      screen.getByRole('link', { name: 'Download for macOS' }),
-    ).toHaveAttribute(
-      'href',
-      'https://downloads.example.com/arc-gcs/macos.dmg',
-    );
-    expect(
-      document.querySelector('[data-platform="macos"] .anticon-apple'),
-    ).toBeInTheDocument();
+      screen.queryByRole('link', { name: 'Download for macOS' }),
+    ).not.toBeInTheDocument();
+    expect(document.querySelector('[data-platform="macos"]')).toBeNull();
   });
 
   it('keeps all nine FAQ answers visible and numbered in order', () => {
@@ -131,7 +120,7 @@ describe('ArcGcsDownloadPage', () => {
     ).toBeInTheDocument();
     expect(
       document.querySelectorAll('.arc-gcs-download-platform-action'),
-    ).toHaveLength(3);
+    ).toHaveLength(2);
     expect(document.querySelectorAll('.arc-gcs-download-faq-item')).toHaveLength(9);
     expect(
       screen.getByRole('heading', {
