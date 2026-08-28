@@ -62,10 +62,15 @@ describe('SupplierEcosystemPage', () => {
     expect(screen.getByText('Every journey is shared with our partners.')).toBeInTheDocument();
   });
 
-  it('renders all suppliers while only ready records expose detail links', () => {
+  it('renders the public suppliers while only ready records expose detail links', () => {
     renderSupplierDirectory();
 
-    expect(document.querySelectorAll('.supplier-card')).toHaveLength(11);
+    expect(document.querySelectorAll('.supplier-card')).toHaveLength(8);
+    expect(screen.queryByRole('heading', { level: 3, name: '高远' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { level: 3, name: '极创翼' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { level: 3, name: '禾启智能' })).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: '火萤科技' })).toBeInTheDocument();
+    expect(screen.queryByText('火莹科技')).not.toBeInTheDocument();
 
     const yellowScanCard = screen.getByRole('heading', { level: 3, name: 'YellowScan' }).closest('.supplier-card');
     const tmotorCard = screen.getByRole('heading', { level: 3, name: 'T-MOTOR' }).closest('.supplier-card');
@@ -93,7 +98,7 @@ describe('SupplierEcosystemPage', () => {
     const emptyState = emptyHeading.closest('.supplier-empty-state');
     expect(emptyState).not.toBeNull();
     await user.click(within(emptyState as HTMLElement).getByRole('button', { name: '清空搜索' }));
-    expect(document.querySelectorAll('.supplier-card')).toHaveLength(11);
+    expect(document.querySelectorAll('.supplier-card')).toHaveLength(8);
   });
 
   it('links Clients & Partners directly to the supplier ecosystem without a submenu', () => {

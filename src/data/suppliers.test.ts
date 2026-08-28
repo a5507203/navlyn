@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getSupplierEcosystemCopy } from '../i18n/supplierMessages';
-import { suppliers } from './suppliers';
+import { supplierDirectoryEntries, suppliers } from './suppliers';
 
 function isPublicAssetPath(assetPath: string, extension: RegExp) {
   return assetPath.startsWith('/media/partners/suppliers/') && extension.test(assetPath);
@@ -11,6 +11,13 @@ describe('supplier ecosystem catalog', () => {
     expect(suppliers).toHaveLength(11);
     expect(suppliers.filter(({ status }) => status === 'ready')).toHaveLength(4);
     expect(suppliers.filter(({ status }) => status === 'preparing')).toHaveLength(7);
+  });
+
+  it('omits withdrawn cards from the public supplier directory', () => {
+    expect(supplierDirectoryEntries).toHaveLength(8);
+    expect(supplierDirectoryEntries.map(({ key }) => key)).not.toEqual(
+      expect.arrayContaining(['jichuangyi', 'viewpro', 'gaoyuan']),
+    );
   });
 
   it('keeps slugs unique and prevents preparing suppliers from exposing products', () => {

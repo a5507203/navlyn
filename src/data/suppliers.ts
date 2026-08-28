@@ -320,6 +320,16 @@ export const suppliers: readonly Supplier[] = [
   },
 ];
 
+const hiddenSupplierDirectoryKeys: ReadonlySet<SupplierKey> = new Set([
+  'jichuangyi',
+  'viewpro',
+  'gaoyuan',
+]);
+
+export const supplierDirectoryEntries: readonly Supplier[] = suppliers.filter(
+  ({ key }) => !hiddenSupplierDirectoryKeys.has(key),
+);
+
 export function findSupplierBySlug(slug: string | undefined) {
   return suppliers.find((supplier) => supplier.slug === slug);
 }

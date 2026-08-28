@@ -13,7 +13,7 @@ import {
 } from '@ant-design/icons';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { suppliers } from '../data/suppliers';
+import { supplierDirectoryEntries } from '../data/suppliers';
 import { useI18n } from '../i18n/I18nProvider';
 import { getSupplierEcosystemCopy } from '../i18n/supplierMessages';
 import SiteLayout from '../layouts/SiteLayout';
@@ -32,10 +32,10 @@ export default function SupplierEcosystemPage() {
 
   const filteredSuppliers = useMemo(() => {
     if (!normalizedQuery) {
-      return suppliers;
+      return supplierDirectoryEntries;
     }
 
-    return suppliers.filter((supplier) => {
+    return supplierDirectoryEntries.filter((supplier) => {
       const supplierCopy = copy.suppliers[supplier.key];
       const productTerms = supplier.products.flatMap((product) => {
         const productCopy = supplierCopy.products[product.key];
@@ -107,7 +107,7 @@ export default function SupplierEcosystemPage() {
           </div>
           <output className="supplier-result-count" aria-live="polite">
             <strong>{filteredSuppliers.length}</strong>
-            <span>/ {suppliers.length}</span>
+            <span>/ {supplierDirectoryEntries.length}</span>
             <em>{copy.resultsLabel}</em>
           </output>
         </div>

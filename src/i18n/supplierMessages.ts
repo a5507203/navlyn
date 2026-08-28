@@ -118,9 +118,9 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
       mingdeXincai: { name: '明德新材', ...preparingCopyZh },
       jichuangyi: { name: '极创翼', ...preparingCopyZh },
       flyfire: {
-        name: '火莹科技',
+        name: '火萤科技',
         cardSummary: '无人机降落伞与安全回收系统资料。',
-        officialIntro: '本页汇集已提供的火莹科技无人机降落伞产品资料，仅展示图片与 PDF 下载。',
+        officialIntro: '本页汇集已提供的火萤科技无人机降落伞产品资料，仅展示图片与 PDF 下载。',
         searchTerms: ['降落伞', '无人机安全', '回收系统', 'flyfire'],
         products: {
           systemOverview: {
