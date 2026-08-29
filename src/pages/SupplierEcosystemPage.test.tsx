@@ -62,10 +62,10 @@ describe('SupplierEcosystemPage', () => {
     expect(screen.getByText('Every journey is shared with our partners.')).toBeInTheDocument();
   });
 
-  it('renders the public suppliers while only ready records expose detail links', () => {
+  it('renders internal detail links, external websites, and disabled preparing cards', () => {
     renderSupplierDirectory();
 
-    expect(document.querySelectorAll('.supplier-card')).toHaveLength(8);
+    expect(document.querySelectorAll('.supplier-card')).toHaveLength(12);
     expect(screen.queryByRole('heading', { level: 3, name: '高远' })).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { level: 3, name: '极创翼' })).not.toBeInTheDocument();
     expect(screen.queryByRole('heading', { level: 3, name: '禾启智能' })).not.toBeInTheDocument();
@@ -77,8 +77,34 @@ describe('SupplierEcosystemPage', () => {
 
     expect(yellowScanCard?.tagName).toBe('A');
     expect(yellowScanCard).toHaveAttribute('href', '/partners/suppliers/yellowscan');
+    expect(yellowScanCard).not.toHaveAttribute('target');
     expect(tmotorCard?.tagName).toBe('ARTICLE');
     expect(tmotorCard).toHaveAttribute('aria-disabled', 'true');
+
+    const externalSuppliers = [
+      ['格瑞普', 'https://www.grepow.cn/'],
+      ['数字绿土', 'https://lidar360.com/sy'],
+      ['云卓科技', 'https://www.skydroid.xin/#/index'],
+      ['SPH Engineering', 'https://www.sphengineering.com/'],
+    ] as const;
+
+    for (const [name, website] of externalSuppliers) {
+      const card = screen.getByRole('heading', { level: 3, name }).closest('.supplier-card');
+      expect(card?.tagName).toBe('A');
+      expect(card).toHaveAttribute('href', website);
+      expect(card).toHaveAttribute('target', '_blank');
+      expect(card).toHaveAttribute('rel', 'noreferrer');
+      expect(card).not.toHaveAttribute('aria-disabled');
+      expect(card).toHaveAccessibleName(`${name}: 在新标签页打开官网; 资料准备中`);
+      expect(within(card as HTMLElement).getAllByText('资料准备中')).not.toHaveLength(0);
+
+      if (name === '云卓科技') {
+        expect(card?.querySelector('.supplier-card-logo-field')).toHaveClass('is-light-logo');
+      }
+    }
+
+    expect(screen.queryByText('官网已开放')).not.toBeInTheDocument();
+    expect(screen.queryByText('访问官方网站')).not.toBeInTheDocument();
   });
 
   it('runs the real input-to-filter path and restores the directory after clearing', async () => {
@@ -92,13 +118,19 @@ describe('SupplierEcosystemPage', () => {
     expect(screen.getByRole('heading', { level: 3, name: 'YellowScan' })).toBeInTheDocument();
 
     await user.clear(search);
-    await user.type(search, '不存在的产品');
+    await user.type(search, 'UGCS');
+
+    expect(document.querySelectorAll('.supplier-card')).toHaveLength(1);
+    expect(screen.getByRole('heading', { level: 3, name: 'SPH Engineering' })).toBeInTheDocument();
+
+    await user.clear(search);
+    await user.type(search, 'K40T');
 
     const emptyHeading = screen.getByRole('heading', { level: 3, name: '没有找到匹配的供应商' });
     const emptyState = emptyHeading.closest('.supplier-empty-state');
     expect(emptyState).not.toBeNull();
     await user.click(within(emptyState as HTMLElement).getByRole('button', { name: '清空搜索' }));
-    expect(document.querySelectorAll('.supplier-card')).toHaveLength(8);
+    expect(document.querySelectorAll('.supplier-card')).toHaveLength(12);
   });
 
   it('links Clients & Partners directly to the supplier ecosystem without a submenu', () => {
@@ -126,8 +158,8 @@ describe('SupplierDetailPage', () => {
     expect(screen.getAllByRole('link', { name: /下载 PDF/ })).toHaveLength(7);
   });
 
-  it('uses the existing 404 page for unknown or preparing supplier slugs', () => {
-    renderSupplierDetail('/partners/suppliers/tmotor');
+  it.each(['tmotor', 'viewpro', 'grepow'])('uses the existing 404 page for unavailable supplier slug %s', (slug) => {
+    renderSupplierDetail(`/partners/suppliers/${slug}`);
 
     expect(screen.getByText('页面未找到')).toBeInTheDocument();
   });

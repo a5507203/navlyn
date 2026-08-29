@@ -7,11 +7,12 @@ export type SupplierKey =
   | 'xinuoMaitian'
   | 'jianfan'
   | 'mingdeXincai'
-  | 'jichuangyi'
   | 'flyfire'
-  | 'viewpro'
   | 'feiteng'
-  | 'gaoyuan';
+  | 'grepow'
+  | 'lidar360'
+  | 'skydroid'
+  | 'sphEngineering';
 
 export interface SupplierDocument {
   key: string;
@@ -31,6 +32,8 @@ export interface Supplier {
   slug: string;
   status: SupplierStatus;
   logo: string;
+  logoTone?: 'light' | 'dark';
+  website?: `https://${string}`;
   products: readonly SupplierProduct[];
 }
 
@@ -150,13 +153,6 @@ export const suppliers: readonly Supplier[] = [
     products: [],
   },
   {
-    key: 'jichuangyi',
-    slug: 'jichuangyi',
-    status: 'preparing',
-    logo: `${logosRoot}/jichuangyi.webp`,
-    products: [],
-  },
-  {
     key: 'flyfire',
     slug: 'flyfire',
     status: 'ready',
@@ -225,86 +221,6 @@ export const suppliers: readonly Supplier[] = [
     ],
   },
   {
-    key: 'viewpro',
-    slug: 'viewpro',
-    status: 'ready',
-    logo: `${logosRoot}/viewpro.webp`,
-    products: [
-      {
-        key: 'h50t',
-        image: `${productsRoot}/viewpro-h50t.webp`,
-        documents: [
-          {
-            key: 'h50t-datasheet-zh',
-            label: 'H50T 中文单页',
-            language: 'ZH',
-            file: `${documentsRoot}/viewpro/h50t-datasheet-zh.pdf`,
-          },
-        ],
-      },
-      {
-        key: 'k40t',
-        image: `${productsRoot}/viewpro-k40t.webp`,
-        documents: [
-          {
-            key: 'k40t-specification-zh',
-            label: 'K40T 四光 AI 云台相机说明书',
-            language: 'ZH',
-            file: `${documentsRoot}/viewpro/k40t-specification-zh.pdf`,
-          },
-          {
-            key: 'k40t-user-manual-en',
-            label: 'K40T User Manual',
-            language: 'EN',
-            file: `${documentsRoot}/viewpro/k40t-user-manual-en.pdf`,
-          },
-        ],
-      },
-      {
-        key: 'k40tMini',
-        image: `${productsRoot}/viewpro-k40tmini.webp`,
-        documents: [
-          {
-            key: 'k40t-mini-datasheet',
-            label: 'K40T MINI 单页',
-            language: 'ZH',
-            file: `${documentsRoot}/viewpro/k40t-mini-datasheet.pdf`,
-          },
-        ],
-      },
-      {
-        key: 'k8tV2',
-        image: `${productsRoot}/viewpro-k8tv2.webp`,
-        documents: [
-          {
-            key: 'k8t-v2-datasheet',
-            label: 'K8T-V2 单页',
-            language: 'ZH',
-            file: `${documentsRoot}/viewpro/k8t-v2-datasheet.pdf`,
-          },
-        ],
-      },
-      {
-        key: 'm4tNova4t',
-        image: `${productsRoot}/viewpro-m4t-nova4t.webp`,
-        documents: [
-          {
-            key: 'm4t-nova4t-datasheet',
-            label: 'M4T & NOVA4T Datasheet',
-            language: 'EN',
-            file: `${documentsRoot}/viewpro/m4t-nova4t-datasheet.pdf`,
-          },
-          {
-            key: 'nova-4t-user-manual-en',
-            label: 'NOVA-4T User Manual',
-            language: 'EN',
-            file: `${documentsRoot}/viewpro/nova-4t-user-manual-en.pdf`,
-          },
-        ],
-      },
-    ],
-  },
-  {
     key: 'feiteng',
     slug: 'feiteng',
     status: 'preparing',
@@ -312,23 +228,39 @@ export const suppliers: readonly Supplier[] = [
     products: [],
   },
   {
-    key: 'gaoyuan',
-    slug: 'gaoyuan',
+    key: 'grepow',
+    slug: 'grepow',
     status: 'preparing',
-    logo: `${logosRoot}/gaoyuan.webp`,
+    logo: `${logosRoot}/grepow.webp`,
+    website: 'https://www.grepow.cn/',
+    products: [],
+  },
+  {
+    key: 'lidar360',
+    slug: 'lidar360',
+    status: 'preparing',
+    logo: `${logosRoot}/lidar360.webp`,
+    website: 'https://lidar360.com/sy',
+    products: [],
+  },
+  {
+    key: 'skydroid',
+    slug: 'skydroid',
+    status: 'preparing',
+    logo: `${logosRoot}/skydroid.webp`,
+    logoTone: 'light',
+    website: 'https://www.skydroid.xin/#/index',
+    products: [],
+  },
+  {
+    key: 'sphEngineering',
+    slug: 'sph-engineering',
+    status: 'preparing',
+    logo: `${logosRoot}/sph-engineering.webp`,
+    website: 'https://www.sphengineering.com/',
     products: [],
   },
 ];
-
-const hiddenSupplierDirectoryKeys: ReadonlySet<SupplierKey> = new Set([
-  'jichuangyi',
-  'viewpro',
-  'gaoyuan',
-]);
-
-export const supplierDirectoryEntries: readonly Supplier[] = suppliers.filter(
-  ({ key }) => !hiddenSupplierDirectoryKeys.has(key),
-);
 
 export function findSupplierBySlug(slug: string | undefined) {
   return suppliers.find((supplier) => supplier.slug === slug);

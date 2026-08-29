@@ -237,11 +237,11 @@
   text-decoration: none;
 }
 
-.supplier-card.is-ready {
+a.supplier-card {
   transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease;
 }
 
-.supplier-card.is-ready:hover {
+a.supplier-card:hover {
   border-color: rgba(103, 158, 255, 0.58);
   color: inherit;
   transform: translateY(-6px);
@@ -261,6 +261,11 @@
 
 .supplier-card.is-preparing .supplier-card-logo-field {
   background: #e7e9ec;
+}
+
+.supplier-card-logo-field.is-light-logo img {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.84;
 }
 
 .supplier-card-logo-field img {
@@ -691,12 +696,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .supplier-card.is-ready,
+  a.supplier-card,
   .supplier-search-control {
     transition: none;
   }
 
-  .supplier-card.is-ready:hover {
+  a.supplier-card:hover {
     transform: none;
   }
 }

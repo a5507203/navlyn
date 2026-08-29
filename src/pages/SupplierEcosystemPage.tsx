@@ -13,7 +13,7 @@ import {
 } from '@ant-design/icons';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { supplierDirectoryEntries } from '../data/suppliers';
+import { suppliers } from '../data/suppliers';
 import { useI18n } from '../i18n/I18nProvider';
 import { getSupplierEcosystemCopy } from '../i18n/supplierMessages';
 import SiteLayout from '../layouts/SiteLayout';
@@ -32,10 +32,10 @@ export default function SupplierEcosystemPage() {
 
   const filteredSuppliers = useMemo(() => {
     if (!normalizedQuery) {
-      return supplierDirectoryEntries;
+      return suppliers;
     }
 
-    return supplierDirectoryEntries.filter((supplier) => {
+    return suppliers.filter((supplier) => {
       const supplierCopy = copy.suppliers[supplier.key];
       const productTerms = supplier.products.flatMap((product) => {
         const productCopy = supplierCopy.products[product.key];
@@ -107,7 +107,7 @@ export default function SupplierEcosystemPage() {
           </div>
           <output className="supplier-result-count" aria-live="polite">
             <strong>{filteredSuppliers.length}</strong>
-            <span>/ {supplierDirectoryEntries.length}</span>
+            <span>/ {suppliers.length}</span>
             <em>{copy.resultsLabel}</em>
           </output>
         </div>
@@ -119,7 +119,9 @@ export default function SupplierEcosystemPage() {
               const isReady = supplier.status === 'ready';
               const cardContent = (
                 <>
-                  <div className="supplier-card-logo-field">
+                  <div
+                    className={`supplier-card-logo-field${supplier.logoTone === 'light' ? ' is-light-logo' : ''}`}
+                  >
                     <img
                       src={assetPath(supplier.logo)}
                       alt={`${supplierCopy.name} logo`}
@@ -151,16 +153,35 @@ export default function SupplierEcosystemPage() {
                 </>
               );
 
-              return isReady ? (
-                <Link
-                  key={supplier.key}
-                  className="supplier-card is-ready"
-                  to={`/partners/suppliers/${supplier.slug}`}
-                  aria-label={`${copy.viewDetails}: ${supplierCopy.name}`}
-                >
-                  {cardContent}
-                </Link>
-              ) : (
+              if (isReady) {
+                return (
+                  <Link
+                    key={supplier.key}
+                    className="supplier-card is-ready"
+                    to={`/partners/suppliers/${supplier.slug}`}
+                    aria-label={`${copy.viewDetails}: ${supplierCopy.name}`}
+                  >
+                    {cardContent}
+                  </Link>
+                );
+              }
+
+              if (supplier.website) {
+                return (
+                  <a
+                    key={supplier.key}
+                    className="supplier-card is-preparing"
+                    href={supplier.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${supplierCopy.name}: ${copy.websiteLinkLabel}; ${copy.preparingStatus}`}
+                  >
+                    {cardContent}
+                  </a>
+                );
+              }
+
+              return (
                 <article key={supplier.key} className="supplier-card is-preparing" aria-disabled="true">
                   {cardContent}
                 </article>

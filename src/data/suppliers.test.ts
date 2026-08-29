@@ -1,23 +1,33 @@
 import { describe, expect, it } from 'vitest';
 import { getSupplierEcosystemCopy } from '../i18n/supplierMessages';
-import { supplierDirectoryEntries, suppliers } from './suppliers';
+import { suppliers } from './suppliers';
 
 function isPublicAssetPath(assetPath: string, extension: RegExp) {
   return assetPath.startsWith('/media/partners/suppliers/') && extension.test(assetPath);
 }
 
 describe('supplier ecosystem catalog', () => {
-  it('contains the confirmed eleven suppliers with four ready records', () => {
-    expect(suppliers).toHaveLength(11);
-    expect(suppliers.filter(({ status }) => status === 'ready')).toHaveLength(4);
-    expect(suppliers.filter(({ status }) => status === 'preparing')).toHaveLength(7);
+  it('contains twelve suppliers with three ready records', () => {
+    expect(suppliers).toHaveLength(12);
+    expect(suppliers.filter(({ status }) => status === 'ready')).toHaveLength(3);
+    expect(suppliers.filter(({ status }) => status === 'preparing')).toHaveLength(9);
   });
 
-  it('omits withdrawn cards from the public supplier directory', () => {
-    expect(supplierDirectoryEntries).toHaveLength(8);
-    expect(supplierDirectoryEntries.map(({ key }) => key)).not.toEqual(
-      expect.arrayContaining(['jichuangyi', 'viewpro', 'gaoyuan']),
-    );
+  it('removes withdrawn suppliers and maps the new suppliers to HTTPS websites', () => {
+    const supplierKeys = suppliers.map(({ key }) => key as string);
+    for (const withdrawnKey of ['jichuangyi', 'viewpro', 'gaoyuan']) {
+      expect(supplierKeys).not.toContain(withdrawnKey);
+    }
+
+    expect(
+      Object.fromEntries(suppliers.filter(({ website }) => website).map(({ key, website }) => [key, website])),
+    ).toEqual({
+      grepow: 'https://www.grepow.cn/',
+      lidar360: 'https://lidar360.com/sy',
+      skydroid: 'https://www.skydroid.xin/#/index',
+      sphEngineering: 'https://www.sphengineering.com/',
+    });
+    expect(suppliers.find(({ key }) => key === 'skydroid')?.logoTone).toBe('light');
   });
 
   it('keeps slugs unique and prevents preparing suppliers from exposing products', () => {
@@ -28,6 +38,10 @@ describe('supplier ecosystem catalog', () => {
         expect(supplier.products.length).toBeGreaterThan(0);
       } else {
         expect(supplier.products).toHaveLength(0);
+      }
+
+      if (supplier.website) {
+        expect(supplier.website).toMatch(/^https:\/\//);
       }
     }
   });

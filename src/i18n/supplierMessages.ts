@@ -30,6 +30,7 @@ export interface SupplierEcosystemCopy {
   readyStatus: string;
   preparingStatus: string;
   viewDetails: string;
+  websiteLinkLabel: string;
   noResultsTitle: string;
   noResultsDescription: string;
   backToDirectory: string;
@@ -71,6 +72,7 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
     readyStatus: '资料已就绪',
     preparingStatus: '资料准备中',
     viewDetails: '查看供应商详情',
+    websiteLinkLabel: '在新标签页打开官网',
     noResultsTitle: '没有找到匹配的供应商',
     noResultsDescription: '请尝试其他供应商名称或产品关键词，或清空搜索查看全部。',
     backToDirectory: '返回供应商生态',
@@ -116,7 +118,6 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
       xinuoMaitian: { name: '希诺麦田', ...preparingCopyZh },
       jianfan: { name: '建帆', ...preparingCopyZh },
       mingdeXincai: { name: '明德新材', ...preparingCopyZh },
-      jichuangyi: { name: '极创翼', ...preparingCopyZh },
       flyfire: {
         name: '火萤科技',
         cardSummary: '无人机降落伞与安全回收系统资料。',
@@ -150,41 +151,31 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
           },
         },
       },
-      viewpro: {
-        name: '禾启智能',
-        cardSummary: '无人机光电吊舱与云台相机产品资料。',
-        officialIntro: '本页汇集已提供的禾启智能云台相机产品单页、说明书与用户手册。',
-        searchTerms: ['云台相机', '光电吊舱', '摄像头', 'viewpro'],
-        products: {
-          h50t: {
-            name: 'H50T',
-            summary: 'H50T 产品单页与公开说明资料。',
-            searchTerms: ['h50t', '云台相机'],
-          },
-          k40t: {
-            name: 'K40T',
-            summary: 'K40T 四光 AI 云台相机说明书与英文用户手册。',
-            searchTerms: ['k40t', '四光', 'ai', '云台相机'],
-          },
-          k40tMini: {
-            name: 'K40T MINI',
-            summary: 'K40T MINI 产品单页与公开说明资料。',
-            searchTerms: ['k40t mini', 'k40tmini'],
-          },
-          k8tV2: {
-            name: 'K8T-V2',
-            summary: 'K8T-V2 产品单页与公开说明资料。',
-            searchTerms: ['k8t-v2', 'k8t v2'],
-          },
-          m4tNova4t: {
-            name: 'M4T / NOVA4T',
-            summary: 'M4T 与 NOVA4T 产品数据表及 NOVA-4T 英文用户手册。',
-            searchTerms: ['m4t', 'nova4t', 'nova-4t'],
-          },
-        },
-      },
       feiteng: { name: '飞腾', ...preparingCopyZh },
-      gaoyuan: { name: '高远', ...preparingCopyZh },
+      grepow: {
+        ...preparingCopyZh,
+        name: '格瑞普',
+        cardSummary: '无人机电池与定制电源解决方案。',
+        searchTerms: ['无人机电池', '锂电池', '电池定制', 'grepow', 'tattu'],
+      },
+      lidar360: {
+        ...preparingCopyZh,
+        name: '数字绿土',
+        cardSummary: 'LiDAR 点云与影像处理分析软件。',
+        searchTerms: ['lidar360', '激光雷达', '点云', '测绘', '数字绿土'],
+      },
+      skydroid: {
+        ...preparingCopyZh,
+        name: '云卓科技',
+        cardSummary: '无人机遥控器、数据链与地面站产品。',
+        searchTerms: ['skydroid', '云卓', '遥控器', '数据链', '地面站'],
+      },
+      sphEngineering: {
+        ...preparingCopyZh,
+        name: 'SPH Engineering',
+        cardSummary: '无人机任务规划、传感器集成与测绘解决方案。',
+        searchTerms: ['sph engineering', 'sph-engineering', 'ugcs', 'skyhub', '任务规划', '传感器', '测绘'],
+      },
     },
   },
   en: {
@@ -203,6 +194,7 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
     readyStatus: 'Materials ready',
     preparingStatus: 'Materials preparing',
     viewDetails: 'View supplier details',
+    websiteLinkLabel: 'Open the official website in a new tab',
     noResultsTitle: 'No matching suppliers found',
     noResultsDescription: 'Try another supplier or product keyword, or clear the search to view all suppliers.',
     backToDirectory: 'Back to supplier ecosystem',
@@ -248,7 +240,6 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
       xinuoMaitian: { name: '希诺麦田', ...preparingCopyEn },
       jianfan: { name: '建帆', ...preparingCopyEn },
       mingdeXincai: { name: '明德新材', ...preparingCopyEn },
-      jichuangyi: { name: '极创翼', ...preparingCopyEn },
       flyfire: {
         name: 'Flyfire',
         cardSummary: 'UAV parachute and recovery system materials.',
@@ -283,42 +274,31 @@ const messages: Record<'zh' | 'en', SupplierEcosystemCopy> = {
           },
         },
       },
-      viewpro: {
-        name: 'Viewpro',
-        cardSummary: 'Electro-optical gimbal camera product materials.',
-        officialIntro:
-          'This page organizes the supplied Viewpro product sheets, specifications, and user manuals.',
-        searchTerms: ['gimbal camera', 'electro-optical payload', 'camera', 'viewpro'],
-        products: {
-          h50t: {
-            name: 'H50T',
-            summary: 'H50T product sheet and public reference material.',
-            searchTerms: ['h50t', 'gimbal camera'],
-          },
-          k40t: {
-            name: 'K40T',
-            summary: 'K40T four-sensor AI gimbal camera specification and English user manual.',
-            searchTerms: ['k40t', 'four sensor', 'ai', 'gimbal camera'],
-          },
-          k40tMini: {
-            name: 'K40T MINI',
-            summary: 'K40T MINI product sheet and public reference material.',
-            searchTerms: ['k40t mini', 'k40tmini'],
-          },
-          k8tV2: {
-            name: 'K8T-V2',
-            summary: 'K8T-V2 product sheet and public reference material.',
-            searchTerms: ['k8t-v2', 'k8t v2'],
-          },
-          m4tNova4t: {
-            name: 'M4T / NOVA4T',
-            summary: 'M4T and NOVA4T datasheet with the NOVA-4T English user manual.',
-            searchTerms: ['m4t', 'nova4t', 'nova-4t'],
-          },
-        },
-      },
       feiteng: { name: '飞腾', ...preparingCopyEn },
-      gaoyuan: { name: '高远', ...preparingCopyEn },
+      grepow: {
+        ...preparingCopyEn,
+        name: 'Grepow',
+        cardSummary: 'UAV batteries and custom power solutions.',
+        searchTerms: ['uav battery', 'lithium battery', 'custom battery', 'grepow', 'tattu'],
+      },
+      lidar360: {
+        ...preparingCopyEn,
+        name: 'LiDAR360',
+        cardSummary: 'LiDAR point-cloud and imagery processing software.',
+        searchTerms: ['lidar360', 'lidar', 'point cloud', 'mapping', 'greenvalley'],
+      },
+      skydroid: {
+        ...preparingCopyEn,
+        name: 'SKYDROID',
+        cardSummary: 'UAV controllers, data links, and ground control products.',
+        searchTerms: ['skydroid', 'controller', 'data link', 'ground control station'],
+      },
+      sphEngineering: {
+        ...preparingCopyEn,
+        name: 'SPH Engineering',
+        cardSummary: 'Drone mission planning, sensor integration, and surveying solutions.',
+        searchTerms: ['sph engineering', 'sph-engineering', 'ugcs', 'skyhub', 'mission planning', 'sensor', 'surveying'],
+      },
     },
   },
 };
