@@ -549,7 +549,7 @@ export const pageMessages = {
     contact: {
       seoTitle: "联系我们 | Navlyn 航链科技",
       seoDescription: "预约产品演示、行业方案沟通与合作洽谈，了解 Navlyn 如何把低空智能能力落到真实业务场景。",
-      heroTitle: "让官网从品牌认知走向真实合作与演示承接",
+      heroTitle: "让官网从品牌认知\n走向真实合作\n与演示承接",
       heroDescription: "围绕产品演示、行业方案、渠道合作与国际业务对接，建立清晰、高效、可信的沟通入口。",
       actions: {
         services: "查看服务内容",

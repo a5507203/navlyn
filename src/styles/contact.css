@@ -74,6 +74,20 @@
   text-wrap: balance;
 }
 
+.contact-direct-title-line {
+  display: block;
+}
+
+.contact-direct-title:lang(zh) {
+  font-size: clamp(36px, 4.2vw, 60px);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+
+.contact-direct-title:lang(zh) .contact-direct-title-line {
+  white-space: nowrap;
+}
+
 .contact-direct-cn {
   display: flex;
   flex-direction: column;
@@ -472,6 +486,10 @@
   .contact-direct-title {
     font-size: 42px;
     line-height: 1.04;
+  }
+
+  .contact-direct-title:lang(zh) {
+    font-size: clamp(26px, 7vw, 42px);
   }
 
   .contact-direct-cn p {

@@ -94,7 +94,11 @@ export default function ContactPage() {
         <div className={`contact-direct-grid${showContactQr ? '' : ' is-single-column'}`}>
           <div className="contact-direct-copy">
             <span className="contact-direct-kicker">{copy.panel.kicker}</span>
-            <h1 className="contact-direct-title">{copy.heroTitle}</h1>
+            <h1 className="contact-direct-title" lang={locale}>
+              {copy.heroTitle.split('\n').map((line) => (
+                <span className="contact-direct-title-line" key={line}>{line}</span>
+              ))}
+            </h1>
 
             {copy.heroDescription ? (
               <div className="contact-direct-cn">
