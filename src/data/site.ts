@@ -1,16 +1,18 @@
 type SiteNavIconKey =
   | 'home'
   | 'arc'
+  | 'miying'
   | 'air'
   | 'sea'
   | 'partners'
   | 'about';
 
 interface SiteNavItem {
-  key: 'home' | 'arc' | 'air' | 'sea' | 'partners' | 'about';
+  key: 'home' | 'arc' | 'miying' | 'air' | 'sea' | 'partners' | 'about';
   label: string;
   path: string;
   iconKey: SiteNavIconKey;
+  external?: boolean;
 }
 
 interface FooterNavGroup {
@@ -51,6 +53,13 @@ interface FooterSocialLink {
 export const siteNavItems: SiteNavItem[] = [
   { key: 'home', label: '首页', path: '/', iconKey: 'home' },
   { key: 'arc', label: 'ARC GCS', path: '/arc-os', iconKey: 'arc' },
+  {
+    key: 'miying',
+    label: '觅影',
+    path: 'http://47.107.185.207/ai-module/',
+    iconKey: 'miying',
+    external: true,
+  },
   { key: 'air', label: 'AIR', path: '/air', iconKey: 'air' },
   { key: 'sea', label: 'SEA', path: '/sea', iconKey: 'sea' },
   { key: 'partners', label: '客户与合作', path: '/partners', iconKey: 'partners' },

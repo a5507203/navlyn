@@ -6,6 +6,7 @@ import {
   ContactsOutlined,
   DeploymentUnitOutlined,
   DownOutlined,
+  EyeOutlined,
   FacebookFilled,
   HomeOutlined,
   InfoCircleOutlined,
@@ -30,6 +31,7 @@ const { Text } = Typography;
 const navIcons = {
   home: <HomeOutlined />,
   arc: <ClusterOutlined />,
+  miying: <EyeOutlined />,
   air: <DeploymentUnitOutlined />,
   sea: <CompassOutlined />,
   partners: <ContactsOutlined />,
@@ -97,7 +99,18 @@ export default function SiteLayout({
   const mobileMenuItems: MenuProps['items'] = siteNavItems.map((item) => ({
     key: item.path,
     icon: navIcons[item.iconKey],
-    label: <Link to={item.path}>{shell.nav[item.key]}</Link>,
+    label: item.external ? (
+      <a
+        href={item.path}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${shell.nav[item.key]} (${shell.accessibility.opensInNewTab})`}
+      >
+        {shell.nav[item.key]}
+      </a>
+    ) : (
+      <Link to={item.path}>{shell.nav[item.key]}</Link>
+    ),
   }));
 
   const languageItems: MenuProps['items'] = localeOptions.map((item) => ({
@@ -117,7 +130,32 @@ export default function SiteLayout({
         <div className="site-header-center">
           <nav className="desktop-nav" aria-label={shell.accessibility.mainNav}>
             {siteNavItems.map((item) => {
-              const isActive = activeNavPath === item.path;
+              const isActive = !item.external && activeNavPath === item.path;
+              const content = (
+                <>
+                  {item.key !== 'about' ? (
+                    <span className="desktop-nav-icon" aria-hidden="true">
+                      {navIcons[item.iconKey]}
+                    </span>
+                  ) : null}
+                  <span className="desktop-nav-text">{shell.nav[item.key]}</span>
+                </>
+              );
+
+              if (item.external) {
+                return (
+                  <a
+                    key={item.path}
+                    href={item.path}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="desktop-nav-link"
+                    aria-label={`${shell.nav[item.key]} (${shell.accessibility.opensInNewTab})`}
+                  >
+                    {content}
+                  </a>
+                );
+              }
 
               return (
                 <Link
@@ -132,12 +170,7 @@ export default function SiteLayout({
                       : undefined
                   }
                 >
-                  {item.key !== 'about' ? (
-                    <span className="desktop-nav-icon" aria-hidden="true">
-                      {navIcons[item.iconKey]}
-                    </span>
-                  ) : null}
-                  <span className="desktop-nav-text">{shell.nav[item.key]}</span>
+                  {content}
                 </Link>
               );
             })}

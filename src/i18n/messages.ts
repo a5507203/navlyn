@@ -25,12 +25,14 @@ export const shellMessages = {
     accessibility: {
       mainNav: "主导航",
       openMenu: "打开导航菜单",
+      opensInNewTab: "在新标签页打开",
       contactLink: "Contact us 联系我们",
       subpageNav: "子页面导航",
     },
     nav: {
       home: "首页",
       arc: "ARC GCS",
+      miying: "觅影",
       air: "AIR",
       sea: "SEA",
       partners: "客户与合作",
@@ -73,12 +75,14 @@ export const shellMessages = {
     accessibility: {
       mainNav: "Main navigation",
       openMenu: "Open navigation menu",
+      opensInNewTab: "opens in a new tab",
       contactLink: "Contact us",
       subpageNav: "Subpage navigation",
     },
     nav: {
       home: "Home",
       arc: "ARC GCS",
+      miying: "觅影",
       air: "AIR",
       sea: "SEA",
       partners: "Clients & Partners",
@@ -121,12 +125,14 @@ export const shellMessages = {
     accessibility: {
       mainNav: "Navigation principale",
       openMenu: "Ouvrir le menu",
+      opensInNewTab: "s’ouvre dans un nouvel onglet",
       contactLink: "Nous contacter",
       subpageNav: "Navigation secondaire",
     },
     nav: {
       home: "Accueil",
       arc: "ARC GCS",
+      miying: "觅影",
       air: "AIR",
       sea: "SEA",
       partners: "Clients & partenaires",
@@ -169,12 +175,14 @@ export const shellMessages = {
     accessibility: {
       mainNav: "Navegación principal",
       openMenu: "Abrir menú de navegación",
+      opensInNewTab: "se abre en una pestaña nueva",
       contactLink: "Contáctanos",
       subpageNav: "Navegación secundaria",
     },
     nav: {
       home: "Inicio",
       arc: "ARC GCS",
+      miying: "觅影",
       air: "AIR",
       sea: "SEA",
       partners: "Clientes y socios",

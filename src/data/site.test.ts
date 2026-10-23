@@ -3,13 +3,20 @@ import { footerNavGroups, footerSocialLinks, siteNavItems } from './site';
 
 describe('primary navigation information architecture', () => {
   it('matches the July update document exactly', () => {
-    expect(siteNavItems.map(({ key, path }) => [key, path])).toEqual([
-      ['home', '/'],
-      ['arc', '/arc-os'],
-      ['air', '/air'],
-      ['sea', '/sea'],
-      ['partners', '/partners'],
-      ['about', '/about'],
+    const navShape = siteNavItems.map(({ key, path, external }) => [
+      key,
+      path,
+      external ?? false,
+    ]);
+
+    expect(navShape).toEqual([
+      ['home', '/', false],
+      ['arc', '/arc-os', false],
+      ['miying', 'http://47.107.185.207/ai-module/', true],
+      ['air', '/air', false],
+      ['sea', '/sea', false],
+      ['partners', '/partners', false],
+      ['about', '/about', false],
     ]);
   });
 

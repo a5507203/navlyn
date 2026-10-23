@@ -277,7 +277,7 @@
   justify-content: center;
   gap: 0.5384615385em;
   height: 100%;
-  padding: 0 0.7692307692em;
+  padding: 0 0.73em;
   color: #c8d9ff;
   text-decoration: none;
   font-size: 1em;
@@ -290,8 +290,8 @@
 .desktop-nav-link::after {
   content: '';
   position: absolute;
-  left: 0.7692307692em;
-  right: 0.7692307692em;
+  left: 0.73em;
+  right: 0.73em;
   bottom: 0;
   height: 0.1538461538em;
   border-radius: 999px;
